@@ -1,0 +1,199 @@
+% comics.hm
+% my comics
+
+\setoutputdir{comics}
+\addbreadcrumb{page_comics}
+\begin{page}{comics.html}
+  \label{page_comics}
+  \modified{26 Feb 2011}
+  \title{Comics}
+
+  These are some comics I've drawn at some point.  I usually draw them
+  in class, being inspired by the words of my lecturers.  Beware! The
+  subject matter can be very esoteric with the jokes based on topics
+  in mathematics, physics, and programming languages.
+
+  \begin{enumerate}
+  \item \ref{page_comic1}
+  \item \ref{page_comic2}
+  \item \ref{page_comic3}
+  \item \ref{page_comic4}
+  \item \ref{page_comic5}
+  \item \ref{page_comic6}
+  \item \ref{page_comic7}
+  \item \ref{page_comic8}
+  \item \ref{page_comic9}
+  \item \ref{page_comic10}
+  \item \ref{page_comic11}
+  \item \ref{page_comic12}
+  \item \ref{page_comic13}
+  \end{enumerate}
+
+\end{page}
+
+% Usage: \comicnavigate{previd}{nextid} where previd and nextid are
+% s,1,2,3,..., where s means go to main comics page.
+\def{comicnavigate}{prev,next}{\begin{center}\ref[<-]{page_comic\var{prev}} | \ref[All]{page_comics} | \ref[->]{page_comic\var{next}}\end{center}}
+
+\def{comicgraphics}{img}{\begin{center}\includegraphics{\var{img}}\end{center}}
+
+\begin{page}{comic1.html}
+  \label{page_comic1}
+  \modified{20 Feb 2010}
+  \title{Interference}
+  
+  \comicnavigate{s}{2}
+
+  \comicgraphics{interference.png}
+
+  It turns out the de Broglie wavelength in this case is much too
+  small to notice.
+\end{page}
+
+\begin{page}{comic2.html}
+  \label{page_comic2}
+  \modified{20 Feb 2010}
+  \title{QED}
+
+  \comicnavigate{1}{3}
+
+  \comicgraphics{qed.png}
+
+  I could see there being some market for this.
+\end{page}
+
+\begin{page}{comic3.html}
+  \label{page_comic3}
+  \modified{20 Feb 2010}
+  \title{Enough Is Enough}
+
+  \comicnavigate{2}{4}
+
+  \comicgraphics{alice_comic.png}
+
+  Interestingly enough, his name was Bob, and he was momentarily in
+  his own inertial reference frame.
+\end{page}
+
+\begin{page}{comic4.html}
+  \label{page_comic4}
+  \modified{20 Feb 2010}
+  \title{New Braces}
+
+  \comicnavigate{3}{5}
+
+  \comicgraphics{cello.png}
+
+  And they say trombone players have it hard.
+\end{page}
+
+\begin{page}{comic5.html}
+  \label{page_comic5}
+  \modified{20 Feb 2010}
+  \title{Lambdacats}
+  
+  \comicnavigate{4}{6}
+
+  \comicgraphics{lambda_cats.png}
+  
+  ``lambda lambda lambda lambda cats!''
+\end{page}
+
+\begin{page}{comic6.html}
+  \label{page_comic6}
+  \modified{20 Feb 2010}
+  \title{Bees' Wax}
+  
+  \comicnavigate{5}{7}
+
+  \comicgraphics{wax.png}
+  
+  Do you know what goes on in your ears at night?  I didn't think so.
+\end{page}
+
+\begin{page}{comic7.html}
+  \label{page_comic7}
+  \modified{20 Feb 2010}
+  \title{Just Another Day}
+
+  \comicnavigate{6}{8}
+  
+  \comicgraphics{ap_euro.png}
+
+  True story.
+\end{page}
+
+\begin{page}{comic8.html}
+  \label{page_comic8}
+  \modified{20 Feb 2010}
+  \title{Goose}
+
+  \comicnavigate{7}{9}
+  
+  \comicgraphics{duck.png}
+
+  The moral: precision of language is key.
+\end{page}
+
+\begin{page}{comic9.html}
+  \label{page_comic9}
+  \modified{20 Feb 2010}
+  \title{An Axiom}
+
+  \comicnavigate{8}{10}
+
+  \comicgraphics{noodle.png}
+
+  Perhaps Santa instead has some plans for the little guy.
+\end{page}
+
+\begin{page}{comic10.html}
+  \label{page_comic10}
+  \modified{20 Feb 2010}
+  \title{Intelligent Systems}
+
+  \comicnavigate{9}{11}
+
+  \comicgraphics{easy_ai.png}
+
+  Finally! We solved it!
+\end{page}
+
+\begin{page}{comic11.html}
+  \label{page_comic11}
+  \modified{20 Feb 2010}
+  \title{\textit{A priori} Physics}
+
+  \comicnavigate{10}{12}
+
+  \comicgraphics{field_theory.png}
+
+  It's actually probably much more nonlinear.
+\end{page}
+
+\begin{page}{comic12.html}
+  \label{page_comic12}
+  \modified{20 Feb 2010}
+  \title{Truer Words}
+
+  \comicnavigate{11}{13}
+
+  \comicgraphics{fixnum.png}
+
+  Not even weak \texttt{cons} cells can break their thermodynamic
+  stability.
+\end{page}
+
+\begin{page}{comic13.html}
+  \label{page_comic13}
+  \modified{12 Dec 2009}
+  \title{Incisive}
+
+  \comicnavigate{12}{s}
+
+  \comicgraphics{xkcd-incision.png}
+
+  Backstory: a friend of mine had posted XKCD comics on her dorm room
+  door, and somebody decided to rip them all down.  This comic is a
+  response which she then put on her door in their place.
+\end{page}

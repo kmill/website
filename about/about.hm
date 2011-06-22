@@ -1,0 +1,79 @@
+\setoutputdir{about}
+\addbreadcrumb{page_aboutme}
+
+\begin{page}{about.html}
+  \label{page_aboutme}
+  \title{About Me}
+  \modified{22 June 2011}
+  
+  \begin{figure}[r]
+    \includegraphics[alt=Me]{kyle.jpg}
+    \begin{center}
+      \caption{My portrait.}
+    \end{center}
+    \label{fig_me}
+  \end{figure}
+
+  \textit{You can view my r\'{e}sum\'{e} \ref[here]{page_resume}.}
+  
+  I'm Kyle Miller, a student at MIT studying ``mathematics with
+  computer science'' (course 18-C) and a bit of music composition.  I
+  like learning about new things.  Sometimes I manically work on
+  software projects.  Other times I play music.
+
+  I live at a place called \link[tEp]{http://tep.mit.edu/}, which is a
+  fine fraternity in the illustrious Back Bay area of Boston.  At
+  least twenty-two words can be said about the place.
+
+  This summer, I'm working with \link[Prof. Abhinav
+  Kumar]{http://web.mit.edu/abhinavk/www/}, and we are currently
+  building software to explore four-dimensional spaces.  It involves
+  anaglyphic glasses.
+
+%   I enjoy music a lot, especially classical and occasional jazz.  I
+%   play the piano and cello, but I can play a few chords on ukulele,
+%   and I plan on learning how to play the
+%   \ref[theremin]{page_theremin}. My favorite composers are Bach
+%   (because of his amazing fugues with many voices doing completely
+%   different things), Beethoven (for his classical romanticism), Elgar
+%   (for his amazing cello concerto), and Shostakovich (for his deep
+%   string quartets).  I like to listen for the patterns and structure
+%   of the music, almost taking it apart and examining the workings.  I
+%   have many printed musical scores for symphonies and quartets and I
+%   like to follow with a recording to see how the great composers wrote
+%   things.
+
+%   I also like building things.  When I was little I played with a lot
+%   of \link[Legos]{http://www.lego.com/} and
+%   \link[K\'NEX]{http://www.knex.com} sets and built many machines and
+%   robots.  One thing I especially liked to do was to build a tram
+%   across a room using string for pullies and tracks and K'NEX parts
+%   for the car and the mechanism to make the contraption move.  Since
+%   then I have graduated to more abstract toys such as programming
+%   languages.  They seem to have much more freedom to do more intricate
+%   things and to be able to design greater architectual wonders, but
+%   can only be seen or manipulated with incantations at a keyboard.
+%   Following my desire to understand everything, I have also delved
+%   into the art of computer engineering with a homebuilt \ref[Z80
+%     computer]{page_z80} which is, hopefully not eternally, still in
+%   the works.
+
+%   I have many \ref[projects]{page_projects} that I have or am working
+%   on.  I always need something to do.  For example, this website here
+%   is one of them.  Many of my ideas will never reach any form of
+%   production, but I hope to at least catalogue them here for some
+%   future use.
+
+%   I also like books.  I have a somewhat random library of books that
+%   I've come to acquire including those on mathematics, philosophy, the
+%   nature of the universe, novels, and other random topics.  I've been
+%   cataloguing the library on my computer and made the card catalogue
+%   of the 410 currently in the database \link[available
+%     online]{/books}.
+
+%   This has been a somewhat discursive rambling about who I am, but it
+%   is somewhat of a snapshot of me at the moment thinking about this
+%   subject instead of the said projects.
+\end{page}
+
+\include{resume.hm}

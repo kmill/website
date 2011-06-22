@@ -1,0 +1,77 @@
+\setoutputdir{highschool}
+\addbreadcrumb{page_highschool}
+
+\begin{page}{highschool.html}
+  \label{page_highschool}
+  \title{Work from High School}
+  \modified{26 Feb 2011}
+
+  The following is work I've saved from high school.
+  \begin{itemize}
+  \item \ref{page_highschool_labs}
+  \item \ref{page_block_portfolio}
+  \item \ref{page_essay_writing_plague}
+  \item \file[Trials and Tribulations of the European Witch Hunts]{witchhunts.pdf} (PDF)
+  \end{itemize}
+\end{page}
+
+\begin{page}{labs.html}
+  \label{page_highschool_labs}
+  \title{Lab Reports}
+  \modified{17 Aug 2007}
+
+  In the science classes at my high school, I've sometimes had to
+  write quality reports of my laboratory work.  These are all PDFs and
+  were mostly done in LaTeX.  The graphs for the labs are missing
+  because I used a separate program in the making of them.
+
+  \section{Chemistry}
+  \begin{itemize}
+  \item \file[Liquid Chromatography]{labs/chromatography.pdf}
+  \item \file[Determination of the Solubility Product of an Ionic Compound]{labs/det_sol_ion.pdf}
+  \item \file[Determination of the Dissociation Constant of Weak Acids]{labs/dissociation.pdf}
+  \item \file[Equilibrium and Le Ch\^{a}tlier's Principle]{labs/equil_le_chat.pdf}
+  \item \file[Determination of the Equilibrium Constant]{labs/keq.pdf}
+  \item \file[Molecular Mass by Freezing Point Depression]{labs/molmass_fp.pdf}
+  \item \file[Determination of the Equivalent Mass and p$K_a$ of an Unknown Acid]{labs/pka_unknown_acid.pdf}
+  \item \file[Vapor Pressure and Enthalpy of Vaporization of Water]{labs/vp_and_enthalpy.pdf}
+  \end{itemize}
+
+  \section{Physics}
+  \begin{itemize}
+  \item \file[Determination of the Specific Heat of Water]{labs/resistor_sp_heat_water.pdf}
+  \end{itemize}
+\end{page}
+
+\begin{page}{portfolio.html}
+  \label{page_block_portfolio}
+  \title{Historical Portfolio}
+  \modified{15 Aug 2007}
+
+  The 10th grade enriched social studies class has a project called
+  the historical portfolio that's due by the end of the first
+  semester.  It is basically a conglomeration of various
+  history-related essays.  The project is very open-ended with how the
+  information is presented.  I decided to make mine in the format of a
+  magazine.
+
+  \thumbnail{portfolio.pdf}\\
+  \file[Dowload PDF (2.8 MB)]{portfolio.pdf}
+
+  This project took the entirety of my winter break that year to
+  complete, and it hopefully it shows in the finished product.
+
+  \section{Contents}
+  Here is, nearly ad verbatim, the table of contents page from the project.
+  \begin{itemize}
+  \item \textit{Timeline:} Top Twenty Events
+  \item \textit{Obituary and Eulogy:} Tesla, 86
+  \item \textit{Interview:} Wernher von Braun
+  \item \textit{Film Analysis:} The Pianist
+  \item \textit{Book Synthesis:} Three Book Essay
+  \item \textit{Main Event:} Einstein
+  \item \textit{Painting Analysis:} Upwards
+  \item \textit{What If?:} Tesla
+  \item \textit{Snapshot and Dedication:} The Editor
+  \end{itemize}
+\end{page}

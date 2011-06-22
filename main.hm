@@ -1,0 +1,67 @@
+% This is the main file for my website, kylem.net
+
+\setstylesheet{include/default.css}
+\setpagetemplate{include/mainpage_template.hm}
+
+% Usage: \thumbnail{filename}
+%
+% Gives a link to an image/pdf with an icon which is a scaled version
+% of the first page of the image/pdf.
+\def{thumbnail}{file}{\file[\includegraphics[width=140,page=0,ext=png]{\var{file}}]{\var{file}}}
+
+\include{include/math.hm}
+
+\addbreadcrumb[Kyle Miller]{page_index}
+
+\begin{page}{index.html}
+  \label{page_index}
+  \title{Kyle Miller}
+  \modified{22 June 2011}
+
+  Welcome to my web site.  You can contact me via e-mail at
+  \link[kmill #at# mit.edu]{mailto:kmill #at# mit.edu}.
+
+  \begin{itemize}
+  \item[\ref{page_aboutme}]
+    \begin{itemize}
+    \item \ref{page_resume}
+    \end{itemize}
+  \item[\ref[Papers]{page_papers}]
+    \begin{itemize}
+    \item \ref{page_quad_iter_graphs}
+    \item \ref{page_paper_trinary_groups}
+    \item \ref{page_towards_mmimm}
+    \item \ref{page_d-gebra}
+    \end{itemize}
+  \item \ref{page_thoughts}
+  \item \ref{page_comics}
+  \item \ref{page_music_comps}
+  \item[\ref[Stories]{page_stories}]
+    \begin{itemize}
+    \item \ref{page_muffins}
+    \item \ref{page_carrots}
+    \item \ref{page_wrath_tuesday}
+    \item \ref{page_flargipades}
+    \end{itemize}
+  \item \ref{page_essays}
+  \item \ref{page_highschool}
+  \item[Software]
+    \begin{itemize}
+    \item \ref{page_htmacros}
+    \end{itemize}
+  \end{itemize}
+\end{page}
+
+% and now for the other pages
+
+\setpagetemplate{include/template.hm}
+
+\include{stories.hm}
+\include{about/about.hm}
+\include{essays.hm}
+\include{comics/comics.hm}
+\include{highschool/highschool.hm}
+\include{papers/papers.hm}
+\include{music/music.hm}
+\include{thoughts/thoughts.hm}
+\include{software/htmacros.hm}

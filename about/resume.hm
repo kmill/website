@@ -1,0 +1,84 @@
+\begin{page}{resume.html}
+  \label{page_resume}
+  \title{R\'{e}sum\'{e}}
+  \modified{15 Mar 2011}
+
+  \section{Education}
+  \begin{description}
+  \item[\textbf{Massachusetts Institute of Technology.} 2008--Present]
+    Undergraduate. B.S. Mathematics with Computer Science, concentration in Music.
+  \item[\textbf{Eden Prairie Senior High School.} 2004--2008]
+    Graduated with honors.
+  \item[\textbf{University of Minnesota.} 2002--2007]
+    Talented Youth Mathematics Program and College of Continuing Education.
+  \end{description}
+
+  \section{Research Experience}
+  \begin{description}
+  \item[\textbf{MIT Department of Mathematics.} Summer 2010.]
+    Undergraduate researcher under Prof. Abhinav Kumar.  Worked on
+    \ref[quadratic iteration graphs]{page_quad_iter_graphs}.
+  \item[\textbf{Multimodal User-Interface Group.} Fall
+    2009--Jan. 2010.] Undergraduate researcher under Prof. Randall
+    Davis, CSAIL. \ref[Worked toward]{page_towards_mmimm} combining
+    voice and handwriting recognition technologies to do mathematics
+    with a computer in a natural manner.
+  \item[\textbf{Multimodal User-Interface Group.} Summer 2009.]
+    Undergraduate researcher under Prof. Randall Davis, CSAIL.  Helped
+    work on a DARPA seedling to find the place of artificial
+    intelligence and multimodal user interfaces in software
+    development.
+  \item[\textbf{Humans and Automation Laboratory.} Spring 2009.]
+    Undergraduate researcher for Brian Mekdeci under Prof. Mary
+    Cummings.  Developed a multi-user real-time unmanned aerial
+    vehicle simulation to study efficient team structures.  Won the
+    Licklider UROP Prize for this work.
+  \end{description}
+
+  \section{Work Experience}
+
+  \begin{description}
+  \item[\textbf{6.046J: Design and Analysis of Algorithms.} Fall 2010]
+    Grader.  Read, corrected, and graded descriptions and proofs of
+    algorithms.
+  \item[\textbf{NeCSys (MIT Media Lab).} Spring 2009] Student
+    technician.  Helped maintain the MIT Media Lab computing
+    infrastructure.
+  \item[\textbf{1.264J: Database, Internet \& Systems Integration
+      Technologies.} Fall 2008] Grader. Consistently graded software
+    projects and requirements specifications.
+  \item[\textbf{West} of \textbf{Thomson Reuters.} Summer 2008] Tech
+    intern for West KM. Designed a data migration utility for WestKM
+    to safely transfer gigabytes of records.
+  \end{description}
+
+
+  \section{Other Projects}
+  \begin{description}
+  \item[\textbf{First Robotics Competition.} Spring 2008.] Founder and
+    programmer. Founded a FRC team at my high school and worked to
+    program a robot using C on an embedded PIC microprocessor.
+  \item[\textbf{Eyrie Newspaper.} 2007--2008.] Designed, developed,
+    and maintained the content management system and website for the
+    Eden Prairie High School student newspaper.
+  \item[\textbf{KyleWiki.} 2005--2007.] Developed an extensible,
+    robust wiki engine for LAMP.
+  \end{description}
+
+  \section{Computer Experience}
+  \begin{itemize}
+  \item Languages: Java, Scheme, Lisp, Haskell, Python, PHP, C\#, C, Objective-C
+  \item Architectures: Beta, Z80, some i386
+  \end{itemize}
+
+% 	Databases: MySQL, MSSQL Server.\\
+% 	Mark-up: HTML, XML, CSS, \LaTeX\\
+
+  \section{Academic Honors and Awards}
+  \begin{itemize}
+  \item Licklider UROP Prize
+  \item National Merit Finalist
+  \item National AP Scholar
+  \end{itemize}
+
+\end{page}

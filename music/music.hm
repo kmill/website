@@ -1,0 +1,351 @@
+\setoutputdir{music}
+
+\begin{page}{music_comps.html}
+  \label{page_music_comps}
+  \title{Music Compositions}
+  \modified{27 Feb 2011}
+
+  One of the things I like to do is compose music.  While my main
+  course of study is mathematics, I've also been studying music.  MIT
+  has a surprisingly good music department with many classes on
+  composition, and I've been taking as many of these as I can.
+  
+  The following are some of my compositions.  Most of them have scores
+  online, and most also have a recording of some kind (whether it be a
+  computer playing it or someone sight reading).
+
+  If you decide to perform any of this music, please tell me---I'd
+  like to get a recording!
+
+  \section{Compositions}
+  \label{sec_compositions}
+
+  This is music I've composed, in somewhat reverse chronological
+  order.  Music I've arranged is in the next section.
+
+  \begin{description}
+  \item[\textbf{Piano Sonatina No. 2} (c. 8.5 min)] A piano sonatina
+    in a somewhat classical style, completed January 2011.
+
+    Recording:\\
+    Mvt I.: \file[M4A]{sonatina2/1_allegro.m4a}\quad
+    Mvt II.: \file[M4A]{sonatina2/2_andante.m4a}\quad
+    Mvt III.: \file[M4A]{sonatina2/3_vivace.m4a}
+
+
+  \item[\textbf{Decision} (c. 2 min)] This was written in 2011 for
+    21M.310 (Techniques of 20th Century Composition).  The project was
+    to write a piece for flute after having studied the music of
+    Debussy.  The piece was then sight-read by Rowland Sutherland of
+    the Lontano Ensemble.
+
+    Score: \file[PDF]{decision/decision.pdf} \quad
+    Recording: \file[M4A]{decision/decision.m4a}
+
+  \item[\textbf{Piano Suite} (c. 3 min)] This short piano suite was
+    also written for 21M.310, using ``musical set theory'' (which is
+    the theory of musical sets, not a musical kind of mathematical set
+    theory).  The work consists of three movements.
+
+    Recording: \file[M4A]{mst/mst.m4a}
+
+  \item[\textbf{Menuet and Trio} (for string quartet, c. 5.5 min.)]
+    For Fall semester, 2010, a project for 21M.303 (Introduction to
+    Tonal Forms I) was to write a menuet and trio.  At the end of the
+    course, we hired the QX quartet to sight read our pieces.
+
+    Score: \file[PDF]{menuet_trio_1/menuet_trio.pdf} \quad
+    Recording: \file[MP3]{menuet_trio_1/menuet_trio.mp3}\\
+    Vln I.: \file[PDF]{menuet_trio_1/menuet_trio_vlni.pdf} \quad
+    Vln II.: \file[PDF]{menuet_trio_1/menuet_trio_vlnii.pdf} \quad
+    Vla.: \file[PDF]{menuet_trio_1/menuet_trio_viola.pdf} \quad
+    Vlc.: \file[PDF]{menuet_trio_1/menuet_trio_cello.pdf}
+
+  \item[\textbf{Theme and Variations} (for violin, clarinet, and two
+    cellos, c. 10 min.)]  For Spring semester, 2010, one of the
+    projects in 21M.302 (Harmony and Counterpoint II) was to write a
+    theme and variations for quartet.  Based on the instruments
+    available in our class, we wrote for violin, clarinet, and two
+    cellos.  The recording immediately below is by a computer (further
+    down is a live performance).
+
+    Score: \file[PDF]{theme_variations/21m302t_and_v.pdf} |
+    \file[SIB]{theme_variations/21m302t_and_v.sib} \quad
+    Recording: \file[M4A]{theme_variations/theme_variations.m4a} |
+    \file[MIDI]{theme_variations/21m302t_and_v.mid}
+
+    At the end of the course, the group in our class (for which I
+    played cello) sight-read everyone's pieces.  The following is a
+    recording of this.
+
+    \begin{enumerate}
+    \item Theme. Allegro. \file[MP3]{theme_variations/1_theme_allegro.mp3}
+    \item Tempo comodo. \file[MP3]{theme_variations/2_tempo_comodo.mp3}
+    \item Allegro. \file[MP3]{theme_variations/3_allegro.mp3}
+    \item Scherzando. \file[MP3]{theme_variations/4_scherzando.mp3}
+    \item Vivace. \file[MP3]{theme_variations/5_vivace.mp3}
+    \item Andante. \file[MP3]{theme_variations/6_andante.mp3}
+    \item Moderato. \file[MP3]{theme_variations/7_moderato.mp3}
+    \end{enumerate}\\
+
+  \item[\textbf{The Ode to the Progressively Sadder Pennies} (cello
+    and piano, c. 3 min.)] For the final project of the same 21M.065
+    as in Staplers in Cans (below), I decided to write some work for
+    piano and cello.  Lacking a better name, I named it after my
+    Progressively Sadder Penny museum (which was a series of pennies
+    in varying degrees of being melted---I wanted to see if I could
+    get a lighter to melt the zinc, and it could).  The MP3 is my
+    attempt to perform the piece by myself.  I apologize for the
+    intonation, but keep in mind that I recorded the cello part first
+    and then fit the piano part in after, so I couldn't tune myself to
+    the piano (and I finished the composition the day I recorded).
+
+    Score: \file[PDF]{pennies/pennies.pdf}\quad
+    Recording: \file[MP3]{pennies/pennies.mp3} | 
+    \file[MIDI]{pennies/pennies.mid}
+
+  \item[\textbf{Staplers and Cans} (electronic, c. 1.5 min.)] For a
+    project in my introduction to music composition course (21M.065,
+    taught by Evan Ziporyn), we had to make a piece in the style of
+    musique concr\`{e}te, which, in essence, is taking everyday sounds
+    and combining them to compose music.  Because I didn't want to
+    deal with Audacity, I instead developed my own system, using a
+    command line utility called \texttt{arss} to convert sounds I had
+    recorded (of myself playing with a stapler, a soda can, and
+    swiping my fingers across my laptop keybord) into images which I
+    then manipulated with an image editor.  The score is a PNG of the
+    BMP image I fed into \texttt{arss}.
+
+    Score: \file[PNG]{staplers/staplers.PNG} |
+    \file[PDF]{staplers/staplers.pdf} \quad
+    Recording: \file[M4A]{staplers/staplers.m4a}
+
+  \item[\textbf{The Great Book Chase} (film score for full orchestra)]
+    My brother made a movie for the Eden Prairie Library video contest
+    during the summer of 2008, and he asked me to make the music for
+    the movie (of course, after putting my name in the credits).  The
+    video is no longer up on YouTube, however.
+
+    \begin{description}
+    \item[\textbf{Millenium Films Theme}] This is the music which
+      plays as the ``Millenium Films'' logo comes in, which is for
+      this film masquerading as a 20th Century Fox logo (thus the
+      style of music being a fanfare). The spelling of ``Millenium''
+      I'm told is intentional and has nothing to do with a
+      ``millennium.''
+
+      Recording: \file[MP3]{book_chase/millenium_films.mp3}
+
+    \item[\textbf{Main Theme}] The main theme of this movie, due to
+      the nature of the presence of lightsabers and other Star Wars
+      paraphernalia, is Star Wars-esque. Note the ABA form as well as
+      shifting into strings from the trumpet fanfare.
+
+      Recording: \file[MP3]{book_chase/theme.mp3}
+
+    \item[\textbf{Chase}] Although a bit slow for a chase, it fits
+      because the chase occurs within the confines of a library while
+      the main characters are trying to get to a book before the
+      other.
+
+      Recording: \file[MP3]{book_chase/chase.mp3}
+
+    \item[\textbf{Nightmare}] One character is explaining why he has a
+      chip on his shoulder and calls the other to remember a previous
+      time that the other caused which was horrible for him.
+
+      Recording: \file[MP3]{book_chase/nightmare.mp3}
+
+    \item[\textbf{Battle}] A song to accompany an intense lightsaber
+      battle.  This song was made using a loop library, the loops for
+      which I did not compose.
+
+      Recording: \file[MP3]{book_chase/battle.mp3} |
+      \file[M4A]{book_chase/battle.m4a}
+    \end{description}
+
+  \item[\textbf{Kazoo Concerto No. 1} (c. 1 min.)]
+
+    Being a high school senior in my orchestra, the conductor kindly
+    let me compose something for the final concert of the year (in
+    2008). After having to listen to a violist friend, Jenn Borchardt,
+    play ``Over the Rainbow'' on her kazoo during our lunch break for
+    an entire semester, I decided to make a short piece featuring her
+    playing the kazoo as a serious solo instrument. Due to the time
+    constraints for this particular concert, the piece had to be kept
+    on the short side.  Note: the score is a slightly older version
+    than what was actually performed.
+    
+    Score: \file[PDF]{kazoo/score.pdf}\quad
+    Kazoo: \file[PDF]{kazoo/kazoo.pdf}\quad
+    Kazoo (alto clef): \file[PDF]{kazoo/kazoo2.pdf}\quad
+    Recording: \link[YouTube]{http://www.youtube.com/watch?v=IFqdpx8UoqU}
+
+    If you want to try kazooing along, here are recordings the
+    ensemble with and without the kazoo.  These are computer
+    performances, and follow the somewhat older score given above.
+
+    Recording: \file[MP3]{kazoo/concerto.mp3}\quad
+    Just orchestra: \file[MP3]{kazoo/orchestra.mp3}\quad
+    Just kazoo: \file[MP3]{kazoo/kazoo.mp3}
+
+  \item[\textbf{String Quartet No. 1} (c. 14 minutes)] I wrote this
+    string quartet between November 2006 and June 2007 based on my
+    rough idea of how a string quartet is supposed to work: the first
+    movement is something like a sonata, the second is a slow
+    chaconne, the third is something like a scherzo, and the fourth is
+    a modified sonata-rondo form.  I submitted it to the
+    \link[MMEA]{http://www.mmea.org/} compositional contest under the
+    small ensemble category, and I was invited to have it performed at
+    the 2008 MMEA Mid-Winter Clinic.  You can see this performance at
+    \link[this YouTube
+    playlist]{http://www.youtube.com/view_play_list?p=D123E2FD3A06BF29}.
+
+    \begin{tabular}{llllllll}
+      \multicolumn{2}{l}{\textbf{Mvt. 1}} & \multicolumn{2}{l}{\textbf{Mvt. 2}}
+      & \multicolumn{2}{l}{\textbf{Mvt. 3}} & \multicolumn{2}{l}{\textbf{Mvt. 4}} \\
+      \multicolumn{2}{l}\thumbnail{quartet/scores/mvt_i.pdf} &
+      \multicolumn{2}{l}\thumbnail{quartet/scores/mvt_ii.pdf} &
+      \multicolumn{2}{l}\thumbnail{quartet/scores/mvt_iii.pdf} &
+      \multicolumn{2}{l}\thumbnail{quartet/scores/mvt_iv.pdf} \\
+      Score: &\file[PDF]{quartet/scores/mvt_i.pdf} &
+      Score: &\file[PDF]{quartet/scores/mvt_ii.pdf} &
+      Score: &\file[PDF]{quartet/scores/mvt_iii.pdf} &
+      Score: &\file[PDF]{quartet/scores/mvt_iv.pdf} \\
+      \hline
+      Vln. I: &\file[PDF]{quartet/scores/parts/mvt i - vln1.pdf} &
+      Vln. I: &\file[PDF]{quartet/scores/parts/mvt ii - vln1.pdf} &
+      Vln. I: &\file[PDF]{quartet/scores/parts/mvt iii - vln1.pdf} &
+      Vln. I: &\file[PDF]{quartet/scores/parts/mvt iv - vln1.pdf} \\
+      Vln. II: &\file[PDF]{quartet/scores/parts/mvt i - vln2.pdf} &
+      Vln. II: &\file[PDF]{quartet/scores/parts/mvt ii - vln2.pdf} &
+      Vln. II: &\file[PDF]{quartet/scores/parts/mvt iii - vln2.pdf} &
+      Vln. II: &\file[PDF]{quartet/scores/parts/mvt iv - vln2.pdf} \\
+      Vla.: &\file[PDF]{quartet/scores/parts/mvt i - viola.pdf} &
+      Vla.: &\file[PDF]{quartet/scores/parts/mvt ii - viola.pdf} &
+      Vla.: &\file[PDF]{quartet/scores/parts/mvt iii - viola.pdf} &
+      Vla.: &\file[PDF]{quartet/scores/parts/mvt iv - viola.pdf} \\
+      Vlc.: &\file[PDF]{quartet/scores/parts/mvt i - cello.pdf} &
+      Vlc.: &\file[PDF]{quartet/scores/parts/mvt ii - cello.pdf} &
+      Vlc.: &\file[PDF]{quartet/scores/parts/mvt iii - cello.pdf} &
+      Vlc.: &\file[PDF]{quartet/scores/parts/mvt iv - cello.pdf} \\
+      \hline
+      \hline
+      Recording: &\file[MIDI]{quartet/sq_no1_i.mid} &
+      Recording: &\file[MIDI]{quartet/sq_no1_ii.mid} &
+      Recording: &\file[MIDI]{quartet/sq_no1_iii.mid} &
+      Recording: &\file[MIDI]{quartet/sq_no1_iv.mid}
+    \end{tabular}
+
+    I would recommend listening to the above YouTube link.  Although,
+    there is also a recording of people sight reading it from June
+    2007: \file[MP3]{quartet/sq_no1.mp3} |
+    \file[M4A]{quartet/sq_no1.m4a}
+
+  \item[\textbf{Piano Sonata} (c. 8 min.)] I wrote this between
+    October 2006 and June 2007.  It loosely follows the classical
+    sonata form for piano in three movements.  I wouldn't really call
+    it a sonata, as it's more like a sonatina, but I'm just calling it
+    what I called it back in 2007.  The recording is a computer
+    performance.
+
+    \begin{tabular}{llllll}
+      \multicolumn{2}{l}{\textbf{Mvt. 1}} &
+      \multicolumn{2}{l}{\textbf{Mvt. 2}} &
+      \multicolumn{2}{l}{\textbf{Mvt. 3}} \\
+      Score:&\file[PDF]{sonata/mvt_i.pdf} &
+      Score:&\file[PDF]{sonata/mvt_ii.pdf} &
+      Score:&\file[PDF]{sonata/mvt_iii.pdf} \\
+      Recording:&\file[M4A]{sonata/mvt_i.m4a} &
+      Recording:&\file[M4A]{sonata/mvt_ii.m4a} &
+      Recording:&\file[M4A]{sonata/mvt_iii.m4a}
+    \end{tabular}
+
+  \item[\textbf{Dissonance} (for string orchestra, c. 2.5 min.)]  I
+    originally wrote this for solo piano on October 8th, 2006, but
+    then reorchestrated it for string orchestra.
+
+    Score: \file[PDF]{dissonance/dissonance.pdf} \quad
+    Recording:
+    \file[MP3]{dissonance/dissonance.mp3} |
+    \file[M4A]{dissonance/dissonance.m4a}
+
+  \item[\textbf{Meagan has a Knack!} (for violin and piano, c. 1
+    min.)] This was written with my cousin Meagan on October 7th,
+    2006. It is for violin with piano accompaniment.  We needed to
+    think of a title before we started work on the piece, so she came
+    up with ``Meagan has a Knack!'' which later received the subtitle
+    ``Adventures in Meaganland'' (probably because her name wasn't
+    mentioned enough on the score).  The performance is by a computer.
+    A note about the score: the fortissimo at the beginning was only
+    to tell the computer to play loud enough so that we could hear our
+    composition on my laptop.
+
+    Score: \file[PDF]{adventures/meaganland_piano.pdf} \quad
+    Recording: \file[MP3]{adventures/meaganland_piano.mp3}
+
+  \item[\textbf{Adventures in Meaganland} (for string orchestra, c. 1
+    min.)] After we made ``Meagan has a Knack!'' I decided to
+    reorchestrate it for string orchestra. I later got a few people
+    together to sight read and record it June of 2007.
+
+    Score: \file[PDF]{adventures/adventures.pdf} \quad
+    Recording:
+    \file[MP3]{adventures/adventures.mp3} |
+    \file[M4A]{adventures/adventures.m4a}
+
+  \item[\textbf{Pizzicato} (for string quartet, c. 1 min.)] This was
+    written the morning of October 29th, 2005. It is something like a
+    cross between a canon and a chaconne for string quartet. This
+    piece is entirely in pizzicato (that is, plucked strings) mainly
+    because I thought the string sound on my computer was awful and
+    the ``Pizzicato Strings'' instrument sounded much better. This was
+    probably my first composition before I studied some music
+    theory. The MP3 recording is by a computer and is kind of quiet.
+
+    Score: \file[PDF]{pizzicato/pizzicato.pdf} \quad
+    Recording: \file[MP3]{pizzicato/pizzicato.mp3}
+
+  \end{description}
+
+  \section{Arrangements}
+  \label{sec_arrangements}
+
+  This is music that I arranged (that is, I didn't actually write
+  myself).
+
+  \begin{description}
+  \item[\textbf{L'\'{E}l\'{e}phant} (for bass and string quartet)] My
+    high school orchestra director asked me to arrange
+    L'\'{E}l\'{e}phant from Carnival of the Animals by Camille
+    Saint-Sa\"{e}ns for doubled string quartet, since the bassist
+    would have been completely overpowened by the full
+    orchestra. Note: at rehearsal 3, it's advisable for the triplets
+    in all parts to be solo.
+
+    Score: \file[PDF]{elephant/score.pdf}\quad
+    Bass solo: \file[PDF]{elephant/bass_solo.pdf}\\
+    Vln. I: \file[PDF]{elephant/vln1.pdf}\quad
+    Vln. II: \file[PDF]{elephant/vln1.pdf}\quad
+    Vla.: \file[PDF]{elephant/viola.pdf}\quad
+    Vlc.: \file[PDF]{elephant/cello.pdf}
+
+  \item[\textbf{The Vinyl Diary} (a musical)] In 2007, Todd Hayen
+    asked me to help arrange pieces for a musical he was working on
+    called ``The Vinyl Diary,'' which was performed at the end of
+    Summer 2007.  The following are some pieces which I arranged or
+    wrote for the musical.  The orchestra we had on hand was piano,
+    viola, oboe/english horn, cello, and bass.  There also was a drum
+    set, but that part was improvised.  Since it was a musical, for
+    all of these pieces (except for the waltz), there were people
+    singing along.
+
+    \begin{description}
+    \item[\textbf{Overture}] Recording: \file[MP3]{vinyl_diary/vinyl_overture.mp3}
+    \item[\textbf{Theme}] Recording: \file[MP3]{vinyl_diary/vinyl_theme.mp3}
+    \item[\textbf{``What is this music?''}] Recording: \file[MP3]{vinyl_diary/vinyl_what.mp3}
+    \item[\textbf{``We're free''}] Recording: \file[MP3]{vinyl_diary/vinyl_free.mp3}
+    \item[\textbf{Waltz}] Recording: \file[MP3]{vinyl_diary/vinyl_waltz.mp3}
+    \end{description}
+  \end{description}
+\end{page}

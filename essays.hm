@@ -1,0 +1,465 @@
+% essays.hm
+% Essays I've written
+
+\addbreadcrumb{page_essays}
+
+\begin{page}{essays.html}
+  \label{page_essays}
+  \title{Essays}
+  \modified{26 Feb 2011}
+
+  \begin{description}
+  \item[\ref{page_essay_close_reading_toscience}] A close reading of a
+    Poe poem.
+  \item[\ref{page_essay_r_n_j}] An essay making a structural argument
+    that \textit{Romeo and Juliet} is a large-scale sonnet.
+  \item[\ref{page_essay_writing_plague}] A silly five-paragraph essay
+    written in high school advising that essays should not be
+    prescribed a five-paragraph format.
+  \end{description}
+  
+\end{page}
+
+\setoutputdir{essays}
+\begin{page}{writing_plague.html}
+  \label{page_essay_writing_plague}
+  \title{The Writing Plague}
+  \modified{Apr 2007}
+
+  \textit{This essay was written in 2007 for my 12th grade AP English
+    application (in my high school, the course had an application
+    process for registration).  We were supposed to write a five
+    paragraph essay about something we'd change in the world, and I
+    decided that I would write an essay on removing the requirement on
+    high school students to write in five paragraph essays.  My
+    application was accepted.}
+
+  If I had the ability and power to change one thing in the world, I
+  would change the requirements for writing an essay in high school.
+  The standard format, the five-paragraph essay, is a very comforting
+  structure for a student as he or she can plug in arguments and
+  content directly into the format.  There is no confusion in the end
+  as for what the student was trying to argue as long as the student
+  correctly followed this format.  But, there are downfalls.  First,
+  it is a contrived format created for the purpose to introduce a
+  student to writing longer essays without seeming scary.  Second,
+  there is no foreseeable use of the five paragraph essay format
+  outside of high school as no college that I know of specifically
+  uses it.  There are other structures available for writing.  As
+  composers of the modern era broke away from classical traditions, I
+  think it is time for students of the new millennium to break away
+  from five paragraph traditions.
+
+  First, the five paragraph essay is a contrived format.  Somebody
+  decided that the best way for a student to clearly communicate an
+  idea is with an essay with an introductory paragraph, three body
+  paragraphs, and a conclusion.  Granted, it is a great aid for
+  creating something coherent, and it can act as a structural language
+  between people when it is agreed upon that all communications will
+  consist of five paragraphs, but sometimes more freedom is required
+  under some circumstances for the dispersion of information.  The
+  format acts as a bronze cast, allowing the idea to flow freely but
+  only within the confines of the cast.  The format is not natural and
+  needs to be expanded.  One may argue that it even limits a student's
+  future abilities to write anything longer than this structure.
+
+  Second, the five paragraph essay is not a generally accepted format
+  in universities or mainstream society.  At the university level, the
+  structure of this kind of essay does not allow for the magnitude or
+  scale required for most term research papers.  The structure of the
+  essay may be modified to be sufficient to contain the content that
+  appears in a long essay, but then it is not a five paragraph essay.
+  The essay format is generally not the best choice for anything but
+  for persuasive content and thus would not apply to most research
+  papers.  In the working world, one would be hard pressed to find any
+  place where such a structure is used.  It is doubtful that the TPS
+  reports even use the five paragraph essay, despite how contrived
+  they are as well.
+
+  An essay can be written in many more ways than with the prescribed
+  combination of five paragraphs.  Most essays are a discourse on a
+  topic with a clear outline.  The structure is very loose and allows
+  for much more content than the five paragraph essay would allow.
+  Each paragraph starts when there is a contrast in information, and
+  sections can be separated for easily divulged information.  A topic
+  can be fairly examined without the Berlin wall that is the five
+  paragraph essay.
+
+  In conclusion, if I could change something in the world, I would
+  abolish the requirement for writing the five paragraph essay in high
+  school.  It may be a nice safety net when initially being exposed to
+  the essay concept, but it is like a box of which we need to think
+  outside.  It is a contrived format that is mainly used only in a
+  high school setting.  There are more possibilities for essay writing
+  than the hamburger-type format.  It is time to free the mind of the
+  youth to be able to write without boundaries.
+\end{page}
+
+\begin{page}{sonnet_to_science.html}
+  \label{page_essay_close_reading_toscience}
+  \title{Close reading of ``Sonnet---To Science''}
+  \modified{1 Nov 2010}
+
+  \textit{This paper was written for 21L.004 (Introduction to Poetry),
+    taught by Prof. Tapscott.}
+
+  This paper analyzes the following sonnet by Edgar Allan Poe
+  (reprinted for your convenience):
+
+  \begin{quote}
+    Science! true daughter of Old Time thou art!\\
+    \quad Who alterest all things with thy peering eyes.\\
+    Why preyest thou thus upon the poet's heart,\\
+    \quad Vulture, whose wings are dull realities?\\
+    How should he love thee? or how deem thee wise?\\
+    \quad Who wouldst not leave him in his wandering\\
+    To seek for treasure in the jeweled skies,\\
+    \quad Albeit he soared with an undaunted wing?\\
+    Hast though not dragged Diana from her car?\\
+    \quad And driven the Hamadryad from the wood\\
+    To seek a shelter in some happier star?\\
+    \quad Hast thou not torn the Naiad from her flood,\\
+    The Elfin from the green grass, and from me\\
+    \quad The summer dream beneath the tamarind tree?
+  \end{quote}
+
+  (from \textit{The Norton Anthology of Poetry, shorter 4th edition},
+  p. 531)
+
+  This poem is about what appears to be a disparity between poetry and
+  science, and the poet trying to figure out what it is about this
+  that is making him uncomfortable.  The general structure of the poem
+  is a sonnet which first declares that science is the subject of the
+  poem and then attempts an accusation of science for making the world
+  less suitable for making poetry.  However, it is unclear if the
+  rhetoric is meant to be a direct accusation, or if the accusation is
+  actually a call for an answer, and this will be explored in more
+  detail later.
+
+  This sonnet follows the standard rhyming scheme, ABAB CDCD EFEF GG,
+  but it is actually the case that B and C rhyme.  It is likely that
+  this is coincidental, considering there are only so many word
+  endings in English.  The metrical structure is iambic pentameter,
+  but the strength of the meter is sometimes not as strong as what we
+  have seen with Shakespeare, or, at least, trying to scan the poem to
+  read it with iambic pentameter is more difficult for the author than
+  with Shakespeare's poetry.
+
+  The first stanza explains that this poem is about science.  Poe
+  makes this very clear by beginning the poem with an interjection:
+  ``Science!''  This sets the mood of the poem outright to be
+  something like a protest or entreaty, since it is like starting a
+  phrase with ``God!'' or ``Oh!'', which one generally does to ask for
+  something.  The rest of the first line gives science a title,
+  calling science the true daughter of old time.  The phrase ``Old
+  Time'' refers to things which are from the distant past, and being
+  the ``true daughter'' of ``Old Time'' means that science is
+  faithfully grounded in people's past intellectual pursuits.  He is
+  declaring that science is something which is not new, and so cannot
+  simply be dismissed.
+
+  Line two is an observation of what science does to our conceptions
+  of the world.  The ``peering eyes'' is the scientific method of
+  careful observation of nature, leaving no stone unturned.  This
+  metaphor is continued in the final two lines of the stanza, and it
+  turns out the peering eyes are those of a vulture.  This vulture has
+  wings which are ``dull realities.''  This could mean a few things.
+  For one, it could mean that the poet is recognizing that science is
+  supported by a reality whose charm and interest is removed (that is,
+  there are no oddities like Greek gods), which poets tend to write
+  about.  Similarly, it could be the imagery that this bird of prey,
+  science, swoops down to pluck out the heart of poetry, beating dull
+  reality into the poet by flapping its wings.  In any case, this is
+  phrased as a question: the poet is wondering why science is
+  targeting the heart of the poet.  Questions can be used for
+  rhetorical effect (in this case, the first stanza could be read as
+  ``Science! Why are you doing this to me?''), or instead to ask for
+  information (which can be read as ``Science! You are the
+  continuation of the intellectual enterprise.  Why are you aiming at
+  the heart of poetry now?'').  At this point in the poem, it is
+  unclear which Poe means.
+
+  The second stanza consists of more questions.  Continuing with the
+  idea that the questions are for rhetorical purposes, the first line
+  asks how the poet should love science or deem it to be wise with the
+  implied answer ``I cannot.''  However, it is also possible that
+  these questions are not rhetorical, and these questions represent
+  the poet trying to figure out how to place science in his poetical
+  world.
+
+  The stanza continues by comparing the poet with another kind of
+  bird.  The poem has been using the word ``he'' to refer to a poet,
+  and ``thou'' for the notion of science.  Line six sets up the
+  question which asks who it is that does not leave the poet when he
+  wanders, with the implicit answer that it is science which does not
+  leave.  Line seven is confusing, though, due to the enjambment.  The
+  line ``To seek for treasure in the jeweled skies'' refers to either
+  the poet or science, as it may be that the wandering is for seeking
+  (and thus the poet is seeking), or it may be that not leaving the
+  poet is for seeking (and thus science is seeking).  If the poet is
+  seeking, then the bird which represents the poet is seeking for
+  treasure in the ``jeweled skies.''  Jeweled seems like a way to
+  refer to stars, which are a kind of truth to be found about the
+  universe, or it may be intensifying the fact that there are many
+  treasures out there.  And, this poet bird is flying around,
+  wandering, not intimidated or discouraged by difficulty or danger
+  (``soared with an undaunted wing'').  With this reading, the poet is
+  asking why science is not leaving him alone as he is trying to find
+  his own kinds of truths in the world.
+
+  On the other hand, if it is science which is seeking, the poet bird
+  is flying ``with an undaunted wing,'' but the science bird is
+  following, trying to seek the same sources of treasures as the poet
+  is trying to seek.  This reading has the poet wondering why science
+  is trying to answer the same kinds of questions he is, snatching up
+  treasures before he can, and, continuing the vulture analogy, like a
+  bird of prey.
+
+  The third stanza goes over various things which the poet thinks are
+  the result of science.  Line nine, ``Hast thou not dragged Diana
+  from her car?'' refers to the Roman goddess of hunting and
+  virginity, who rides the moon across the sky at night.  With
+  science, people saw that the moon, instead of being a carriage for a
+  goddess, was actually a lifeless rock, so science metaphorically
+  dragged her off the moon.  The next two lines talk about about the
+  Hamadryad, which is a nymph from Greek and Roman mythology that
+  lives in a tree and dies when the tree dies.  Science, however,
+  believes the tree lives without such creatures, and so the idea of
+  the Hamadryad has been driven away.  Again, enjambment makes it
+  unclear who is seeking shelter on line eleven.  It is either the
+  Hamadryad driven from the wood, or it is science which drove the
+  Hamadryad from the wood.  If it were science, then science would now
+  be ``[seeking] a shelter in some happier star,'' which doesn't make
+  sense because science is a human pursuit.  It also doesn't make
+  sense because one generally does not seek refuge after driving some
+  other entity away from its home.  So, the enjambment probably refers
+  to the Hamadryad, which means the poet is imagining this creature
+  still exists somewhere although it is no longer believed.
+  Similarly, the poem talks about Naiads (water nymphs of classical
+  mythology) being torn from their water and elves being torn from
+  their grass.  The language used in these last six lines is that a
+  strong verb removes each of these mythical creatures from their
+  native habitats.  Diana is ``dragged,'' the Hamadryad is ``driven
+  [...]  from'', and the Naiad and the elves are ``torn.''  The poet
+  is giving science a brutal nature, without any gentle grace, which
+  is in accordance with being a vulture (a creature which is hardly
+  gentle).
+
+  The third stanza spills into the final couplet, which is a
+  continuation of the fantastical creatures being removed from their
+  environments.  The poet elides the removal verbs after describing
+  the Naiad.  The pattern is continued, and we can readily infer the
+  Elves are being torn from their green grass.  The final mythical
+  creature is the ``summer dream'' being torn from ``me.''  Up until
+  this point, each of the creatures were from well-known mythology, so
+  by continuing the pattern but switching the kind of material
+  intensifies this change in the final couplet.  The ``me'' refers now
+  to Poe himself, where ``he'' from before referred to any poet.
+
+  Starting from the third stanza, the questions of whether science has
+  vanquished mythology can either be read as rhetoric or confusion.
+  If it is rhetoric, then the answer to each of the ``Hast thou''
+  questions is a definite ``yes,'' and Poe is concluding the poem by
+  noting a few of the things which science has shown not to be real.
+  This means that, to Poe, dreams, too, have been disturbed by
+  science, since he feels like he is constrained by science's notion
+  of reality, which is less vivid to him than the creatures from
+  another ``old time.''  However, it could be the case that he is
+  asking these questions again out of confusion.  He is unsure whether
+  or not science conflicts with these old mythological notions.  In a
+  sense, while there is no Diana on the moon empirically, she is still
+  where she always has been: able to be called upon for poetry.  So,
+  Poe may still have his dream ``beneath the tamarind tree,'' and not
+  have it wrest from him by science.
+
+  I like how this poem can be read in two ways.  One reading is where
+  Poe complains science has removed the old, poetic ideas of the way
+  the world worked.  The other is where Poe is unsure whether science
+  truly had removed such ideas.  What is clear, though, is that he was
+  concerned this way of thinking would make the poetic way outdated.
+\end{page}
+
+\begin{page}{essay_r_n_j.html}
+  \label{page_essay_r_n_j}
+  \title{\textit{Romeo and Juliet} as a Sonnet}
+  \modified{22 Oct 2010}
+
+  \textit{This is an essay I wrote for 21L.004 (Introduction to Poetry).}
+
+  The play Romeo and Juliet by Shakespeare begins with a sonnet
+  delivered by the chorus.  This sonnet gives an overview of what is
+  to follow, so the audience is not at all surprised when Romeo and
+  Juliet together reach their untimely end (however, the details are
+  withheld until it is dramatically appropriate for the audience).
+  The Shakespearean sonnet, as a poetic form, has a definite
+  structure: there is a sort of proposition, given by the first lines,
+  and the final lines make a thematic turn to see the proposition in a
+  new light.  Since Romeo and Juliet begins immediately with a sonnet
+  which reflects the play, there is a hint that the play might also
+  mirror the sonnet.  The thesis of this paper is that the play Romeo
+  and Juliet actually does have a structural similarity to
+  Shakespearean sonnets and that this structure juxtaposes comedy with
+  tragedy.  The contrast resulting from this juxtaposition strengthens
+  the effect of the tragedy, by the same principle that a falling
+  object delivers a greater impact when it is initially raised higher.
+  This paper will also argue in this framework that the play is
+  actually a comedy because the story is more about the feuding
+  families than it is about Romeo and Juliet, so it is a comedy
+  because it is a tragedy.
+
+  A Shakespearean sonnet is a lyric poem of fourteen lines in iambic
+  pentameter composed of three quatrains of four lines each, ending
+  with a couplet of two lines.  Traditionally, a sonnet begins with a
+  theme or proposition, and the theme makes a turn in the third
+  quatrain or in the couplet where the sonnet changes in character.
+  The change in the character of the poem illuminates the original
+  proposition or theme in a new way because it can be examined again
+  from a different point of view. For instance, Shakespeare in sonnet
+  CXXX spends three quatrains describing the appearance of his
+  mistress by noting all of the pleasant things which she is not like,
+  but, in the couplet, he says that he loves her and that making such
+  comparisons fails to give his true impression of her.
+
+  The bare essence of a sonnet is that there are two parts with
+  similar thematic material, but the second has a different character
+  which draws attention to particular features of the first part in a
+  new way.  So, we may speak of something as being like a sonnet if it
+  is clear that there are two parts which have this bare essence of
+  being a sonnet.  As an aside, the third movement of almost any
+  Classical symphony is sonnet-like.  The structure of a third
+  movement is generally a minuet and trio, which are two pieces of
+  similar thematic material, where the minuet is generally of somewhat
+  heavier character than the trio.  The pieces are played played one
+  after another, and the change in character is a contrast which
+  brings out features of each of the pieces.  The trio, being more
+  delicate, would not be able to be played alone without the minuet
+  before it.  Similarly, the conclusion of sonnet CXXX would not be as
+  strong without being able to contrast with the material of the first
+  three quatrains.
+
+  Now that one can see how things which are not sonnets can be like
+  sonnets, this paper will show Romeo and Juliet is like a sonnet.
+  This paper will discuss three things which support the play being
+  like a sonnet: the play has a definite point at which the character
+  of the play turns, the play after this turning point, due to the
+  contrast, illuminates the play before the turning point, and,
+  beginning at the turning point, the play seems to shift from being a
+  comedy to being a tragedy.  Since this play was composed by a
+  competent writer, it has a coherent story, so it is clear that the
+  play before and after the turning point have related thematic
+  material, as the play after this point is a dramatic continuation of
+  what preceded it. Because of this, there is no need to belabor
+  arguing that the play has two similar parts to show it is
+  sonnet-like.
+
+  The play changes character dramatically in Act III, Scene I, as
+  Mercutio is slain. Before the death of Mercutio, there is a sense of
+  lightheartedness throughout the play.  In Act I, the the most
+  serious event is the scrimmage between the Montagues and the
+  Capulets, which occurs in Scene I.  In this scene, members of the
+  families have a minor battle, and then the Prince explains to
+  everyone that he is tired of their fighting.  As this is Act I, this
+  scene is mainly for the purpose of exposition so that the audience
+  is fully aware of the conflict between the two families.  Otherwise,
+  the first two acts consist of a plentiful degree wordplay (such as
+  in Act I, Scene IV when Mercutio is introduced and in Act II, Scene
+  IV when he, Benvolio, and Romeo are having fun), a big party, love
+  poems, and a marriage.  Interestingly, the first two acts are the
+  only acts which contain sonnets.  In addition, these are the only
+  two acts which have prologues, which are delivered as sonnets by the
+  chorus.
+
+  In contrast, the play after this turning point, which consists of
+  the final three acts, are noticeably darker than the preceding two
+  acts.  By the end of the third act, two people are killed, Romeo is
+  banished from Verona, and Juliet is faced with the threat of having
+  to marry the County Paris.  By the end of the fourth act, one may
+  think that the play is on the verge of turning for the better, but
+  at the beginning of the fifth act the rest of the play is set since
+  Romeo has decided to poison himself due to irremediably given
+  misinformation.
+
+  The play after the turning point illuminates the material of the
+  first two acts in a new way.  The following is an example of this.
+  The dramatic continuation in the last three acts illuminates the
+  flaws in the characters of Romeo and Juliet when contrasted with the
+  first two acts. Before the turning point, the play portrays Romeo
+  and Juliet as exchanging sweet nothings and simply being young
+  people in love.  They are incredibly excited at having found each
+  other, and, due to this, they decide to immediately get married.
+  However, the play after the turning point shows that haste was one
+  of their weaknesses.  Their haste in the first acts made them happy,
+  but, as Friar Laurence foreshadows in Act II, Scene IV when he says
+  to Romeo ``Wisely and slow; they stumble that run fast,'' the haste
+  of Romeo and Juliet greatly contributes to their demise.  For
+  instance, when Romeo finds out about Juliet's supposed death,
+  instead of taking time to make sure he is thinking, he immediately
+  runs to the apothecary to get material to poison himself.  Even
+  Juliet, who was generally more levelheaded than Romeo, upon waking
+  to find Romeo dead, impulsively kills herself.  Another example is
+  that the ominous family feud which had been set up and lightly
+  touched upon in the first two acts is more closely examined in the
+  last three acts.  To Romeo and Juliet, the feud was an abstract
+  notion which got in the way of their love (that is, Act II, Scene
+  II, ``O Romeo, Romeo! wherefore art thou Romeo!''), and they ignored
+  it.  However, the second part of the play activates the feud to show
+  that they were playing with a danger they really could not ignore.
+
+  At this point, it is clear that Romeo and Juliet is like a sonnet:
+  the thematic material of the play is partitioned into two parts,
+  where the second part examines the first part closer by changing its
+  character.  The goal of this paper henceforth is to understand in
+  what sense this play is a comedy.
+
+  In ancient Greek tradition, the genres of tragedy and comedy were
+  something of opposites.  A tragedy tends to be a fairly heavy work
+  which deals with human suffering and explores the downfall of its
+  characters, whereas a comedy is generally light and ends happily.
+  After the turning point at the beginning of the third act, the play
+  gets very heavy for reasons already mentioned.  Both Romeo and
+  Juliet, having weaknesses in character, meet their downfall, and
+  Montague and Capulet lose their children.  The last three acts of
+  the play are, without a doubt, a tragedy.  But, the first two acts
+  are very different in character: they are light, they have many
+  jokes, there is a sweet romance with love poems, and the second act
+  arguably ends happily since Romeo and Juliet end up married and look
+  as though they one another.  By all appearances, it seems the first
+  two acts are from a comedy.  Therefore, it appears the play is
+  divided up into a comedy and a tragedy, where the switch occurs at
+  the death of Mercutio.  The effect this has on the play is that, as
+  soon as the play starts to get heavy, the tragedy hits harder
+  because of its juxtaposition with the comedy which immediately
+  preceded it.
+
+  In a sense, however, the entire play is also a comedy.  Unlike in
+  Hamlet, where everyone present ends up dying, in Romeo and Juliet,
+  the death of the namesake characters force Montague and Capulet to
+  make peace after many years of feuding.  In a sense, then, the
+  tragedy caused by the feuding families effects a happy ending.  In
+  another story, it could have been the case that Montague and Capulet
+  ultimately blame each other for the death of their respective child,
+  maintaining their feud.  Instead, Verona reaches peace.  The play
+  can be seen as a comedy which takes a detour into tragedy and ends
+  with a somewhat happy ending.  And, the tragedy is present because,
+  with feuding families, death is inevitable.  In fact, one could
+  argue that this play was actually a dark comedy about Montague and
+  Capulet, who were trying to keep their peace while sustaining a
+  feud, but the subplot of their respective children marrying and
+  ultimately killing themselves because of the feud brings bittersweet
+  happiness to the families.
+
+  In conclusion, the play Romeo and Juliet is a tragicomedy whose
+  large-scale structure is like a sonnet.  It is clearly a tragedy
+  because the main characters reach their downfall and there is a
+  sense of heaviness to the work, but not so obvious is that it is a
+  comedy.  The large-scale structure of the play is that of a sonnet
+  because there are two main sections which have similar thematic
+  material, and the second has different character than the first,
+  giving the audience a new vantage point of the exposition.  The
+  turning point of the play as a sonnet is roughly when Mercutio is
+  killed by Tybalt at the beginning of the third act.  Then, the play
+  before Mercutio's death is mainly comedic, while the play after his
+  death is mainly tragic.  But, tragedy effects a happy ending in that
+  the Montagues and the Capulets will no longer feud, and so Romeo and
+  Juliet is also a comedy.
+\end{page}

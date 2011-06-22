@@ -1,0 +1,3 @@
+#!/bin/bash
+# ~/Projects/htmacros/runhm.py main.hm /mit/kmill/www/
+~/Projects/htmacros/runhm.py main.hm /afs/athena.mit.edu/user/k/m/kmill/www/

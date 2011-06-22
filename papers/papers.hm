@@ -1,0 +1,136 @@
+% Papers
+
+\setoutputdir{papers}
+\addbreadcrumb{page_papers}
+
+\begin{page}{papers.html}
+  \label{page_papers}
+  \title{Papers}
+  \modified{3 March 2011}
+
+  Here are some papers I've written.  They relate either to my
+  research or to my classwork.
+
+  \begin{itemize}
+  \item \ref{page_quad_iter_graphs}
+  \item \ref{page_paper_trinary_groups}
+  \item \ref{page_towards_mmimm}
+  \item \ref{page_d-gebra}
+  \end{itemize}
+\end{page}
+
+\begin{page}{quad_iter_graphs.html}
+  \label{page_quad_iter_graphs}
+  \title{Classification of quadratic iteration graphs}
+  \modified{26 Feb 2011}
+
+  This paper was written for the class 18.310 (Principles of Discrete
+  Applied Mathematics) based on research I did with Prof. Abhinav
+  Kumar over the summer of 2010.  The paper's target audience is
+  advanced undergraduates who have been exposed to the ideas of group
+  theory.  A reader well-versed in basic algebra can skip the first
+  few pages, but may want to review the elementary number theory
+  section.
+  
+  \begin{abstract}
+    The basic theory of iteration graphs are explained, and quadratic
+    iteration graphs of the form $f(x)=x^2+c$ modulo prime $p$ are
+    classified for $c=0$.  As an application, the structure of the
+    iteration graph for $f(x)=x^2$ is used to explain the operation of
+    the Tonelli square root algorithm.
+  \end{abstract}
+
+  Download the paper: \file[(PDF)]{quad_iter_graphs.pdf}
+
+\end{page}
+
+\begin{page}{towards_mmimm.html}
+  \label{page_towards_mmimm}
+  \title{Towards a Multimodal Interface for Mathematical Manipulation}
+  \modified{29 Jan 2010}
+
+  At the conclusion of my UROP with Prof. Randall Davis in CSAIL,
+  which was over January of 2010, I wrote a paper detailing some of my
+  work.  The main thrust of the work was finding pitch contours in
+  the spoken form of mathematical expressions.
+
+  \begin{abstract}
+    This paper presents elements to a possible symmetric multimodal
+    user interface for manipulating mathematical expressions.  We will
+    discuss multimodal user interfaces, what subset of mathematics is
+    tractable, previous work in this area, novel ideas to progress
+    such multimodal interfaces, and a direction for future work.
+  \end{abstract}
+  
+  Download the paper: \file[(PDF)]{towards_mmimm.pdf}
+
+  Download the source code: \file[avg-img.py]{mmimm/avg-img.py}\quad
+  \file[conv.lisp]{mmimm/conv.lisp}
+
+  Here is an example of the output of \texttt{conv.lisp} using MBROLA
+  voices:
+  \begin{itemize}
+  \item ``$2x+b$'' \file[(WAV)]{mmimm_2xpb.wav}
+  \item ``$2x+2+2$'' \file[(WAV)]{mmimm_addtest.wav}
+  \item ``$(x+1)(a+2)$'' \file[(WAV)]{mmimm_x1ta2.wav}
+  \item ``$1/2+x+1/y+a/b$'' \file[(WAV)]{mmimm_1hx.wav}
+  \end{itemize}
+
+  Here is an example of the pitch contour of someone uttering
+  ``$a(x^2+2)$.''  \file[(WAV)]{mmimm_5alp2.wav}
+
+\end{page}
+
+\begin{page}{d-gebra.html}
+  \label{page_d-gebra}
+  \title{A Non-Trivial Group-Theoretic Algebraic Manipulation Engine
+    Toolkit Thing}
+  \modified{8 May 2009}
+
+  I cowrote this paper with Scott Kovach and Sagar Indurkhya for 6.945
+  (Adventures in Advanced Symbolic Programming) taught by Prof. Gerald
+  Sussman.  We had lofty goals for this system, and we didn't get very
+  far.  Probably the most important part of the system, symbolically,
+  was the idea of ``solution pipes,'' which let multiple ways of
+  solving a problem occur simultaneously.  The idea being that the
+  faster one will return a value, aborting the rest of the
+  computation.  This is used if it's unknown which computation will be
+  fastest beforehand.
+
+  \begin{abstract}
+    We developed a framework to allow for deep group-theoretical
+    manipulations.  This paper will describe the design ideas and
+    capabilities of our system.
+  \end{abstract}
+
+  Download the paper: \file[(PDF)]{d-gebra.pdf}
+  
+  Download the code: \file[(ZIP)]{d-gebra-code.zip}
+
+\end{page}
+
+\begin{page}{trinary_groups.html}
+  \label{page_paper_trinary_groups}
+  \title{An Introduction to Commutative Trinary Groups}
+  \modified{23 July 2010}
+  
+  This paper is an introduction to the notion of a trinary group: a
+  set with a trinary operation.  The paper was hastily written for my
+  UROP over the summer of 2010 to put together some of their
+  properties so that I could perhaps use the ideas for my research
+  (see \ref{page_quad_iter_graphs}).
+
+  \begin{abstract}
+    In this document, we will define the notion of a commutative
+    trinary group, which is group-like algebraic object with an
+    associated trinary operation, show basic properties of these
+    objects, and determine the trinary subgroups of $\F_p^*$ useful
+    for understanding the basic structure of quadratic residue
+    graphs. We will only talk about trinary groups which are
+    commutative 1) because of the difficulties inherent in
+    non-commutative algebra and 2) because the motivation in studying
+    trinary groups is to understand quadratic residues in $\F_p^*$.
+  \end{abstract}
+
+  Download the paper: \file[(PDF)]{trinary_groups.pdf}
+\end{page}

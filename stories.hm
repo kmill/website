@@ -1,0 +1,29 @@
+% stories are included from here
+
+% for separating sections of a story.
+\def{twiddle}{}{\begin{center}-~-\end{center}}
+
+\setoutputdir{stories}
+
+\addbreadcrumb{page_stories}
+
+\begin{page}{stories.html}
+  \label{page_stories}
+  \title{Stories}
+  \modified{26 Feb 2011}
+
+  Here are some stories I've written
+  \begin{itemize}
+  \item \ref{page_muffins}
+  \item \ref{page_carrots}
+  \item \ref{page_wrath_tuesday}
+  \item \ref{page_flargipades}
+  \item \ref{page_paradise_lost_monologue}
+  \end{itemize}
+\end{page}
+
+\include{stories/muffins.hm}
+\include{stories/carrots.hm}
+\include{stories/tuesday.hm}
+\include{stories/flargipades.hm}
+\include{stories/paradise_lost_monologue.hm}

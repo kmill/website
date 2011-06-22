@@ -1,0 +1,150 @@
+body {
+/*    background-color: #def; */
+    background-color: #BFCFFF;
+    padding: 0;
+}
+
+div.breadcrumbs {
+    margin: 0;
+    padding: 1pt;
+    padding-left: 0.75em;
+/*    background-color: #ddf; */
+/*    background-color: #809FFF; */
+    background-color: #6078BF;
+    font-size: 10pt;
+    font-family: "Geneva", "Tahoma", sans-serif;
+    color: #fff;
+}
+
+div.breadcrumbs a {
+   color: #E6ECFF;
+}
+
+div.breadcrumbs a:visited {
+   color: #E6ECFF;
+}
+
+div.breadcrumbs a:hover {
+   color: #eef;
+   text-decoration: underline;
+}
+
+div.main {
+    margin: 0;
+    margin-left: 1em;
+    margin-right: 1em;
+    padding: 0;
+    background-color: #fff;
+    width: 48em;
+    font-size: 12pt;
+/*    line-height: 1.5em;*/
+}
+
+div.content {
+    padding: 0.0em 1.5em 0.5em 1.5em;
+}
+
+div.content tt {
+    font-size: 11pt;
+}
+
+div.content pre {
+    font-size: 11pt;
+}
+
+div.footer {
+    margin: 0;
+    padding: 0.75em;
+    padding-left: 0.75em;
+/*    background-color: #def; */
+    background-color: #BFCFFF;
+    font-size: 10pt;
+    font-family: "Geneva", "Tahoma", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Helvetica", "Arial", sans-serif;
+    color: #002;
+}
+
+div.content h1 {
+    font-size: 22pt;
+    margin-top: 0.5em;
+    padding-top: 0;
+    margin-bottom: 0.5em;
+}
+
+.tabular {
+    margin-bottom: 1em;
+}
+
+.tabular td {
+    border: 1px none #000;
+    padding: 0.2em 0.7em 0.1em 0.6em;
+}
+
+div.content ul {
+    padding-left: 2em;
+}
+
+div.content ol {
+    padding-left: 2em;
+}
+
+sup {
+    padding-left: 0.22em;
+}
+
+.figure_l {
+    float: left;
+    margin-right: 0.5em;
+}
+
+.figure_r {
+    float: right;
+    margin-left: 0.5em;
+}
+
+.figure_c {
+    float: center;
+}
+
+.figure_ {
+    
+}
+
+.figure div.caption {
+    padding-top: 0.3em;
+}
+
+a {
+    text-decoration: none;
+    color: #00D;
+}
+
+a:visited {
+    color: #66C;
+}
+
+a:hover {
+    color: #66f;
+    text-decoration: underline;
+}
+
+img {
+    border: none;
+}
+
+div.abstract {
+    margin-left: 5em;
+    margin-right: 5em;
+}
+
+div.abstract .abstractcaption {
+    text-align: center;
+    font-weight: bold;
+}
+
+span.framebox {
+    border: 1px solid #000;
+}

@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+  <HEAD>
+    <TITLE>\var{pagetitle}</TITLE>
+    \var{css}
+  </HEAD>
+  <BODY>
+    <DIV CLASS="main">
+      <DIV CLASS="breadcrumbs">
+	\var{breadcrumbs}
+      </DIV>
+      <DIV CLASS="content">
+	<H1>\var{pagetitle}</H1>
+	\var{pagecontent}
+      </DIV>
+      <DIV CLASS="footer">
+	\textit{Modified \var{pagemodified}}<BR>
+	\copyright 2011 Kyle Miller<BR>
+      </DIV>
+    </DIV>
+  </BODY>
+</HTML>

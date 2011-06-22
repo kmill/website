@@ -1,0 +1,2 @@
+#!/bin/bash
+~/Projects/htmacros/runhm.py main.hm ~/Sites/site/main/

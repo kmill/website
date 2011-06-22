@@ -1,0 +1,38 @@
+% htmacros.hm
+% A description of the software which built this website
+
+\addbreadcrumb{page_htmacros}
+
+\begin{page}{htmacros.html}
+  \label{page_htmacros}
+  \title{htmacros}
+  \modified{22 June 2011}
+
+  Since I despise having to write HTML, but I want to maintain my
+  website, I decided it would be best to write my own markup language
+  for constructing websites.  I had the following criteria for its
+  design:
+  \begin{itemize}
+  \item that it resemble LaTeX, so that I can use AUCTeX in Emacs to
+    edit my website;
+  \item that it have good support for label-based links between pages,
+    so that I do not have to fix broken links due to moving files for
+    pages around;
+  \item that I may put multiple pages in a single file, because some
+    pages are too small to merit their own file;
+  \item and that it maintain the output directory for me, because I
+    don't want to have to manage the resulting files.
+  \end{itemize}
+
+  The result is htmacros, the ``HyperText Macros,'' since the language
+  is roughly a macro-expansion language (but uses a model somewhat
+  different from TeX).
+
+  The source code is available on
+  \link[GitHub]{http://github.com/kmill/htmacros}.
+
+  The compiled documentation is \ref{htmacros_doc_index}.
+  
+\end{page}
+
+\include{/Users/kyle/Projects/htmacros/doc/doc_content.hm}

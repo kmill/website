@@ -1,0 +1,11 @@
+% my own math notation
+
+\def{C}{}{\math{\mathbf{C}}}
+\def{R}{}{\math{\mathbf{R}}}
+\def{Z}{}{\math{\mathbf{Z}}}
+\def{F}{}{\math{\mathbf{F}}}
+\def{abs}{v}{\math{|\,\var{v}\,|}}
+\def{pmod}{n}{\math{\ (\mathrm{mod}\ \var{n})}}
+\def{ell}{}{\mathit{l}}
+\def{frac}{num,denom}{\math{(\var{num})/(\var{denom})}}
+
