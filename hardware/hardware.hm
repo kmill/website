@@ -1,0 +1,53 @@
+% hardware.hm
+% devices and such
+
+\setoutputdir{hardware}
+\addbreadcrumb{page_hardware}
+
+\begin{page}{hardware.html}
+  \label{page_hardware}
+  \title{Hardware}
+  \modified{22 December 2011}
+
+  This page has various things which one could consider existing in
+  the physical world (as opposed to \ref{page_software}).
+
+  \section{CARDIAC}
+  \label{sec:cardiac}
+
+  The CARDboard Illustrative Aid to Computation was a cardboard
+  computer created by Bell Labs to teach students the basics of
+  computers. The computer doesn't actually do arithmetic for you but
+  instead leads you around a flowchart to keep track of the state of a
+  loaded program. There is more information about this on
+  \link[Wikipedia]{http://en.wikipedia.org/wiki/Cardiac_-_cardboard_illustrative_aid_to_computation}.
+
+  I made my own version of it from the few pictures I could find on
+  the Internet in 2005. It is fairly easy to build, with the main
+  difficulty being cutting rectangles out of the center of the paper.
+  I would recommend printing the sheets on card stock for durability
+  (I think I used 110 lbs.).
+
+  Here are PDF files to print and assemble:
+  \begin{tabular}{lll}
+    \thumbnail{cardiac/cardiacalu.pdf}
+    & \thumbnail{cardiac/cardiacmemory.pdf}
+    & \thumbnail{cardiac/cardiacslides.pdf} \\
+    \file[Arithmetic logic unit]{cardiac/cardiacalu.pdf}
+    & \file[System memory]{cardiac/cardiacmemory.pdf}
+    & \file[Slides]{cardiac/cardiacslides.pdf}
+  \end{tabular}
+
+  A few years after creating my own CARDIAC, someone sent me scans of
+  an actual CARDIAC along with the guidebook!  I'm posting these here for
+  posterity.
+  \begin{itemize}
+  \item \file[Assembly instructions and scans]{cardiac/CARDIAC_scans.pdf}
+  \item \file[Guidebook]{cardiac/CARDIAC_manual.pdf}
+  \end{itemize}
+
+  Surprisingly, it looks like you can still buy an original CARDIAC,
+  for instance at
+  \link[Scientifics Online]{http://www.scientificsonline.com/cardiac-illustrated-computation-aid.html}.
+
+\end{page}

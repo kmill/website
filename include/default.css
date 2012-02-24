@@ -45,11 +45,14 @@ div.content {
 }
 
 div.content tt {
-    font-size: 11pt;
+    font-size: 10pt;
 }
 
 div.content pre {
-    font-size: 11pt;
+    font-size: 10pt;
+/*    margin-left: 0.5em;*/
+    background: #eee;
+    padding: 0.1em 0.2em 0.1em 0.2em;
 }
 
 div.footer {
@@ -123,7 +126,7 @@ a {
 }
 
 a:visited {
-    color: #66C;
+    color: #55C;
 }
 
 a:hover {
@@ -147,4 +150,38 @@ div.abstract .abstractcaption {
 
 span.framebox {
     border: 1px solid #000;
+}
+
+table.mathfrac {
+    display: -moz-inline-box;
+    display: inline-table;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+table.mathfrac td {
+    text-align: center;
+}
+
+tr.mathfracnum td {
+    border-width: 0 0 1px 0;
+    border-color: #000;
+    border-style: solid;
+}
+
+table.mathmatrix {
+    display: -moz-inline-box;
+    display: inline-table;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+span.mathleftdelim, span.mathrightdelim {
+    font-size: 250%;
+    vertical-align: middle;
+}
+
+span.mathbigleftdelim, span.mathbigrightdelim {
+    font-size: 400%;
+    vertical-align: middle;
 }

@@ -1,0 +1,417 @@
+% programming.hm
+% programming fun
+
+\setoutputdir{programming}
+\addbreadcrumb{page_programming}
+
+\begin{page}{programming.html}
+  \label{page_programming}
+  \title{Programming}
+  \modified{22 December 2011}
+
+  This is an index of programming-related activities.  Related is
+  \ref{page_software}, but that has more of a focus of large-scale
+  projects as opposed to perhaps smaller toys.
+
+  \begin{description}
+  \item[\ref{page_haskell}] Some Haskell-related things.
+  \end{description}
+
+\end{page}
+
+\begin{page}{haskell.html}
+  \label{page_haskell}
+  \title{Haskell}
+  \modified{22 December 2011}
+
+  \section{Yet Another Monad Guide}
+  \label{sec:yet-another-monad}
+
+  I was tired of seeing all these guides to understanding monads on
+  the Internet, so I wrote another (mainly because I helped teach a
+  class on Haskell and needed some materials).  There will be no
+  presents, no monsters, no cookies, but instead some motivating
+  examples and the abstraction which relates them all: the monad type.
+  You can also download \file{monads.hs} to run it directly in
+  \texttt{ghci}.  Then, you can run any of the example functions from
+  the interpreter (such as \texttt{ex2}).
+
+  On this page, \file{monads.hs} is modified to be more like literate
+  programming and has more explanation.  We start with some imports.
+
+\begin{verbatim}
+import IO -- (<-- we'll talk about this later)
+import Monad -- (<-- contains a function called 'guard')
+\end{verbatim}
+  Before we get into monads, let's first look at some problems we
+  might want to solve, and see if we can simplify what we're doing
+  (hint: it's going to involve discovering monads).
+
+  \subsection{Problem 1}
+  \label{sec:yamg-problem-1}
+  Let's say we want to tag data so we know where it came from (the
+  creator), but we also want to apply functions on the data, keeping
+  the provenance intact.
+
+  We can represent tagged data with the following type.
+\begin{verbatim}
+data TaggedDataType x = TaggedData { creator :: String, innerData :: x }
+                        deriving Show
+\end{verbatim}
+  So, if we want to create tagged data, we invoke the constructor:
+\begin{verbatim}
+ex1 = TaggedData "I made this." (2 + 3)
+\end{verbatim}
+
+  We can get the data out, too:
+\begin{verbatim}
+ex2 = do putStr "Stuff in ex1."
+         putStr (" creator=" ++ show (creator ex1))
+         putStrLn (" innerData=" ++ show (innerData ex1))
+\end{verbatim}
+
+  Now, let's say we want to make a function which takes an tagged
+  integer (which is of type \texttt{TaggedDataType Integer}) and adds
+  5 to it, while keeping creator the same.  We can do the following:
+\begin{verbatim}
+taggedAddFive :: TaggedDataType Integer -> TaggedDataType Integer
+taggedAddFive x = TaggedData ((creator x) ++ " Then added 5.") (5 + (innerData x))
+\end{verbatim}
+
+  For a more complicated example, let's say we want to make a function
+  which then doubles the tagged value after adding five to it
+\begin{verbatim}
+taggedAddFiveDoub :: TaggedDataType Integer -> TaggedDataType Integer
+taggedAddFiveDoub x = let x2 = taggedAddFive x
+                      in TaggedData ((creator x2) ++ " Then doubled.")
+                                    (2 * (innerData x2))
+\end{verbatim}
+
+  We can do better.  Let's make a new function, let's call it
+  \texttt{bindTagged} because it binds the inside of a
+  \texttt{TaggedDataType} to be an argument to a given function,
+  keeping the creators intact (it's like making ``pipework''):
+\begin{verbatim}
+bindTagged :: TaggedDataType x -> (x -> TaggedDataType y) -> TaggedDataType y
+taggedValue `bindTagged` f = let x2 = f (innerData taggedValue)
+                             in TaggedData ((creator taggedValue) ++ (creator x2))
+                                           (innerData x2)
+\end{verbatim}
+  We use back quotes (\verb|`|) so we can use \texttt{bindTagged} as
+  an operator, which is just notational convenience.
+
+  With this, we can rewrite our previous two functions as
+\begin{verbatim}
+taggedAddFive2 :: TaggedDataType Integer -> TaggedDataType Integer
+taggedAddFive2 x = x `bindTagged`
+                   (\v -> TaggedData " Then added 5." (v + 5))
+taggedAddFiveDoub2 x = (taggedAddFive2 x) `bindTagged`
+                       (\v -> TaggedData " Then doubled." (v * 2))
+\end{verbatim}
+  The benefit is here is that we do not have to explicitly deal with
+  concatenating the creator strings.  Not that bad, but we'll do
+  better later.
+
+  \subsection{Problem 2}
+  \label{sec:yamg-problem-2}
+
+  Let's say we are doing computations, but we might run into an error
+  and need to throw an exception.  For example, perhaps we have
+  associated lists of type [(Integer, String)] and we want to search
+  for a string given an integer.  We could try the following.
+\begin{verbatim}
+assocSearch :: Integer -> [(Integer, String)] -> String
+assocSearch key ((i,s):xs) = if key == i
+                             then s
+                             else assocSearch key xs
+\end{verbatim}
+  But what if key never appears?  We could return a sentinel such as
+  the empty string, but perhaps we want to have associated lists which
+  contain the empty string.
+
+  We can create a new datatype.  Let's call it Perhaps to reflect
+  the idea of perhaps having a value.
+\begin{verbatim}
+data Perhaps x = Yep x | Nope
+                 deriving Show
+\end{verbatim}
+  so if we are searching for \texttt{5}, and we find \verb|(5,"a")|,
+  we return \verb|Yep "a"|, otherwise \texttt{Nope}.
+\begin{verbatim}
+assocSearch2 :: Integer -> [(Integer, String)] -> Perhaps String
+assocSearch2 key ((i,s):xs) = if key == i
+                              then Yep s
+                              else assocSearch2 key xs
+assocSearch2 _ [] = Nope
+\end{verbatim}
+  We can use this as follows (the argument to \texttt{ex3} being an
+  integer).
+\begin{verbatim}
+ex3 k = let al = [(1,"a"), (2,"b"), (3,"c")]
+        in case (assocSearch2 k al) of
+             Nope -> "Didn't find that key"
+             Yep x -> "Found " ++ x
+-- ex3 1 ==> "Found a"
+-- ex3 5 ==> "Didn't find that key"
+\end{verbatim}
+
+  Let's say we also have a function which adds ``good'' to the end of
+  a string only if it's not an \texttt{a}, otherwise it's an error
+  (who knows---perhaps it could be useful).
+\begin{verbatim}
+not_a :: String -> Perhaps String
+not_a s | s == "a"   = Nope
+        | otherwise  = Yep (s ++ "good")
+\end{verbatim}
+
+  And, for whatever reason, we've decided it's necessary to take the
+  output of \texttt{assocSearch2} and run it through \verb|not_a|.
+\begin{verbatim}
+ex4 k = let al = [(1,"a"), (2,"b"), (3,"c")]
+        in case (assocSearch2 k al) of
+             Nope -> "Didn't find that key"
+             Yep x -> case (not_a x) of
+                        Nope -> "Boo. It was an a."
+                        Yep s -> "Found "++s
+-- ex4 2 => "Found bgood"
+-- ex4 1 => "Boo. It was an a."
+\end{verbatim}
+
+  But, this is still a bit ugly.  We have to keep nesting these case
+  statements!  Let's make a helper function called
+  \texttt{bindPerhaps} which binds the inside value of a
+  \texttt{Perhaps} to a function only if it is not a \texttt{Nope},
+  otherwise it just passes on \texttt{Nope}.
+\begin{verbatim}
+bindPerhaps :: Perhaps x -> (x -> Perhaps y) -> Perhaps y
+v `bindPerhaps` f = case v of
+                      Nope -> Nope
+                      Yep x -> f x
+\end{verbatim}
+
+  Then, we can rewrite \texttt{ex4} as \texttt{ex5}.
+\begin{verbatim}
+ex5 x = let al = [(1,"a"), (2,"b"), (3,"c")]
+            ret = (assocSearch2 x al) `bindPerhaps` not_a
+        in case ret of
+             Nope -> "Didn't find key, or we got an 'a'!"
+             Yep s -> "Found " ++ s
+-- ex5 2 => "Found bgood"
+-- ex5 10 => "Didn't find key, or we got an 'a'!"
+-- ex5 1 => "Didn't find key, or we got an 'a'!"
+\end{verbatim}
+  This lets us essentially compose the functions rather than have
+  nested \texttt{case} blocks.
+
+  \subsection{Problem 3}
+  \label{sec:yamg-problem-3}
+
+  Sometimes we want to handle multiple values from a function, such as
+  a square root (the positive and negative roots).  One way we can
+  handle this is by returning a list of all possibilities.
+
+\begin{verbatim}
+multiSqrt x | x > 0   = [ -(sqrt x), sqrt x ]
+            | x == 0  = [ 0 ]
+\end{verbatim}
+
+  Let's say we want to pass the output of this to a function
+  \texttt{f}.
+\begin{verbatim}
+ex6 = let f x = 5 + x
+      in map f (multiSqrt 4)
+\end{verbatim}
+  But, what if \texttt{f}, too, wants to use the \texttt{multiSqrt}
+  function?
+\begin{verbatim}
+ex7 = let f x = multiSqrt (10 + x)
+      in concat (map f (multiSqrt 4))
+\end{verbatim}
+  Again, we can do better.  Let's define \texttt{bindMulti} to take a
+  function and apply it to every element of a list, concatenating the
+  results.
+\begin{verbatim}
+bindMulti :: [x] -> (x -> [y]) -> [y]
+bindMulti vals f = concat (map f vals)
+\end{verbatim}
+  With this we may rewrite \texttt{ex7} as
+\begin{verbatim}
+ex8 = let f x = multiSqrt (10 + x)
+      in (multiSqrt 4) `bindMulti` f
+\end{verbatim}
+  So, we only have to write \verb|`bindMulti`| instead of using both
+  \texttt{concat} and \texttt{map}.
+
+  \subsection{Did somebody say monads?}
+  \label{sec:yamg-did-somebody-say}
+  
+  Let's look at the type signatures of our bind operators and see if
+  we notice a pattern.
+\begin{verbatim}
+bindTagged :: TaggedDataType x -> (x -> TaggedDataType y) -> TaggedDataType y
+bindPerhaps :: Perhaps x -> (x -> Perhaps y) -> Perhaps y
+bindMulti :: [x] -> (x -> [y]) -> [y]
+\end{verbatim}
+  They are all of type \verb|M x -> (x -> M y) -> M y|, where
+  \texttt{M} is some type constructor! (Remember that \texttt{[x]} is
+  shorthand for \texttt{[] x}).
+
+  Here's the secret: a monad is just something which has such a
+  binding operator with the above type, and one other thing we haven't
+  talked directly about which is something which converts a value into
+  such a monad, hence having type \verb|x -> M x|.  We call such an
+  operator \texttt{return}.  For example, we could write
+\begin{verbatim}
+returnTagged x = TaggedData "" x
+returnPerhaps x = Yep x
+returnMulti x = [x]
+\end{verbatim}
+
+  Note that \verb|((returnM a) `bindM` f)| is the same as \verb|f a|.
+
+  To abstract this behavior, Haskell has a Monad class.
+\begin{verbatim}
+class Monad m where
+    (>>=)  ...
+    return ...
+\end{verbatim}
+
+  So, let's turn our objects into Monads.
+\begin{verbatim}
+instance Monad TaggedDataType where
+    (>>=)  = bindTagged
+    return = returnTagged
+
+instance Monad Perhaps where
+    (>>=)  = bindPerhaps
+    return = returnPerhaps
+\end{verbatim}
+
+  In fact, there already is a monad with the functionality of Perhaps,
+  and that's
+\begin{verbatim}
+data Maybe x = Just x | Nothing
+\end{verbatim}
+  And, it turns out lists are already instances of class Monad with
+  the same implementation we gave for \texttt{bindMulti} and
+  \texttt{returnMulti}.
+
+  Haskell provides a nice syntax to aid in writing expressions using
+  monads.  Instead of writing
+\begin{verbatim}
+taggedAddFive3 x = x >>= (\v -> TaggedData " Then added 5." (v + 5))
+taggedAddFiveDoub3 x = (taggedAddFive3 x) >>= (\v -> TaggedData " Then doubled." (v * 2))
+\end{verbatim}
+  which one invokes with an expression like \texttt{taggedAddFiveDoub3
+    (return 2)}, we can write, as shorthand,
+\begin{verbatim}
+taggedAddFiveDoub4 x = do v <- taggedAddFive3 x
+                          TaggedData " Then doubled." (v*2)
+\end{verbatim}
+  the last expression in a \texttt{do} statement is the return value,
+  which must be of the same type as the first expression.
+
+  Likewise, instead of writing
+\begin{verbatim}
+ex9 x = (assocSearch2 x al) >>= not_a
+    where al = [(1,"a"), (2,"b"), (3,"c")]
+\end{verbatim}
+  you could instead choose to name intermediate expressions in a
+  \texttt{do} statement
+\begin{verbatim}
+ex10 x = do search <- assocSearch2 x al
+            ret <- not_a search
+            return ret
+    where al = [(1,"a"), (2,"b"), (3,"c")]
+\end{verbatim}
+
+  and,
+\begin{verbatim}
+ex11 = let f x = multiSqrt (10 + x)
+       in do v1 <- (multiSqrt 4)
+             f v1
+\end{verbatim}
+
+  For an awesome example of the list monad letting you deal with
+  multiple values,
+\begin{verbatim}
+pyth_triples = do x <- [1..100]
+                  y <- [1..100]
+                  z <- [1..1000]
+                  guard (x^2 + y^2 == z^2)  -- 'guard' requires the Monad module
+                  return (x,y,z)
+\end{verbatim}
+  For the list monad, one can equivalently use list comprehension
+  notation.
+\begin{verbatim}
+pyth_triples2 = [(x,y,z) | x <- [1..100], y <- [1..100], z <- [1..1000], x^2 + y^2 == z^2]
+\end{verbatim}
+
+  \subsection{IO}
+  \label{sec:yamg-io}
+
+  One of the things which Monads let us do is order expressions.
+  Since \texttt{IO} has side effects, the order in which \texttt{IO}
+  operations execute needs to be explicitly ordered.  The \texttt{IO}
+  monad keeps track of the state of \texttt{IO} devices.
+  Incidentally, IO was the motivation for monads in Haskell in the
+  first place.
+
+  One constraint with using \texttt{IO} is that, if a value of type
+  \texttt{X} was calculated when using \texttt{IO}, it must in the end
+  be of type \texttt{IO X}.  A way to think of this is that, for
+  example, \texttt{IO String} is an IO-derived string.  It's not a
+  normal string, but an IO string.
+
+  Let's make a function which asks for your name, prints it, and
+  returns it.
+\begin{verbatim}
+getName :: IO String
+getName = do putStr "What is your name? "
+             x <- getLine
+             putStrLn ("Hello, " ++ x)
+             return x
+\end{verbatim}
+
+  Then, executing \texttt{getName} in \texttt{ghci}:
+\begin{verbatim}
+*Main> getName
+What is your name? Kyle
+Hello, Kyle
+"Kyle"
+\end{verbatim}
+  The final line is the return value.  \texttt{ghci} can handle values
+  of type \texttt{IO String} since all interactions are being done
+  from within the \texttt{IO} monad.
+
+  Let's say you want to make a function which then takes someone's
+  name, and tells a little story based on the argument. This is an
+  error:
+\begin{verbatim}
+doStory x = (getName) ++ " walked to the store to get some " ++ x ++ "."
+\end{verbatim}
+  since getName returns an \texttt{IO String}, not a \texttt{String}.
+  Instead, one would write
+\begin{verbatim}
+doStory x = do name <- getName
+               return $ name ++ " walked to the store to get some " ++ x ++ "."
+\end{verbatim}
+  since bind takes the \texttt{IO String} from \texttt{getName} and
+  puts the \texttt{String} in \texttt{name}. Running this,
+\begin{verbatim}
+*Main> doStory "OJ"
+What is your name? Kyle
+Hello, Kyle
+"Kyle walked to the store to get some OJ."
+\end{verbatim}
+  note that the type of the function \texttt{doStory} is
+  \verb|String -> IO String|.
+
+  An aside: when dealing with IO on the terminal, the output to stdout
+  may not have caught up when there's a request for stdin (due to the
+  output buffer).  One solution is to call \texttt{hFlush stdout}.
+  Otherwise, you may choose to alter the buffering for stdout by
+  writing \texttt{hSetBuffering stdout NoBuffering}.  Of course, these
+  return a value of type \texttt{IO ()} (the empty tuple representing
+  that the function doesn't have any particular return value).
+\end{page}

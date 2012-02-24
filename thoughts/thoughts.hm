@@ -41,6 +41,14 @@
     infinity and back.  Although, this may not be the best way to
     think of functions like this.
 
+    \begin{figure}[r]
+      \begin{center}
+        \file[\includegraphics[width=200]{inf_sin.png}]{inf_sin.png}
+      \end{center}
+      \caption{Graph of $y=\frac{1}{5}\sin x/5$.}
+      \label{fig_infsin}
+    \end{figure}
+
     The way I chose to do this mapping involved looking at the great
     circle between the zero and infinite points, which are on opposite
     ends of a diameter.  Then, to plot a single point on the sphere,
@@ -56,101 +64,77 @@
     angle is the image of the complete transformation from the
     cartesian plane.
 
-    So, mathematically, let $f(\mathrm{x})$ be a function
-    $\R^2\to\R^2$ that maps all real numbers to the
-    region $[-\pi,\pi]\times[-\pi,\pi]$.  For instance,
+    So, let $f(\mathbf{x})$ be a function $\R^2\to\R^2$ that maps all
+    points of the plane to the region $[-\pi,\pi]\times[-\pi,\pi]$.
+    For instance,
     \begin{equation*}
-      f(\mathrm{x}) =
-      \begin{pmatrix}
+      f(\mathbf{x}) = \left(
+      \begin{matrix}
         2\tan^{-1}{x_1} \\
         2\tan^{-1}{x_2}
-      \end{pmatrix}
+      \end{matrix} \right)
     \end{equation*}
 
-% <p>Then, let $$g(\mathrm{x})$$ be a function $$\mathbb{R}^2\rightarrow\mathbb{R}^3$$
-% that maps the region [-&pi;,&pi;] x [-&pi;,&pi;] to the surface of a sphere
-% centered at the origin with a radius of one.  After a bit of math,</p>
-% <p>
-% $$g(\mathrm{x}) = \frac{1}{2}
-% \begin{bmatrix}
-% (\cos{x_1}+1)\cdot\cos{x_2}+\cos{x_1}-1 \\
-% \sin{x_1}\cos{x_2}+\sin{x_1} \\
-% \sin{x_2}\cdot\sqrt{2\cos{x_1}+2}
-% \end{bmatrix}$$</p>
-% <p>So, the mapping of the complete coordinate plain onto a sphere is a function
-% $$\mathbb{R}^2\rightarrow\mathbb{R}^3$$,</p>
-% <p>$$h(\mathrm{x})=g(f(\mathrm{x}))$$</p>
-% <p>For the purposes of displaying a graphic of these plots, a simple linear
-% transformation can be used from $$\mathbb{R}^3\rightarrow\mathbb{R}^2$$ that
-% projects vectors onto a plane while scaling to get a more pleasing image.  It
-% results in the z-axis pointing up, the x-axis to the left, and the y-axis to the
-% right, maintaining the right hand rule.</p>
-% <p>$$\boldmath{T}\mathrm{x}=
-% \begin{bmatrix}
-% -\frac{2}{5} & 1 & 0 \\
-% -\frac{1}{2} & -\frac{1}{6} & 1
-% \end{bmatrix}
-% \mathrm{x}
-% $$</p>
+    Then, let $g(\mathbf{x})$ be a function $\R^2\to\R^3$ that maps
+    the region $[-\pi,\pi]\times [-\pi,\pi]$ to the surface of a
+    sphere centered at the origin with a radius of one.  After a bit
+    of computation,
+    \begin{equation*}
+      g(\mathbf{x}) = \frac{1}{2} \bigleft(
+        \begin{matrix}
+          (\cos{x_1}+1)\cdot\cos{x_2}+\cos{x_1}-1 \\
+          \sin{x_1}\cdot\cos{x_2}+\sin{x_1} \\
+          \sin{x_2}\cdot(2\cos{x_1}+2)^{1/2}
+        \end{matrix}
+        \bigright)
+    \end{equation*}
 
-% <p>This transformation is then applied to $$h(\mathrm{x})$$ to yield something
-% similar to one of the plots on this page.</p>
+    So, the mapping of the coordinate plane onto a sphere is a
+    function $\R^2\to\R^3$ defined by
+    $h(\mathbf{x})=g(f(\mathbf{x}))$.
 
-% <p><a href="/images/graphs/inf_sin.png">
-% 	<img src="/images/graphs/inf_sin_thumb.png" title="Graph of f(x)=1/5 sin(x/5)" align="left"/></a>
-% To the left is a graph of the function $$f(x)=\frac{1}{5}\sin(\frac{1}{5}x)$$</p>
+    \begin{figure}[r]
+      \begin{center}
+        \file[\includegraphics[width=200]{inf_equality.png}]{inf_sin.png}
+      \end{center}
+      \caption{Graph of $y=x$.}
+      \label{fig_infequality}
+    \end{figure}
 
-% <p><a href="/images/graphs/inf_equality.png">
-% 	<img src="/images/graphs/inf_equality_thumb.png" title="Graph of f(x)=x" align="right"/></a>
-% This transformation currently distorts functions quite a bit near infinity
-% since it is asymmetric with respect to the images of the x- and y- axis.  A good example
-% of the problems inherent in the transformation can be seen in an examination
-% of the function $$f(x)=x$$ which one would expect to be a great circle with an
-% equal angle between the two axis.  But, it gets a strange little curve near infinity,
-% as the graph to the right illustrates.  I have an idea for how to make a better
-% transformation involving the intersection of two great circles that are perpendicular
-% to the axis on the surface of the sphere.</p>
-%%%
-% <p>So, mathematically, let <img src="/math.php/836df74718242319625844afd89a1954.png" alt="f(\mathrm{x})" title="f(\mathrm{x})" align="absmiddle" /> be a function
-% <img src="/math.php/bd38bfd23e6ccd232b0907d9af8fbf9b.png" alt="\mathbb{R}^2\rightarrow\mathbb{R}^2" title="\mathbb{R}^2\rightarrow\mathbb{R}^2" align="absmiddle" /> that maps all real numbers to the
-% region [-&pi;,&pi;] x [-&pi;,&pi;].</p>
-% <p>
-% <img src="/math.php/6cac74f1353207d714ffbc459e224a5a.png" alt="f(\mathrm{x}) =&#10;\begin{bmatrix}&#10;2\tan^{-1}{x_1} \\&#10;2\tan^{-1}{x_2}&#10;\end{bmatrix}" title="f(\mathrm{x}) =&#10;\begin{bmatrix}&#10;2\tan^{-1}{x_1} \\&#10;2\tan^{-1}{x_2}&#10;\end{bmatrix}" align="absmiddle" />
-% </p>
-% <p>Then, let <img src="/math.php/cda303b2c38f161a685c5d174460ddb4.png" alt="g(\mathrm{x})" title="g(\mathrm{x})" align="absmiddle" /> be a function <img src="/math.php/1a7242b4da910b7746870f2615d6dd85.png" alt="\mathbb{R}^2\rightarrow\mathbb{R}^3" title="\mathbb{R}^2\rightarrow\mathbb{R}^3" align="absmiddle" />
-% that maps the region [-&pi;,&pi;] x [-&pi;,&pi;] to the surface of a sphere
-% centered at the origin with a radius of one.  After a bit of math,</p>
-% <p>
-% <img src="/math.php/96c3f56d71080ff8a47418be8636db4a.png" alt="g(\mathrm{x}) = \frac{1}{2}&#10;\begin{bmatrix}&#10;(\cos{x_1}+1)\cdot\cos{x_2}+\cos{x_1}-1 \\&#10;\sin{x_1}\cos{x_2}+\sin{x_1} \\&#10;\sin{x_2}\cdot\sqrt{2\cos{x_1}+2}&#10;\end{bmatrix}" title="g(\mathrm{x}) = \frac{1}{2}&#10;\begin{bmatrix}&#10;(\cos{x_1}+1)\cdot\cos{x_2}+\cos{x_1}-1 \\&#10;\sin{x_1}\cos{x_2}+\sin{x_1} \\&#10;\sin{x_2}\cdot\sqrt{2\cos{x_1}+2}&#10;\end{bmatrix}" align="absmiddle" /></p>
-% <p>So, the mapping of the complete coordinate plain onto a sphere is a function
-% <img src="/math.php/1a7242b4da910b7746870f2615d6dd85.png" alt="\mathbb{R}^2\rightarrow\mathbb{R}^3" title="\mathbb{R}^2\rightarrow\mathbb{R}^3" align="absmiddle" />,</p>
-% <p><img src="/math.php/c103e361ff3c19620e8dee8163be949a.png" alt="h(\mathrm{x})=g(f(\mathrm{x}))" title="h(\mathrm{x})=g(f(\mathrm{x}))" align="absmiddle" /></p>
-% <p>For the purposes of displaying a graphic of these plots, a simple linear
-% transformation can be used from <img src="/math.php/fc867e8709e1b23fc7b6eaef7c423147.png" alt="\mathbb{R}^3\rightarrow\mathbb{R}^2" title="\mathbb{R}^3\rightarrow\mathbb{R}^2" align="absmiddle" /> that
-% projects vectors onto a plane while scaling to get a more pleasing image.  It
-% results in the z-axis pointing up, the x-axis to the left, and the y-axis to the
-% right, maintaining the right hand rule.</p>
-% <p><img src="/math.php/72d1d81b6107254e307450da53ab42da.png" alt="\boldmath{T}\mathrm{x}=&#10;\begin{bmatrix}&#10;-\frac{2}{5} &amp; 1 &amp; 0 \\&#10;-\frac{1}{2} &amp; -\frac{1}{6} &amp; 1&#10;\end{bmatrix}&#10;\mathrm{x}&#10;" title="\boldmath{T}\mathrm{x}=&#10;\begin{bmatrix}&#10;-\frac{2}{5} &amp; 1 &amp; 0 \\&#10;-\frac{1}{2} &amp; -\frac{1}{6} &amp; 1&#10;\end{bmatrix}&#10;\mathrm{x}&#10;" align="absmiddle" /></p>
 
-% <p>This transformation is then applied to <img src="/math.php/a3eed2ce21e03676722a15362b742765.png" alt="h(\mathrm{x})" title="h(\mathrm{x})" align="absmiddle" /> to yield something
-% similar to one of the plots on this page.</p>
+    For the purposes of displaying a graphic of these plots, a linear
+    transformation can be used from $\R^3$ to $\R^2$ that projects
+    vectors onto a plane while scaling to get a more pleasing image.
+    It results in the $z$-axis pointing up, the $x$-axis to the left,
+    and the $y$-axis to the right, maintaining the right hand
+    rule. This was constructed by an ad-hoc methad.
+    \begin{equation*}
+      T\mathbf{x}=
+      \left(
+      \begin{matrix}
+        -2/5 & 1 & 0\\
+        -1/2 & -1/6 & 1
+      \end{matrix}
+      \right) \mathbf{x}
+    \end{equation*}
 
-% <p><a href="/images/graphs/inf_sin.png">
-% 	<img src="/images/graphs/inf_sin_thumb.png" title="Graph of f(x)=1/5 sin(x/5)" align="left"/></a>
-% To the left is a graph of the function <img src="/math.php/4b5cca1197a2ab3a19ceef0f8f9d9f4f.png" alt="f(x)=\frac{1}{5}\sin(\frac{1}{5}x)" title="f(x)=\frac{1}{5}\sin(\frac{1}{5}x)" align="absmiddle" /></p>
+    This transformation is then applied to $h(\mathbf{x})$ to yield
+    something similar to one of the plots on this page.
 
-% <p><a href="/images/graphs/inf_equality.png">
-% 	<img src="/images/graphs/inf_equality_thumb.png" title="Graph of f(x)=x" align="right"/></a>
-% This transformation currently distorts functions quite a bit near infinity
-% since it is asymmetric with respect to the images of the x- and y- axis.  A good example
-% of the problems inherent in the transformation can be seen in an examination
-% of the function <img src="/math.php/f8abf34599677984dfe91b4f300389f6.png" alt="f(x)=x" title="f(x)=x" align="absmiddle" /> which one would expect to be a great circle with an
-% equal angle between the two axis.  But, it gets a strange little curve near infinity,
-% as the graph to the right illustrates.  I have an idea for how to make a better
-% transformation involving the intersection of two great circles that are perpendicular
-% to the axis on the surface of the sphere.</p>
+    This transformation currently distorts functions quite a bit near
+    infinity since it is asymmetric with respect to the images of the
+    $x$- and $y$-axis.  A good example of the problems inherent in the
+    transformation can be seen in an examination of the function
+    $f(x)=x$ which one would expect to be a great circle with an equal
+    angle between the two axis.  But, it gets a strange little curve
+    near infinity, as Figure \ref{#fig_infequality} illustrates.
 
   \item[2007?]
+    While doodling, I found that a closed loop, under the right
+    circumstances, can be colored using only two colors.  In this case
+    I used white and gray.  Here are definitions and the theorem.  The
+    definitions are my own and may conflict with actual established
+    mathematical language.
     \begin{figure}[r]
       \label{curve_theorem}
       \begin{center}
@@ -158,20 +142,17 @@
       \end{center}
       \caption{Example of theorem}
     \end{figure}
-    While doodling, I found that a closed loop, under the right
-    circumstances, can be colored using only two colors.  In this case
-    I used white and gray.  Here are definitions and the theorem.  The
-    definitions are my own and may conflict with actual established
-    mathematical language.
+
     \begin{description}
     \item[\textit{Simple intersection}] a non-tangential intersection
       of exactly two curve segments.
     \item[\textit{Colored}] A set of regions is colored only if no two
-      adjoining regions have the same color.
+      adjacent regions have the same color.
     \item[\textbf{Theorem}] The regions enclosed by a smooth, simply
       intersecting, closed curve can be colored with at most two
       colors.
     \end{description}
+
     I have an idea for how to prove this by using a set of reduction
     rules to turn the curve into a bunch of circles (look at Figure
     \ref{#curve_theorem} and pretend each gray blob can be broken from

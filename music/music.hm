@@ -3,7 +3,7 @@
 \begin{page}{music_comps.html}
   \label{page_music_comps}
   \title{Music Compositions}
-  \modified{27 Feb 2011}
+  \modified{12 Sep 2011}
 
   One of the things I like to do is compose music.  While my main
   course of study is mathematics, I've also been studying music.  MIT
@@ -24,6 +24,17 @@
   order.  Music I've arranged is in the next section.
 
   \begin{description}
+  \item[\textbf{Sonata for String Quartet} (c. 10 min)] This was
+    written in 2011 for 21M.304, the final class in the harmony and
+    counterpoint series at MIT.  It is a sonata for string quartet
+    written in the tradition of Haydn, Mozart, and Beethoven.
+
+    Score: \file[PDF]{304sonata/score.pdf}\quad
+    Recording: \file[M4A]{304sonata/sonata.m4a}
+
+    You can also watch the sonata being peformed on
+    \link[YouTube]{http://youtu.be/SBziOFT2al4}.
+
   \item[\textbf{Piano Sonatina No. 2} (c. 8.5 min)] A piano sonatina
     in a somewhat classical style, completed January 2011.
 
@@ -47,6 +58,7 @@
     the theory of musical sets, not a musical kind of mathematical set
     theory).  The work consists of three movements.
 
+    Score: \file[PDF]{mst/mst.pdf} \quad
     Recording: \file[M4A]{mst/mst.m4a}
 
   \item[\textbf{Menuet and Trio} (for string quartet, c. 5.5 min.)]

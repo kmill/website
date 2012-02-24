@@ -1,0 +1,173 @@
+% software.hm
+% random software I've written
+
+\setoutputdir{software}
+\addbreadcrumb{page_software}
+
+\include{htmacros.hm}
+
+\begin{page}{software.html}
+  \label{page_software}
+  \title{Software}
+  \modified{3 July 2011}
+
+  This is some software I've worked on.
+
+  \section{htmacros}
+  \label{sec:htmacros}
+
+  The htmacros package is what I use to build this website.  It's a
+  LaTeX-like language which is designed to support structuring
+  multiple, interconnecting pages, as well as to support handling
+  media and images.  There's more information about this at the
+  \ref{page_htmacros} page.
+
+  \section{KyleWiki}
+  \label{sec:kylewiki}
+
+  Sometimes, when I can't come up with a clever name, I just take the
+  narcissistic route and name it after myself.  KyleWiki is a wiki
+  engine I worked on for over a year, starting August of 2005.  It was
+  written for PHP, MySQL, and Apache, and can be completely understood
+  by one person.  Some of its features include a user privilege
+  system, different kinds of page renderers, ability to insert math
+  and music markup.
+
+  It's possible to still get the code from the CVS repository at its
+  project page, \link{http://sourceforge.net/projects/kylewiki/}, but
+  I haven't maintained the software for years now.
+
+  It got a lot of use for whenever I needed some kind of collaborative
+  software.  It was fairly easy for me to set up, and I could add
+  features to support whatever collaboration was needed.  One of the
+  more extreme modifications was to integrate it with some forum
+  software.
+
+  There's still an older version of the software running at
+  \link{http://theblock.kylem.net/}, which was for a 10th grade
+  english and American history block class I was in back in 2005.
+
+  A test installation of the newest software is at
+  \link{http://kylem.net/~kyle/kylewiki3/}.
+
+  \section{Small projects}
+  \label{sec:small-projects}
+
+  These are just some small software projects that don't warrant a
+  full heading.
+
+
+  \section{Software ideas}
+  \label{sec:software-ideas}
+
+  These are things that I started to work on in some way, but never
+  finished.  Maybe someone else might be interested.
+
+  \subsection{DistMandel}
+  \label{sec:distmandel}
+
+  This was from 2007.
+
+  \begin{figure}[r]
+    \includegraphics{mandel_s_7_4.png}
+    \caption{From the Mandelbrot set}
+    \label{fig:mandelbrot_tile}
+  \end{figure}
+
+  The Mandelbrot set is what is called a divergent fractal in that
+  points are determined to be part of the set based upon whether a
+  corresponding series diverges or not. For the Mandelbrot set, a
+  function is iterated on every point of the complex plane, and if the
+  function does not diverge, it is part of the set. More specifically,
+  the iterated function is
+  \begin{equation*}
+    f(z) = z^2 + c,
+  \end{equation*}
+  where $z$ is the complex number input of the function, and $c$ is
+  the current point that is being tested. Since it is hard to
+  generally determine which points do not diverge with this iterative
+  function with certainty, especially near the boundaries of the set,
+  a common approach for computation is to stop iterating after a fixed
+  number of iterations, and if the output of the function did not
+  exceed a bailout value (i.e. $\abs{f(z)} < b$ for all iterations of
+  $f$) then the point is considered to be part of the set. This method
+  will never deny a point from being part of the set, but it does
+  include extra points near the boundary because of chaotic patterns.
+
+  A common way to color the set, which gives more information about
+  the behaviour near the boundaries since minute details may be lost,
+  is to assign colors for non-set points based upon the number of
+  iterations it took before it escaped and diverged. This is how the
+  snippet of the set in Figure \ref{#fig:mandelbrot_tile} was
+  rendered.
+
+  Drawing the Mandelbrot is what is called an embarassingly parallel
+  problem. This means that it is so easy to split the work of drawing
+  the set that it is truly embarassing. I'm working on a system that
+  splits the portions of the complex plane up to test into small
+  squares and sends them off to a small farm of computers which then
+  calculate which points are part of the set and return the data to
+  the server which combines it into a larger image. In preliminary
+  testing, the system has been faster than having a single computer
+  work on drawing a rather large $4096\times4096$ image (as linked to
+  through Figure \ref{#fig:mandelbrot_tile}).
+
+  If I Have Time\char{trade}, my plan is to store the results of the
+  grid of images drawn into a quadtree with different levels of
+  zooming to make something like Google Maps for the Mandelbrot
+  set. The next stages are to implement a quadtree data structure for
+  the images that isn't totally memory intensive, and then making the
+  user interface for sending out jobs to the computer grid.
+
+  \subsection{Infinite Whiteboard}
+  \label{sec:infinite-whiteboard}
+
+  I wrote this in August, 2007.  I stopped working on it because the
+  idea of having an infinite space unnerved me by making me think too
+  much about how it's so easy to lose things when there is too much to
+  see, and things can be too small to notice (like in our universe).
+
+  \begin{quote}
+    I thought the next step for wikis to really make them have
+    basically any kind of content and as much as is required would be
+    to have an infinitely zoomable interface that anybody can draw on
+    simultaneously. Links could be made by creating a lens to another
+    portion of the whiteboard, and the idea was to have anything
+    droppable onto the drawing area.
+
+    I got as far as making it zoomable by using the very nice Piccolo
+    library for Java. Squiggles can be drawn anywhere at any zoom
+    level. Although it's not quite infinitely large, it's effectively
+    infinite, as in there is no need to really reach the limits. It
+    would be nice to come up with a new API to get truly infinite
+    functionality, however.
+
+    I made a test jar file \file{kylewiki4.jar} that implements
+    squiggles. The rectangle button doesn't quite work. The left mouse
+    button uses the tool (Pointer pans the screen, squiggle draws
+    squiggles), and the right mouse button zooms when dragged left or
+    right. It is kind of fun to draw something like the solar system,
+    zoom into a planet and draw stuff, zoom in and draw a bit more
+    detail, and stop once at the atomic level, and then zoom out
+    slowly and watch things become larger and larger.
+  \end{quote}
+
+  \subsection{KyleCards}
+  \label{sec:kylecards}
+
+  Like KyleWiki, this is due to a narcissistic naming scheme.  I never
+  got far with this, other than drawing out what some user interfaces
+  should look like.  What severely limited progress was the fact that
+  my method of programming for the web was pure PHP and MySQL: I
+  wasn't even aware of frameworks back in 2006.
+
+  \begin{quote}
+    This is going to be a system that interfaces with
+    \link[Moodle]{http://moodle.org}, the open source course
+    management web application, that gives students the ability to
+    electronically manage the creation of a research paper with things
+    such as notecard making and information outlining. I'm still in
+    the stages where I'm settling on user and application interfaces.
+  \end{quote}
+
+\end{page}

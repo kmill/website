@@ -7,5 +7,5 @@
 \def{abs}{v}{\math{|\,\var{v}\,|}}
 \def{pmod}{n}{\math{\ (\mathrm{mod}\ \var{n})}}
 \def{ell}{}{\mathit{l}}
-\def{frac}{num,denom}{\math{(\var{num})/(\var{denom})}}
-
+%\def{frac}{num,denom}{\math{(\var{num})/(\var{denom})}}
+%\def{frac}{num,denom}{\math{\begin{matrix}\var{num}\\\hline\var{denom}\end{matrix}}}
