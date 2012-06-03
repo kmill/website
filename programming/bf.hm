@@ -1,0 +1,669 @@
+% bf.hm
+% brainf*ck!
+
+\begin{page}{bf_interp.html}
+  \label{page_bf_interp}
+  \title{Brainf*ck interpreter in x86-64 assembly}
+  \modified{2 June 2012}
+
+  Brainf*ck, if you didn't already know, is a fairly popular Turing
+  tarpit: it's a language which is powerful enough to compute anything
+  a general purpose computer can (that is, it's Turing-complete), but
+  it's also difficult to use because of how few features it supports
+  (that is, it's a tarpit).  The description comes from Alan Perlis in
+  his \emph{Epigrams on Programming}, ``Beware of the Turing tar-pit
+  in which everything is possible but nothing of interest is easy.''
+  \footnote{\link{http://www-pu.informatik.uni-tuebingen.de/users/klaeren/epigrams.html},
+    which is from SIGPLAN Notices Vol. 17, No. 9, September 1982,
+    pages 7 - 13.}  There's more information about the language at
+  \link{http://www.muppetlabs.com/~breadbox/bf/}, and even more about
+  esoteric programming languages at \link{http://esolangs.org/}.
+
+  What I'm going to do is give some background on Brainf*ck and then
+  proceed to show how one would implement a fairly fast interpreter
+  for it in x86-64 assembly without doing anything fancy.  This code
+  was written to be compiled on Mac OS X, but with very minor
+  modifications it can be compiled and run on 64-bit Linux as well.
+  The final assembly source is \file{bf.s}, and instructions to
+  assemble this are in the section \ref{#assembly}.
+
+  I did this because I wanted to see what it was like to implement
+  something fairly simple in x86-64 assembly, and I didn't feel like
+  doing anything particularly useful one afternoon at the end of May
+  2012.
+
+  \section{Brainf*ck specification}
+  \label{brainfck-spec}
+
+  This information can be found elsewhere, but I give it for
+  completeness.
+
+  Programs in Brainf*ck are written using only six characters, and the
+  program is executed using a very simple machine model.  The machine
+  has a large array of numbers along with a pointer into this array,
+  called the data pointer (the number to which the pointer is pointing
+  is called the ``current number'').  The program is stored separately
+  from this array of numbers, and programs have no access to program
+  data.  The machine executes each character one-at-a-time and
+  sequentially by the following table:
+  \begin{tabular}{l|l}
+    \verb|>| & Moves the data pointer right \\
+    \verb|<| & Moves the data pointer left \\
+    \verb|+| & Increments the current number \\
+    \verb|-| & Decrements the current number \\
+    \verb|.| & Outputs the current number, encoded in ASCII (so 65 emits an \texttt{A}) \\
+    \verb|,| & Inputs a number and replaces the current number with it, again in ASCII encoding \\
+    \verb|[| & If the current number is zero, then the normal execution flow is broken and the machine jumps forward to the character after the matching \verb|]| \\
+    \verb|]| & If the current number is not zero, then the normal execution flow is broken and the machine jumps backward to the character after the matching \verb|]| \\
+  \end{tabular}
+  It is invalid for a Brainf*ck program to have mismatched \verb|[|'s
+  and \verb|]|'s.  Also, if the control flow ever falls off the end of
+  the program, then that's considered to be an instruction to halt
+  execution.
+
+  The most complicated characters to define are definitely \verb|[|
+  and \verb|]|, but it's best to think of them together as the
+  definition for loops.  For instance, the code \verb|[->+<]| is a
+  loop which ends up setting the current number to zero while adding
+  it to the number immediately to its right.  This kind of construct
+  is useful for constructing numbers; notice that the only ways to
+  manipulate numbers are \verb|+| and \verb|-|, but no one wants to
+  write $n$ \verb|+|'s just to load $n$ into an array cell!  Let's say
+  we want to print out \texttt{A}.  What we can do, at the expense of
+  using an extra memory cell, is write
+  \verb|++++++[->++++++++++<]>+++++.|, which multiplies six by ten,
+  adds five to the result, and then prints it.
+
+  There are some details missing from this basic description of a
+  Brainf*ck machine.  What's left is to decide
+  \begin{enumerate}
+  \item what kind of numbers are in the array,
+  \item what size is the array,
+  \item what to do in the event the data pointer goes off one of the ends of the array, and
+  \item where the data pointer initially points to.
+  \end{enumerate}
+  It's common to let the numbers be 8-bit integers with overflow (so
+  $255+1=0$, and $0-1=255$), so this is what we'll choose for our
+  interpreter.  It's also common for the data array to have at least
+  30,000 cells, so we'll allocate 4 megabytes, just to be safe.  For
+  item 3, it's not clear what is the best way to handle the data
+  pointer going off the ends of the array.  One valid way to handle it
+  is to just say it's an error, or another way is to make the data
+  pointer wrap around the address space (making it circular).  We'll
+  do a third option, which is to make decrementing and incrementing
+  the data pointer have no effect when it's at the beginning and end
+  of the data array, respectively, which lets a Brainf*ck program
+  detect when the data pointer is at the bounds of the data space.
+  Finally, to what should the data pointer initially be pointing?
+  We're just going to say the left-most array element.  Why?
+  Convenience.  Or you could argue that this is the convention for
+  Turing machines in Sipser's book \emph{Theory of Computation}.
+
+  One other consideration is what to do when there is no more data
+  from the user because of ``end-of-file'' when trying to execute
+  \texttt{,}.  In this case, we pretend that the user has input the
+  null character, which is not ideal since the user might have
+  actually intended to input the null character.  It's left as an
+  exercise to the reader to modify the code to make it more reasonable
+  (which might involve changing the size of the numbers to 16 bits).
+
+
+  \section{To bytecode}
+  \label{bytecode}
+
+  How are we going to implement this machine on the x86?  We would
+  like to be able to support \verb|[| and \verb|]| in a reasonably
+  optimal way, and we would also like to optimize the if/elseif chain
+  at the core of the interpreter which executes each of the
+  instructions.  The way we'll satisfy these desires is to create a
+  bytecode which is a little closer to x86, and then compile Brainf*ck
+  into this bytecode before execution.
+
+  A straight-forward approach would be to store each of the characters
+  sequentially in memory, and then when the time arises to perform a
+  jump, we count the \verb|[| and \verb|]| characters until we find
+  the matching bracket.  Unfortunately, this takes linear time in the
+  length of the program, and it also doesn't take advantage of the
+  random memory access which the x86 supports.  A slightly better
+  method is to design a bytecode which has absolute jumps with
+  hard-coded destinations for the brackets, which is what we'll do.
+  We can also choose encodings so it's possible to implement the core
+  of the interpreter as a branch table. The \verb|[->+<]| example in
+  this bytecode scheme could be encoded as
+\begin{verbatim}
+0x100001168: jz 0x10000117e
+0x100001171: dec
+0x100001172: incdp
+0x100001173: inc
+0x100001174: decdp
+0x100001175: jnz 0x100001171
+\end{verbatim}
+  where the mnemonics are for the following bytecodes:
+  \begin{tabular}{l|l}
+    \texttt{incdp} & Encoded as \texttt{0x01}. Essentially \verb|>| \\
+    \texttt{decdp} & Encoded as \texttt{0x02}. Essentially \verb|<| \\
+    \texttt{inc} & Encoded as \texttt{0x03}. Essentially \verb|+| \\
+    \texttt{dec} & Encoded as \texttt{0x04}. Essentially \verb|-| \\
+    \texttt{print} & Encoded as \texttt{0x05}. Essentially \verb|.| \\
+    \texttt{input} & Encoded as \texttt{0x06}. Essentially \verb|,| \\
+    \texttt{jz\nbsp{}addr} & Encoded as \texttt{0x07 addr}, where \texttt{addr} is an 8-byte address.  Jumps to \texttt{addr} if the current number is zero, otherwise continues to the next bytecode \\
+    \texttt{jnz\nbsp{}addr} & Encoded as \texttt{0x08 addr}, where \texttt{addr} is an 8-byte address.  Jumps to \texttt{addr} if the current number is \emph{not} zero, otherwise continues to the next bytecode \\
+  \end{tabular}
+
+  \section{Assembly time}
+  \label{assembly}
+
+  Now, there are two parts to building the interpreter: the compiler
+  which makes bytecode, and the interpreter which executes the
+  bytecode.
+
+  We're going to use \link[\texttt{nasm}]{http://www.nasm.us} for the
+  assembler and \texttt{gcc} for the linker.  The commands to compile
+  the assembly to an executable called \texttt{bf} in Mac OS X are
+\begin{verbatim}
+nasm -g -f macho64 -Ox bf.s
+gcc -arch x86_64 bf.o -o bf
+\end{verbatim}
+  where \texttt{bf.s} is \file{bf.s}, the assembly source file.
+
+  We give a few options to \texttt{nasm}: \texttt{-g} puts debug
+  information into the object file so we can enter breakpoints by name
+  in \texttt{gdb} when debugging, \texttt{-f macho64} tells
+  \texttt{nasm} to use 64-bit assembly and output a Mach-O object file
+  which \texttt{gcc} will understand (for Linux, replace this with
+  \texttt{-f elf64}), and \texttt{-Ox} tells \texttt{nasm} to optimize
+  jumps, which isn't necessary but doesn't hurt.
+
+  The \texttt{gcc} for Mac OS X requires \texttt{-arch x86_64} (at
+  least on 10.5) because it would otherwise try to compile a 32-bit
+  binary.  This isn't necessary in 64-bit Linux.
+
+  \subsection{x86-64 ABI}
+
+  As a quick overview, I'm just going to quickly go over how the
+  application binary interface (ABI) for x86-64 works for basic
+  function calls.  The specification is the \link[System V Application
+  Binary Interface (AMD64 Architecture Processor
+  Supplement)]{http://www.x86-64.org/documentation/abi.pdf}.  I'm only
+  going to really mention what's in Section 3.2 and the table on page
+  15.
+
+  An ABI is the definition for exactly how control is passed between
+  different encapsulated pieces of code (functions), which are passed
+  values called arguments when they are passed control and which might
+  return a value when they return control.
+
+  Control is passed using \texttt{call}, and control is returned using
+  \texttt{ret}.  It is up to the called function to preserve the
+  registers \texttt{rbx}, \texttt{r12}, \texttt{r13}, \texttt{r14},
+  \texttt{r15}, and \texttt{rbp} between when it gains and returns
+  control, and all other general-purpose registers can be used freely
+  (which is to say it is up to the calling function to save all other
+  registers it might care about across the function call)
+
+  The first six arguments to a function are passed in registers
+  \texttt{rdi}, \texttt{rsi}, \texttt{rdx}, \texttt{rcx}, \texttt{r8},
+  and the rest are pushed in reverse order on the stack.  (In
+  contrast, the 32-bit ABI passes everything on the stack; the 64-bit
+  x86 has more registers, so we can get away with using registers to
+  pass arguments, which means we don't have to do unnecessary memory
+  traffic).  When a function returns a value, it passes it in
+  \texttt{rax}.
+
+  When a function takes a variable number of arguments (like
+  \texttt{printf}), then \texttt{rax} is set to the number of vector
+  registers being passed to the function.  We're just going to set it
+  to zero since we only use general-purpose registers.
+
+  One complication on Mac OS X is that the stack pointer \texttt{rsp}
+  must be 16-byte aligned when calling a function, which I've read is
+  so the stack doesn't need to be realigned by the callee to use SSE
+  instructions.  Because of this, we have an \texttt{sub rsp, 8} to
+  correct the stack pointer in the prologue of our functions since the
+  \texttt{call} instruction pushes an 8-byte return address.  This has
+  the effect of allocating 8-bytes of unused local storage on the
+  stack, so it'll work fine on Linux.
+
+  One other complication is that Mac OS X forces programs to use
+  \texttt{rip}-relative addressing so that all code is
+  position-independent.  This mode of addressing lets you address
+  relative to the instruction pointer instead of an absolute address.
+  In \texttt{nasm}, this addressing is written as \verb|[rel label]|
+  where \texttt{label} is some address in the assembly code.  This
+  also works fine on Linux.
+
+  We only care about the ABI when we are trying to interoperate with
+  \texttt{libc}.  Otherwise, we're going to use registers as we wish,
+  but we'll try to use the callee-saved registers listed above so we
+  don't need to save them across \texttt{libc} calls.
+
+  \subsection{Boilerplate}
+
+  We need a little bit of code to interface with the operating system.
+  First, we need to tell \texttt{nasm} about the \texttt{libc}
+  functions we're going to use for this program, which \texttt{gcc}
+  will then link into our executable.
+\begin{verbatim}
+extern _getchar, _putchar, _fopen, _fgetc, _fclose, _printf, _feof, _exit
+\end{verbatim}
+  On Linux, the underscores in front of these functions should be
+  removed in the \texttt{extern} and elsewhere in the program.
+
+  The first function we have is the \texttt{_main} function (which
+  should be called \texttt{main} on Linux), which takes a filename as
+  the first argument, opens the file for reading, then calls
+  \texttt{compile} and \texttt{exec}.  If more than one argument is
+  passed to \texttt{bf}, then we call \texttt{dump_code} instead of
+  \texttt{exec} to debug the bytecode compiler.
+
+\begin{verbatim}
+section .data
+usage_msg db "Usage: bf filename",10,0
+fopen_read db "r",0
+
+...
+
+section .bss
+file_pointer resq 1
+
+...
+
+section .text
+
+global _main
+
+_main:
+	sub rsp, 8
+
+	;;; if(argc < 2) print usage message
+	cmp rdi, 2
+	jge no_print_usage
+	
+	;;; printf("Usage: bf filename\n"); return
+	lea rdi, [rel usage_msg]
+	xor eax, eax
+	call _printf
+	xor eax, eax
+	add rsp, 8
+	ret
+no_print_usage:	
+	mov r13, rdi
+
+	;;; file_pointer = fopen(argv[1], "r")
+	mov rdi, [rsi + 8]
+	lea rsi, [rel fopen_read]
+	call _fopen
+	mov [rel file_pointer], rax
+
+	call compile
+
+	;;; fclose(file_pointer)
+	mov rdi, [rel file_pointer]
+	call _fclose
+
+        ;;; if(argc > 2) dump_code; return
+	cmp r13, 2
+	jle nodumpcode
+	call dump_code
+	xor eax, eax
+	add rsp, 8
+	ret
+nodumpcode:
+	call exec
+	xor eax, eax
+	add rsp, 8
+	ret
+\end{verbatim}
+
+  Note that we save \texttt{rdi} (the first argument to
+  \texttt{_main}, which is usally called \texttt{argc}) into
+  \texttt{r13}, a callee-saved register.  This lets us check whether
+  we should call \texttt{dump_code} after \texttt{rdi} is obliterated
+  by the call to \texttt{_fopen}.
+
+  We also do the trick of replacing \texttt{mov rax, 0} with
+  \texttt{xor rax, rax}, but we go one step farther and write
+  \texttt{xor eax, eax} since it takes less space to encode this
+  instruction, and storing anything into the register
+  \texttt{e\textit{xx}} automatically clears the upper 32 bits of
+  \texttt{r\textit{xx}}.
+
+  \subsection{The compiler}
+  
+  The compiler reads the file one character at a time, ignoring any
+  character which isn't one of the six which are part of the language
+  (giving a rudimentary way of commenting programs), and prints an
+  error if there are mismatched brackets.  We use the stack to keep
+  track of where we've compiled \verb|[|'s into \verb|jz|'s.  When we
+  run into a \verb|]| and compile it into a \verb|jnz|, we pop an
+  address from the stack into which we place the address after the
+  \texttt{jnz}, and we place the address after this popped address
+  after the \texttt{jnz}.  This lets us use the stack for both
+  matching the braces and computing the absolute jump addresses at the
+  same time.
+
+  In this code, we save \texttt{rsp} into \texttt{r12} so that we can
+  check when we are underflowing the stack (and report a mismatched
+  brace).  We also use this to revert the stack pointer to it's
+  original state when there are too many open braces.
+
+  The other important register is \texttt{rbx}, which is the pointer
+  into bytecode area (\texttt{code_area}) to which the next compiled
+  bytecode is stored.
+
+\begin{verbatim}
+section .data
+...
+mismatched_msg db "Too many ]'s",10,0
+mismatched2_msg db "Unmatched open [.",10,0
+...
+
+section .bss
+file_pointer resq 1
+code_area resb 8*1024*1024
+data_area resb 4*1024*1024
+
+section .text
+
+...
+
+compile:
+	sub rsp, 8
+	mov r12, rsp
+	lea rbx, [rel code_area]
+cloop:  mov rdi, [rel file_pointer]
+	call _feof
+	test rax, rax
+	jnz cdone
+	mov rdi, [rel file_pointer]
+	call _fgetc
+	cmp rax, '>'
+	je c_incdp
+	cmp rax, '<'
+	je c_decdp
+	cmp rax, '+'
+	je c_inc
+	cmp rax, '-'
+	je c_dec
+	cmp rax, '.'
+	je c_print
+	cmp rax, ','
+	je c_input
+	cmp rax, '['
+	je c_oloop
+	cmp rax, ']'
+	je c_cloop
+	jmp cloop
+cdone:
+	mov byte [rbx], 0
+
+	cmp r12, rsp
+	jne mismatched2	
+	
+	add rsp, 8
+	ret
+
+c_incdp:
+	mov byte [rbx], 1
+	inc rbx
+	jmp cloop
+c_decdp:
+	mov byte [rbx], 2
+	inc rbx
+	jmp cloop
+c_inc:
+	mov byte [rbx], 3
+	inc rbx
+	jmp cloop
+c_dec:
+	mov byte [rbx], 4
+	inc rbx
+	jmp cloop
+c_print:
+	mov byte [rbx], 5
+	inc rbx
+	jmp cloop
+c_input:
+	mov byte [rbx], 6
+	inc rbx
+	jmp cloop
+c_oloop:
+	mov byte [rbx], 7
+	push rbx
+	add rbx, 9
+	jmp cloop
+c_cloop:
+	mov byte [rbx], 8
+	pop rax
+	cmp rsp, r12
+	jg mismatched
+	mov r10, rax
+	add r10, 9
+	mov [rbx+1], r10
+	mov r10, rbx
+	add r10, 9
+	mov [rax+1], r10
+	add rbx, 9
+	jmp cloop
+mismatched:
+	mov rsp, r12
+	lea rdi, [rel mismatched_msg]
+	xor eax, eax
+	call _printf
+	mov eax, 1
+	call _exit
+mismatched2:
+	mov rsp, r12
+	lea rdi, [rel mismatched2_msg]
+	xor eax, eax
+	call _printf
+	mov eax, 1
+        call _exit
+\end{verbatim}
+
+  For debugging purposes, there's also a function called
+  \texttt{dump_code} which dumps the bytecode into a human-readable
+  format.  The most interesting part of \texttt{dump_code} is that it
+  uses \texttt{s_ops}, which is an array of string pointers, to
+  translate bytecodes into a string, taking advantage of the fact that
+  the bytecodes are \texttt{0x01}--\texttt{0x08}.
+
+  A gotcha which I ran into while implementing \texttt{dump_code} was
+  that modifying the lower byte of a register (by using the
+  subregister \texttt{dl} of \texttt{rdx}, for instance) doesn't clear
+  any of the rest of \texttt{rdx}, despite the fact that modifying
+  \texttt{edx} would modify the upper bits of \texttt{rdx}.  I'd only
+  ever used the 64-bit registers, so this came as a surprise for me.
+  A solution is to just perform \texttt{and rdx, 0xFF} to clear the
+  upper bits.  You'll find \texttt{and rdx, 0xF} in the code below,
+  but that's because of the observation that each of the bytecodes
+  take at most 4 bits to encode.
+
+\begin{verbatim}
+section .data
+...
+dump_reg db "0x%llx: %s",10,0
+dump_jump db "0x%llx: %s 0x%llx",10,0
+
+s_incdp db "incdp",0
+s_decdp db "decdp",0
+s_inc db "inc",0
+s_dec db "dec",0
+s_print db "print",0
+s_input db "input",0
+s_jz db "jz",0
+s_jnz db "jnz",0
+
+s_ops dq 0, s_incdp, s_decdp, s_inc, s_dec
+      dq s_print, s_input, s_jz, s_jnz
+
+...
+
+section .text
+
+...
+
+dump_code:
+	sub rsp, 8
+	lea rbx, [rel code_area]
+	lea r15, [rel s_ops]
+.loop:	cmp byte [rbx], 0
+	je dump_code.done
+	cmp byte [rbx], 7
+	jge dump_code.jump
+	mov dl, [rbx]
+	and rdx, 0xF
+	mov rdx, [r15 + 8*rdx]
+	mov rsi, rbx
+	lea rdi, [rel dump_reg]
+	xor eax, eax
+	call _printf
+	inc rbx
+	jmp .loop
+.jump:	mov rcx, [rbx+1]
+	mov dl, [rbx]
+	and rdx, 0xF
+	mov rdx, [r15 + 8*rdx]
+	mov rsi, rbx
+	lea rdi, [rel dump_jump]
+	xor eax, eax
+	call _printf
+	add rbx, 9
+	jmp .loop
+.done:  add rsp, 8
+	ret
+\end{verbatim}
+
+\subsection{Interpreter}
+
+The interpreter is a really tight loop in \texttt{exec}.  It loads
+bytes one at a time into \texttt{bl} which are pointed to by the code
+pointer \texttt{r12}.  Then, \texttt{jmp [r13 + 8*rbx]} runs the
+appropriate code for the loaded bytecode, where \texttt{r13} is the
+address of \texttt{e_table}, the jump table.  We take advantage of the
+fact that \texttt{code_area} is defined in the \texttt{.bss} section,
+so it is initialized to all zero, hence we know that reading a zero
+means we've run off the end of the program and should therefore halt.
+We do this check by having the zeroth entry of the jump table be
+\texttt{e_ret}, which returns from the interpreter.  The rest of the
+code is fairly straightforward.
+
+\begin{verbatim}
+section .bss
+code_area resb 8*1024*1024
+data_area resb 4*1024*1024
+
+section .text
+
+...
+
+exec:
+	sub rsp, 8
+	xor ebx, ebx
+	lea rbp, [rel data_area] ;; rbp is data pointer
+	mov r15, rbp  		 ;; r15 is data_area
+        mov r14, r15
+        add r14, 4*1024*1024     ;; r14 is right after the end of data_area
+	lea r12, [rel code_area] ;; r12 is code pointer
+	lea r13, [rel e_table]	 ;; r13 is e_table
+eloop:	mov bl, [r12]
+	jmp [r13 + 8*rbx]
+edone:
+	add rsp, 8
+	ret
+
+e_table dq e_ret, e_incdp, e_decdp, e_inc, e_dec
+	dq e_print, e_input, e_jz, e_jnz
+
+e_ret:	jmp edone
+
+e_incdp:
+	cmp rbp, r14
+	je e_incdp.noinc
+	inc rbp
+.noinc:
+	inc r12
+	jmp eloop
+
+e_decdp:
+	cmp rbp, r15
+	je e_decdp.nodec
+	dec rbp
+.nodec:
+	inc r12
+	jmp eloop
+
+e_inc:
+	inc byte [rbp]
+	inc r12
+	jmp eloop
+e_dec:
+	dec byte [rbp]
+	inc r12
+	jmp eloop
+
+e_print:
+	mov rdi, [rbp]
+	call _putchar
+	inc r12
+	jmp eloop
+e_input:
+	lea rdi, [rel stdin]
+	call _feof
+	test rax, rax
+	jnz e_input.eof
+	call _getchar
+	mov [rbp], al
+	inc r12
+	jmp eloop
+.eof:	mov byte [rbp], 0
+	inc r12
+	jmp eloop
+stdin dq 0
+
+e_jz:
+	cmp byte [rbp], 0
+	jz e_jz.dojmp
+	add r12, 9
+	jmp eloop
+.dojmp: mov r12, [r12+1]
+	jmp eloop
+
+e_jnz:
+	cmp byte [rbp], 0
+	jnz e_jnz.dojmp
+	add r12, 9
+	jmp eloop
+.dojmp: mov r12, [r12+1]
+	jmp eloop
+\end{verbatim}
+
+\section{Conclusion}
+\label{conclusion}
+
+There you have it, a Brainf*ck interpreter in x86-64 assembly.
+
+Some subjective tests have shown that is fairly fast.  For instance,
+the game \link[Lost
+Kingdom]{http://jonripley.com/i-fiction/games/LostKingdomBF.html} (a
+text adventure game in 2.1MB of Brainf*ck) runs without any noticable
+delay between input lines, which I find very surprising because of all
+the computation that's done to output text.
+
+There are a number of possible extensions one could try if one wanted
+to soak up some more time:
+\begin{itemize}
+\item Extend the bytecode so that sequences of \texttt{+} and
+  \texttt{-} get compiled into a single \texttt{add \textit{n}}
+  instruction.  This is sure to give a couple-hundred-percent speedup.
+  Something similar goes for sequences of \texttt{<} and \texttt{>}.
+\item Compile the bytecode into raw x86-64 assembly and do away with
+  the almost all all of the jumps.  As it is, there's a jump on each
+  instruction, which is probably terrible for the pipeline.
+\item Make a full optimizing compiler for Brainf*ck.  Recognize common
+  idioms and turn them into corresponding optimized code for the x86!
+  An approximation is to convert the code into C and let \texttt{gcc}
+  handle optimization, but I doubt alias analysis is anywhere good
+  enough to generate optimal code.
+\end{itemize}
+\end{page}

@@ -7,25 +7,27 @@
 \begin{page}{programming.html}
   \label{page_programming}
   \title{Programming}
-  \modified{22 December 2011}
+  \modified{3 June 2012}
 
   This is an index of programming-related activities.  Related is
   \ref{page_software}, but that has more of a focus of large-scale
   projects as opposed to perhaps smaller toys.
 
-  \begin{description}
-  \item[\ref{page_haskell}] Some Haskell-related things.
-  \end{description}
+  \begin{itemize}
+  \item \ref{page_bf_interp}
+  \item \ref{page_tailcall}
+  \item \ref{page_monads}
+  \end{itemize}
 
 \end{page}
 
-\begin{page}{haskell.html}
-  \label{page_haskell}
-  \title{Haskell}
-  \modified{22 December 2011}
+\include{bf.hm}
+\include{tailcall.hm}
 
-  \section{Yet Another Monad Guide}
-  \label{sec:yet-another-monad}
+\begin{page}{monads.html}
+  \label{page_monads}
+  \title{Yet Another Monad Guide}
+  \modified{22 December 2011}
 
   I was tired of seeing all these guides to understanding monads on
   the Internet, so I wrote another (mainly because I helped teach a
@@ -47,7 +49,7 @@ import Monad -- (<-- contains a function called 'guard')
   might want to solve, and see if we can simplify what we're doing
   (hint: it's going to involve discovering monads).
 
-  \subsection{Problem 1}
+  \section{Problem 1}
   \label{sec:yamg-problem-1}
   Let's say we want to tag data so we know where it came from (the
   creator), but we also want to apply functions on the data, keeping
@@ -112,7 +114,7 @@ taggedAddFiveDoub2 x = (taggedAddFive2 x) `bindTagged`
   concatenating the creator strings.  Not that bad, but we'll do
   better later.
 
-  \subsection{Problem 2}
+  \section{Problem 2}
   \label{sec:yamg-problem-2}
 
   Let's say we are doing computations, but we might run into an error
@@ -203,7 +205,7 @@ ex5 x = let al = [(1,"a"), (2,"b"), (3,"c")]
   This lets us essentially compose the functions rather than have
   nested \texttt{case} blocks.
 
-  \subsection{Problem 3}
+  \section{Problem 3}
   \label{sec:yamg-problem-3}
 
   Sometimes we want to handle multiple values from a function, such as
@@ -242,7 +244,7 @@ ex8 = let f x = multiSqrt (10 + x)
   So, we only have to write \verb|`bindMulti`| instead of using both
   \texttt{concat} and \texttt{map}.
 
-  \subsection{Did somebody say monads?}
+  \section{Did somebody say monads?}
   \label{sec:yamg-did-somebody-say}
   
   Let's look at the type signatures of our bind operators and see if
@@ -347,7 +349,7 @@ pyth_triples = do x <- [1..100]
 pyth_triples2 = [(x,y,z) | x <- [1..100], y <- [1..100], z <- [1..1000], x^2 + y^2 == z^2]
 \end{verbatim}
 
-  \subsection{IO}
+  \section{IO}
   \label{sec:yamg-io}
 
   One of the things which Monads let us do is order expressions.

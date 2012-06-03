@@ -16,7 +16,7 @@
 \begin{page}{index.html}
   \label{page_index}
   \title{Kyle Miller}
-  \modified{3 July 2011}
+  \modified{3 June 2012}
 
   Welcome to my web site.  I'm a student at
   \link[MIT]{http://web.mit.edu/} studying mathematics with computer
@@ -28,43 +28,35 @@
     \begin{itemize}
     \item \ref{page_resume}
     \end{itemize}
-  \item[\ref{page_papers}]
-    \begin{itemize}
-    \item \ref{page_quad_iter_graphs}
-    \item \ref{page_paper_trinary_groups}
-    \item \ref{page_towards_mmimm}
-    \item \ref{page_d-gebra}
-    \end{itemize}
-  \item[\ref{page_programming}]
-  \item \ref{page_thoughts}
-  \item \ref{page_comics}
-  \item \ref{page_music_comps}
-  \item[\ref{page_stories}]
-    \begin{itemize}
-    \item \ref{page_muffins}
-    \item \ref{page_carrots}
-    \item \ref{page_wrath_tuesday}
-    \item \ref{page_flargipades}
-    \end{itemize}
-  \item \ref{page_essays}
+  \item[\ref{page_history}]
+  \item \ref{page_papers}
+  \item \ref{page_programming}
   \item[\ref{page_software}]
     \begin{itemize}
     \item \ref{page_htmacros}
     \end{itemize}
+  \item \ref{page_music_comps}
+  \item \ref{page_stories}
+  \item \ref{page_comics}
+  \item \ref{page_essays}
   \item[\ref{page_hardware}]
     \begin{itemize}
     \item \ref[CARDIAC]{page_hardware#sec:cardiac}
     \end{itemize}
   \item[Old stuff]
     \begin{itemize}
+    \item \ref{page_thoughts}
     \item \ref{page_highschool}
     \end{itemize}
   \end{itemize}
+
 \end{page}
 
 % and now for the other pages
 
 \setpagetemplate{include/template.hm}
+
+\include{history.hm}
 
 \include{stories.hm}
 \include{about/about.hm}

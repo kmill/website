@@ -1,0 +1,331 @@
+% tailcall.hm
+% simulated tail call recursion in python
+
+\begin{page}{tailcall.html}
+  \label{page_tailcall}
+  \title{Tail call recursion in Python}
+  \modified{3 June 2012}
+
+  In this page, we're going to look at tail call recursion and see how
+  to force Python to let us eliminate tail calls by using a
+  trampoline.  We will go through two iterations of the design: first
+  to get it to work, and second to try to make the syntax seem
+  reasonable.  I would not consider this a useful technique in itself,
+  but I do think it's a good example which shows off some of the power
+  of decorators.
+
+  The first thing we should be clear about is the definition of a tail
+  call.  The ``call'' part means that we are considering function
+  calls, and the ``tail'' part means that, of those, we are
+  considering calls which are the last thing a function does before it
+  returns.  In the following example, the recursive call to \texttt{f}
+  is a tail call (the use of the variable \texttt{ret} is immaterial
+  because it just connects the result of the call to \texttt{f} to the
+  \texttt{return} statement), and the call to \texttt{g} is not a tail
+  call because the operation of adding one is done after \texttt{g}
+  returns (so it's not in ``tail position''):
+\begin{verbatim}
+def f(n) :
+    if n > 0 :
+        n -= 1
+        ret = f(n)
+        return ret
+    else :
+        ret = g(n)
+        return ret + 1
+\end{verbatim}
+
+  \section{Why tail calls matter}
+  \label{sec:why-tail-calls}
+
+  Recursive tail calls can be replaced by jumps.  This is called
+  ``tail call eliminination'', and is a transformation that can help
+  limit the maximum stack depth used by a recursive function, with the
+  benefit of reducing memory traffic by not having to allocate stack
+  frames.  Sometimes, recursive function which wouldn't ordinarily be
+  able to run due to stack overflow are transformed into function
+  which can.
+
+  Because of the benefits, some compilers (like \texttt{gcc}) perform
+  tail call elimination\footnote{This is compiler-writer speak.  For
+    some reason, ``elimination'' is what you do when you replace a
+    computation with something equivalent.  In this case, it's true
+    that the call is being eliminated, but in its place there's a
+    jump.  The same is true for ``common subexpression elimination''
+    (known as CSE), which takes, for instance,
+\begin{verbatim}
+a = b + c
+d = (b + c) + e
+\end{verbatim}
+    and replaces it with
+\begin{verbatim}
+a = b + c
+d = a + e
+\end{verbatim}
+    Sure, the \texttt{b+c} is eliminated from the second statement,
+    but it's not \emph{really} gone...
+
+    The optimization known as ``dead code elimination'' actually
+    eliminates something, but that's because dead code has no effect,
+    and so it can be removed (that is, be replaced with nothing).},
+  replacing recursive tail calls with jumps (and, depending on the
+  language and circumstances, tail calls to other functions can
+  sometimes be replaced with stack massaging and a jump).  In the
+  following example, we will eliminate the tail calls in a piece of
+  code which does a binary search.  It has two recursive tail calls.
+\begin{verbatim}
+def binary_search(x, lst, low=None, high=None) :
+    (low, high) = (low or 0, high or len(lst)-1)
+    mid = low + (high - low) // 2
+    if low > high :
+        return None
+    elif lst[mid] == x :
+        return mid
+    elif lst[mid] > x :
+        return binary_search(x, lst, low, mid-1)
+    else :
+        return binary_search(x, lst, mid+1, high)
+\end{verbatim}
+  Supposing Python had a \texttt{goto} statement, we could replace the
+  tail calls with a jump to the beginning of the function, modifying
+  the arguments at the call sites appropriately:
+\begin{verbatim}
+def binary_search(x, lst, low=None, high=None) :
+  start:
+    (low, high) = (low or 0, high or len(lst)-1)
+    mid = low + (high - low) // 2
+    if low > high :
+        return None
+    elif lst[mid] == x :
+        return mid
+    elif lst[mid] > x :
+        (x, lst, low, high) = (x, lst, low, mid-1)
+        goto start
+    else :
+        (x, lst, low, high) = (x, lst, mid+1, high)
+        goto start
+\end{verbatim}
+which, one can observe, can be written in actual Python as
+\begin{verbatim}
+def binary_search(x, lst, low=None, high=None) :
+    (low, high) = (low or 0, high or len(lst)-1)
+    while True :
+        mid = low + (high - low) // 2
+        if low > high :
+            return None
+        elif lst[mid] == x :
+            return mid
+        elif lst[mid] > x :
+            high = mid - 1
+        else :
+            low = mid + 1
+\end{verbatim}
+I haven't tested the speed difference between this iterative version
+and the original recursive version, but I would expect it to be quite
+a bit faster because of there being much, much less memory traffic.
+
+Unfortunately, the transformation makes it harder to prove the binary
+search is correct in the resulting code.  With the original recursive
+algorithm, it is almost trivial by induction.
+
+Programming languages like Scheme depend on tail calls being
+eliminated for control flow, and it's also necessary for continuation
+passing style.  \footnote{In Scheme, all loops are written as
+  recursive functions since tail calls are the pure way of redefining
+  variables (this is the same technique Haskell uses).  For instance,
+  to print the numbers from 1 to 100, you'd write
+\begin{verbatim}
+(let next ((n 1))
+  (if (<= n 100)
+    (begin
+      (display n)
+      (newline)
+      (next (+ n 1)))))
+\end{verbatim}
+  where \texttt{next} is bound to be a one-argument function which
+  takes one argument, \texttt{n}, and which has the body \texttt{let}
+  statement as its body.  If that \texttt{100} were any other
+  arbitrary number, that tail call to \texttt{next} had better be
+  handled as a jump, otherwise the stack would overflow!  And there's
+  no other reasonable way to write such a loop!
+
+  Continuation passing style is commonly used to handle exceptions and
+  backtracking.  You write functions of the form
+\begin{verbatim}
+(define (f cont)
+   (let ((cont2 (lambda ... (cont ...) ...)))
+      (g cont2)))
+\end{verbatim}
+  along with functions which take multiple such \texttt{f}'s and
+  combines them into another function which also takes a single
+  \texttt{cont} argument.  I'll probably talk about this more in
+  another page, but for now notice how the call to \texttt{g} is in
+  the tail position.}
+
+\section{A first attempt}
+\label{sec:first-attempt}
+
+Our running example is going to be the factorial function (a classic),
+written with an accumulator argument so that it's recursive call is a
+tail call:
+\begin{verbatim}
+def fact(n, r=1) :
+    if n <= 1 :
+        return r
+    else :
+        return fact(n-1, n*r)
+\end{verbatim}
+
+If \texttt{n} is too large, then this recursive function will overflow
+the stack, despite the fact that Python can deal with really big
+integers.  On my machine, it can compute \texttt{fact(999)}, but
+\texttt{fact(1000)} results in a sad \texttt{RuntimeError: Maximum
+  recursion depth exceeded}.
+
+One solution is to modify \texttt{fact} to return object which
+represent tail calls and then to build a trampoline underneath
+\texttt{fact} which executes these tail calls after \texttt{fact}
+returns. This way, the stack depth will only contain two stack frames:
+one for the trampoline and another for each call to \texttt{fact}.
+
+First, we define a tail call object which reifies the concept of a
+tail call:
+\begin{verbatim}
+class TailCall(object) :
+    def __init__(self, call, *args, **kwargs) :
+        self.call = call
+        self.args = args
+        self.kwargs = kwargs
+    def handle(self) :
+        return self.call(*self.args, **self.kwargs)
+\end{verbatim}
+This is basically just the thunk \texttt{lambda : call(*args, **kwargs)},
+but we don't use a thunk because we would like to be able to
+differentiate between a tail call and returning a function.
+
+The next ingredient is a function which wraps a trampoline around an
+arbitrary function:
+\begin{verbatim}
+def t(f) :
+    def _f(*args, **kwargs) :
+        ret = f(*args, **kwargs)
+        while type(ret) is TailCall :
+            ret = ret.handle()
+        return ret
+    return _f
+\end{verbatim}
+
+Then, we modify \texttt{fact} to be
+\begin{verbatim}
+def fact(n, r=1) :
+    if n <= 1 :
+        return r
+    else :
+        return TailCall(fact, n-1, n*r)
+\end{verbatim}
+
+Now, instead of calling \texttt{fact(n)}, we must instead invoke
+\texttt{t(fact)(n)} (otherwise we'd just get a \texttt{TailCall}
+object).
+
+This isn't that bad: we can get tail calls of arbitrary depth, and
+it's Pythonic in the sense that the user must explicitly label the
+tail calls, limiting the amount of unexpected magic.  But, can we
+eliminate the need to wrap \texttt{t} around the initial call?  I find
+it unclean to have to write that \texttt{t} because it makes calling
+\texttt{fact} different than calling a normal function (like it was
+before the transformation).
+
+\section{A second attempt}
+\label{sec:second-attempt}
+
+The basic idea is that we will redefine \texttt{fact} to roughly be
+\texttt{t(fact)}.  It's tempting to just use \texttt{t} as a
+decorator:
+\begin{verbatim}
+@t
+def fact(n, r=1) :
+    if n <= 1 :
+        return r
+    else :
+        return TailCall(fact, n-1, n*r)
+\end{verbatim}
+(which, if you aren't familiar with decorator syntax, is equivalent to
+writing \texttt{fact = t(fact)} right after the function definition).
+However, there is a problem with this in that the \texttt{fact} in the
+returned tail call is bound to \texttt{t(fact)}, so the trampoline
+will recursively call the trampoline, completely defeating the purpose
+of our work!
+
+The first ingredient is the following class, which defines the
+trampoline as before, but wraps it in a new type so we can distinguish
+a trampolined function from a plain old function:
+\begin{verbatim}
+class TailCaller(object) :
+    def __init__(self, f) :
+        self.f = f
+    def __call__(self, *args, **kwargs) :
+        ret = self.f(*args, **kwargs)
+        while type(ret) is TailCall :
+            ret = ret.handle()
+        return ret
+\end{verbatim}
+and then we modify \texttt{TailCall} to be aware of \texttt{TailCaller}s:
+\begin{verbatim}
+class TailCall(object) :
+    def __init__(self, call, *args, **kwargs) :
+        self.call = call
+        self.args = args
+        self.kwargs = kwargs
+    def handle(self) :
+        if type(self.call) is TailCaller :
+            return self.call.f(*self.args, **self.kwargs)
+        else :
+            return self.f(*self.args, **self.kwargs)
+\end{verbatim}
+
+Since classes are function-like and return their constructed object,
+we can just decorate our factorial function with \texttt{TailCaller}:
+\begin{verbatim}
+@TailCaller
+def fact(n, r=1) :
+    if n <= 1 :
+        return r
+    else :
+        return TailCall(fact, n-1, n*r)
+\end{verbatim}
+
+And then we can call \texttt{fact} directly with large numbers!
+
+Also, unlike in the first attempt, we can now have mutually recursive
+functions which all perform tail calls.  The first-called
+\texttt{TailCall} object will handle all the trampolining.
+
+If we wanted, we could also define the following function to possibly
+make tail calls be more consistent with normal function
+calls:\footnote{This is basically a curried\footnote{That is,
+    \emph{Sch\"{o}nfinkelized}.}  version of \texttt{TailCall}.}
+\begin{verbatim}
+def tailcall(f) :
+    def _f(*args, **kwargs) :
+        return TailCall(f, *args, **kwargs)
+    return _f
+\end{verbatim}
+and then \texttt{fact} could be rewritten as
+\begin{verbatim}
+@TailCaller
+def fact(n, r=1) :
+    if n <= 1 :
+        return r
+    else :
+        return tailcall(fact)(n-1, n*r)
+\end{verbatim}
+
+One would hope that marking the tail calls manually could just be done
+away with, but I can't think of any way to detect whether a call is a
+tail call without inspecting the source code.  Perhaps an idea for
+further work is to convince Guido von Rossum that Python should
+support tail recursion (which is \link[quite unlikely to
+happen]{http://neopythonic.blogspot.com/2009/04/tail-recursion-elimination.html}).
+
+\end{page}

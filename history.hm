@@ -1,0 +1,19 @@
+% history.hm
+% a history of updates to this website
+
+\begin{page}{history.html}
+  \label{page_history}
+  \title{New stuff}
+  \modified{2 June 2012}
+
+  This is a history of updates to my website.  This is here because it
+  doesn't make sense to expect people to keep coming back to scour the
+  whole site for new things!
+
+  \begin{itemize}
+  \item 3 June 2012.  Added \ref{page_tailcall}.
+  \item 2 June 2012.  Added \ref{page_bf_interp}.
+  \item 2 June 2012.  Added this history page.  Everything before this
+    is pre-history!
+  \end{itemize}
+\end{page}

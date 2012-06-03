@@ -46,13 +46,16 @@ div.content {
 
 div.content tt {
     font-size: 10pt;
+    font-family: "Monaco","DejaVu Sans Mono","Courier New",monospace;
+    background: #eee;
 }
 
 div.content pre {
+    font-family: "Monaco","DejaVu Sans Mono","Courier New",monospace;
     font-size: 10pt;
 /*    margin-left: 0.5em;*/
     background: #eee;
-    padding: 0.1em 0.2em 0.1em 0.2em;
+    padding: 0.2em 0.2em 0.2em 0.2em;
 }
 
 div.footer {
@@ -84,6 +87,7 @@ div.content h1 {
 .tabular td {
     border: 1px none #000;
     padding: 0.2em 0.7em 0.1em 0.6em;
+    vertical-align: text-top;
 }
 
 div.content ul {
@@ -146,6 +150,14 @@ div.abstract {
 div.abstract .abstractcaption {
     text-align: center;
     font-weight: bold;
+}
+
+div.footnote {
+    font-size: 90%;
+}
+
+div.footnote pre, div.footnote tt {
+    font-size: 9pt;
 }
 
 span.framebox {
