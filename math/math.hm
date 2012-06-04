@@ -1,0 +1,165 @@
+% math.hm
+% mathematics!
+
+\setoutputdir{math}
+\addbreadcrumb{page_math}
+
+\begin{page}{math.html}
+  \label{page_math}
+  \title{Mathematics}
+  \modified{3 June 2012}
+
+  This is an index of writing on mathematics
+
+  \begin{itemize}
+  \item \ref{page_math_platonic}
+  \end{itemize}
+
+\end{page}
+
+\begin{page}{platonic.html}
+  \label{page_math_platonic}
+  \title{The five Platonic solids}
+  \modified{3 June 2012}
+
+  \begin{figure}[r]
+    \label{fig_platonic}
+    \includegraphics[alt=The five Platonic solids,width=300]{platonic_solids.jpg}
+    \begin{center}
+      \caption{Paper models of all five Platonic solids.}
+    \end{center}
+  \end{figure}
+
+  I've been fascinated by polyhedra since I was really young.  My mom
+  had this book called \link[\textit{Polyhedron Models for the
+    Classroom}]{http://www.amazon.com/Polyhedron-Models-Classroom-Magnus-Wenninger/dp/0873530837}
+  by Magnus Wenniger\footnote{According to a review of
+    \textit{Polyhedron Models for the Classroom} on Amazon, the book
+    is an excerpt from the book \link[\textit{Polyhedron
+      Models}]{http://www.amazon.com/Polyhedron-Models-Magnus-J-Wenninger/dp/0521098599}
+    by the same author.} which gave patterns for building models of
+  all the regular and semiregular polyhedra as well as a short history
+  of the pursuit to discover all of them.  I thought it was really
+  cool, and I've made many models of the Platonic and Archimedean
+  solids through the years.  Unlike polygons, there are only
+  \textit{finitely many} Platonic solids.  Why is that?  In this page,
+  I'll give a proof that there are at most five Platonic solids.
+
+  The picture to the right shows a set of models of all five Platonic
+  solids.  From left to right they are the tetrahedron, the
+  dodecahedron, the cube (or hexahedron), the icosahedron, and the
+  octahedron, and they are each named for their respective number of
+  faces.  These forms have been known for thousands of years, and were
+  named after Plato who, for better or for worse, said that each
+  polyhedron corresponded to a different classical element (earth,
+  air, fire, and water; he left the dodecahedron to the gods).  They
+  really should have been named after Theaetetus, a contemporary of
+  Plato, who first proved that there were exactly five regular convex
+  polyhedra.  Or even Euclid, who completed the \textit{Elements} with
+  constructions of each of the solids.
+
+  I haven't been clear about what I mean by a regular polyhedron, so I
+  give the following definition:
+
+  \textbf{Definition.} A \emph{regular polyhedron} is a polyhedron
+  whose faces are congruent regular polygons such that each vertex has
+  the same number of incident faces.
+
+  For a given regular convex polyhedron, we will let $n$ be the number
+  of sides of each of its polygonal faces and $\mu$ be the number of
+  faces around each vertex (where $\mu$ stands for
+  \textit{monodromy}).  Out of our familiarity with regular polygons,
+  we immediately know that $n\geq 3$.  I'll appeal to our geometric
+  intuition to see that $\mu\geq 3$ as well (polyhedra must have some
+  actual volume, which is analogous to the bound on $n$ for polygons).
+
+  Let $v$, $e$, and $f$ be the numbers of vertices, edges, and faces,
+  respectively of the polyhedron.  The quantity $\chi=v-e+f$ is known
+  as the \textit{Euler characteristic}, and for convex polyhedra,
+  $\chi$ is always $2$, a fact which has been proven so many times I'm
+  not going to show it here.\footnote{ See \link[Nineteen Proofs of
+    Euler's
+    Theorem]{http://www.ics.uci.edu/~eppstein/junkyard/euler/}.
+
+    One method of proof which isn't listed uses algebraic
+    topology. First you show you can replace each face with triangles,
+    and this does not change $\chi$.  This gives a simplicial complex
+    which is homeomorphic to a $2$-sphere.  There is an exercise of
+    Hatcher which says that alternating sums of the degrees of the
+    homology groups of a space are constant up to homotopy
+    equivalence.  For a $2$-sphere, this alternating sum is $1-0+1=2$.
+    Since for simplicial complexes the alternating sum is the Euler
+    characteristic, this shows that $\chi=2$.}
+
+  We now make two observations.  The first is that $nf=2e$, which is
+  obtained by noticing that each face in the polyhedron has $n$ edges
+  around it, but each edge has two incident faces, so $nf$ double
+  counts the number of edges.  The second is that $\mu v=2e$, which is
+  obtained by noticing that each vertex has $\mu$ incident edges
+  (separating each of the $\mu$ faces), and each edge has two incident
+  vertices, so $\mu v$ also double counts the number of edges.  With
+  these, we can write $v-e+f=2$ in terms of $n$, $\mu$, and $e$ as
+  follows:
+  \begin{equation*}
+    \frac{1}{n} + \frac{1}{\mu} = \frac{1}{2} + \frac{1}{e}
+  \end{equation*}
+  I'm told that diophantine equations which are sums of reciprocals
+  involve deep number theory, which is something I'd like to
+  understand.\footnote{The page \link[Egyptian
+    Fractions]{http://mathworld.wolfram.com/EgyptianFraction.html} on
+    MathWorld deals with some equations of this form.  I think it also
+    has something to do with Lie something-or-another.}
+  
+  Since $e$ is positive, this equation reduces to the following
+  inequality:
+  \begin{equation*}
+    \frac{1}{n} + \frac{1}{\mu} > \frac{1}{2}
+  \end{equation*}
+  Let's now just do a case analysis to find all the solutions to this
+  inequality.  We'll go through each possible value of $n$, starting
+  with $3$ since $n\geq 3$.  For the following, recall that $\mu\geq
+  3$.
+  \begin{description}
+  \item[\textbf{Case I.} $n=3$] In this case, $\mu<6$.  When $n=3$ and
+    $\mu=3$, this is a tetrahedron, when $n=3$ and $\mu=4$, this is an
+    octahedron, and when $n=3$ and $\mu=5$, this is an icosahedron.
+  \item[\textbf{Case II.} $n=4$] In this case, $\mu<4$, so the only
+    solution is $n=4$ and $\mu=3$, which is a hexahedron (cube).
+  \item[\textbf{Case III.} $n=5$] In this case, $\mu<10/3$, so we have
+    $n=5$ and $\mu=3$, which is the dodecahedron.
+  \item[\textbf{Case IV.} $n\geq 6$] Then, since $\mu\geq 3$,
+    \begin{equation*}
+      \frac{1}{n} + \frac{1}{\mu} \leq \frac{1}{6} + \frac{1}{3} = \frac{1}{2},
+    \end{equation*}
+    so there is no solution.
+  \end{description}
+
+  We can verify that each of these solutions have corresponding
+  integral values for $v$, $e$, and $f$, which we compute in the
+  following table:
+  \begin{center}
+  \begin{tabular}{rr|rrr|l}
+    $n$ & $\mu$ & $v$ & $e$ & $f$ & name \\
+    \hline
+    \hline
+    3 & 3  & 4 & 6 & 4 & tetrahedron \\
+    3 & 4  & 6 & 12 & 8 & octahedron \\
+    3 & 5  & 12 & 30 & 20 & icosahedron \\
+    4 & 3  & 8 & 12 & 6 & hexahedron (cube) \\
+    5 & 3  & 20 & 30 & 12 & dodecahedron \\
+  \end{tabular}
+  \end{center}
+
+  Therefore, we have shown that there cannot be more than five
+  Platonic solids!
+
+  Unfortunately, we have only proven that there are \textit{at most}
+  five regular convex polyhedra, and no attempt has been made to show
+  that each of these solutions correspond to an actual regular
+  polyhedron, despite the suggestive images of paper models and my
+  attempts identify the solutions with them.  I'll leave this as an
+  exercise for the reader.  Or, you can read Book XIII of the
+  \textit{Elements} (and probably most of the books leading up to it)
+  to get constructions of each of them.
+  
+\end{page}

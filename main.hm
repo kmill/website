@@ -30,6 +30,7 @@
     \end{itemize}
   \item[\ref{page_history}]
   \item \ref{page_papers}
+  \item \ref{page_math}
   \item \ref{page_programming}
   \item[\ref{page_software}]
     \begin{itemize}
@@ -66,6 +67,7 @@
 \include{papers/papers.hm}
 \include{music/music.hm}
 \include{thoughts/thoughts.hm}
+\include{math/math.hm}
 \include{software/software.hm}
 \include{hardware/hardware.hm}
 \include{programming/programming.hm}
