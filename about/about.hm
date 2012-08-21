@@ -14,11 +14,12 @@
     \label{fig_me}
   \end{figure}
 
-  \textit{You can view my r\'{e}sum\'{e} \ref[here]{page_resume}.}
+  \textit{You can view my \ref[r\'{e}sum\'{e}]{page_resume} or
+    \ref[academics]{page_academics}.}
   
   I'm Kyle Miller, a student at MIT studying ``mathematics with
   computer science'' (course 18-C) and a bit of music composition.  I
-  like learning about new things.  Sometimes I manically work on
+  like learning about new things.  Sometimes I work on
   software projects.  Other times I play music.
 
   I live at a place called \link[tEp]{http://tep.mit.edu/}, which is a
@@ -74,6 +75,88 @@
 %   This has been a somewhat discursive rambling about who I am, but it
 %   is somewhat of a snapshot of me at the moment thinking about this
 %   subject instead of the said projects.
+\end{page}
+
+\begin{page}{academics.html}
+  \label{page_academics}
+  \title{Academics}
+  \modified{June 7, 2012}
+
+  The following are courses I've completed at
+  \link[MIT]{http://web.mit.edu/}.
+
+  \begin{description}
+  \item[\textbf{Spring 2012}] 
+    \begin{itemize}
+    \item 6.035. Computer Language Engineering
+    \item 18.821. Project Lab in Mathematics
+    \item 21M.250. Beethoven to Mahler
+    \item 21M.445. Chamber Music Society
+    \end{itemize}
+  \item[\textbf{Fall 2011}] 
+    \begin{itemize}
+    \item 18.404. Theory of Computation
+    \item 18.510. Intro to Mathematical Logic \& Set Theory
+    \item 18.905. Algebraic Topology I
+    \item 21M.351. Music Composition Seminar
+    \item 21M.445. Chamber Music Society
+    \end{itemize}
+  \item[\textbf{Spring 2011}] 
+    \begin{itemize}
+    \item 18.112. Functions of Complex Variables
+    \item 18.904. Seminar in Topology
+    \item 21M.304. Writing in Tonal Forms II
+    \item 21M.310. Techniques of 20th Century Composition
+    \item 21M.445. Chamber Music Society
+    \end{itemize}
+  \item[\textbf{Fall 2010}] 
+    \begin{itemize}
+    \item 18.310. Principles of Applied Math
+    \item 18.901. Introduction to Topology
+    \item 21L.004. Reading Poetry
+    \item 21M.303. Writing in Tonal Forms I
+    \item 21M.445. Chamber Music Society
+    \end{itemize}
+  \item[\textbf{Spring 2010}] 
+    \begin{itemize}
+    \item 6.033. Computer System Engineering
+    \item 18.100B. Analysis I
+    \item 18.702. Algebra II
+    \item 21M.302. Harmony and Counterpoint II
+    \end{itemize}
+  \item[\textbf{Fall 2009}] 
+    \begin{itemize}
+    \item 6.004. Computation Structures
+    \item 6.046. Design and Analysis of Algorithms
+    \item 8.03. Physics III (Waves and Vibrations)
+    \item 18.02. Calculus II
+    \item 18.03. Differential Equations
+    \item 18.701. Algebra I
+    \item 21M.301. Harmony and Counterpoint I
+    \item 21M.445. Chamber Music Society
+    \end{itemize}
+  \item[\textbf{Spring 2009}] 
+    \begin{itemize}
+    \item 6.006. Introduction to Algorithms
+    \item 6.945. Large-scale Symbolic Systems
+    \item 7.014. Introductory Biology
+    \item 21L.017. Art of the Probable
+    \item 21M.421. MIT Symphony Orchestra
+    \end{itemize}
+  \item[\textbf{January 2009}] 
+    \begin{itemize}
+    \item 6.184. Caffeinated 6.001 (Structure and Interpretation of Computer Programs)
+    \item 18.095. Math Lecture Series
+    \end{itemize}
+  \item[\textbf{Fall 2008}] 
+    \begin{itemize}
+    \item 3.091. Intro to Solid-State Chemistry
+    \item 8.022. Physics II
+    \item 18.700. Linear Algebra
+    \item 21M.064. Introduction to Musical Composition
+    \item 21M.421. MIT Symphony Orchestra
+    \end{itemize}
+  \end{description}
 \end{page}
 
 \include{resume.hm}

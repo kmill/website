@@ -27,6 +27,7 @@
   \item[\ref{page_aboutme}]
     \begin{itemize}
     \item \ref{page_resume}
+    \item \ref{page_academics}
     \end{itemize}
   \item[\ref{page_history}]
   \item \ref{page_papers}
@@ -44,6 +45,7 @@
     \begin{itemize}
     \item \ref[CARDIAC]{page_hardware#sec:cardiac}
     \end{itemize}
+  \item \ref{page_media_consumption}
   \item[Old stuff]
     \begin{itemize}
     \item \ref{page_thoughts}
@@ -60,6 +62,7 @@
 \include{history.hm}
 
 \include{stories.hm}
+\include{media.hm}
 \include{about/about.hm}
 \include{essays.hm}
 \include{comics/comics.hm}

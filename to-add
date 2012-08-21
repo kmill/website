@@ -1,0 +1,5 @@
+Mathematical objects: for instance, R/Z as an rng
+
+The quotient construction from the point of view of creating an
+equivalence relation $a\equiv b\pmod{H}$ for $H$ a normal subgroup of
+$G$ (or $H$ an ideal of $G$)

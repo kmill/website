@@ -1,12 +1,12 @@
 \begin{page}{resume.html}
   \label{page_resume}
   \title{R\'{e}sum\'{e}}
-  \modified{15 Mar 2011}
+  \modified{21 August 2012}
 
   \section{Education}
   \begin{description}
-  \item[\textbf{Massachusetts Institute of Technology.} 2008--Present]
-    Undergraduate. B.S. Mathematics with Computer Science, concentration in Music.
+  \item[\textbf{Massachusetts Institute of Technology.} 2008--2012]
+    S.B. Mathematics with Computer Science, minor in Music.
   \item[\textbf{Eden Prairie Senior High School.} 2004--2008]
     Graduated with honors.
   \item[\textbf{University of Minnesota.} 2002--2007]
@@ -38,6 +38,8 @@
   \section{Work Experience}
 
   \begin{description}
+  \item[\textbf{Vecna Technologies, Inc.} July 2012 to present]
+    Software engineer.
   \item[\textbf{6.046J: Design and Analysis of Algorithms.} Fall 2010]
     Grader.  Read, corrected, and graded descriptions and proofs of
     algorithms.
