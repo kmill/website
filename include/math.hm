@@ -2,6 +2,7 @@
 
 \def{C}{}{\math{\mathbf{C}}}
 \def{R}{}{\math{\mathbf{R}}}
+\def{Q}{}{\math{\mathbf{Q}}}
 \def{Z}{}{\math{\mathbf{Z}}}
 \def{F}{}{\math{\mathbf{F}}}
 \def{abs}{v}{\math{|\,\var{v}\,|}}
