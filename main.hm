@@ -3,6 +3,8 @@
 \setstylesheet{include/default.css}
 \setpagetemplate{include/mainpage_template.hm}
 
+\file{favicon.png}
+
 % Usage: \thumbnail{filename}
 %
 % Gives a link to an image/pdf with an icon which is a scaled version
@@ -16,7 +18,7 @@
 \begin{page}{index.html}
   \label{page_index}
   \title{Kyle Miller}
-  \modified{3 June 2012}
+  \modified{22 August 2012}
 
   Welcome to my web site.  I'm a student at
   \link[MIT]{http://web.mit.edu/} studying mathematics with computer
@@ -38,6 +40,7 @@
     \item \ref{page_htmacros}
     \end{itemize}
   \item \ref{page_music_comps}
+  \item \ref{page_writings}
   \item \ref{page_stories}
   \item \ref{page_comics}
   \item \ref{page_essays}
@@ -46,6 +49,8 @@
     \item \ref[CARDIAC]{page_hardware#sec:cardiac}
     \end{itemize}
   \item \ref{page_media_consumption}
+  \item \ref{page_findings}
+  \item \ref{page_random}
   \item[Old stuff]
     \begin{itemize}
     \item \ref{page_thoughts}
@@ -63,6 +68,9 @@
 
 \include{stories.hm}
 \include{media.hm}
+\include{writings.hm}
+\include{random.hm}
+\include{findings.hm}
 \include{about/about.hm}
 \include{essays.hm}
 \include{comics/comics.hm}

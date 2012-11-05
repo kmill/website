@@ -12,6 +12,7 @@
   \item \ref{page_block_portfolio}
   \item \ref{page_essay_writing_plague}
   \item \file[Trials and Tribulations of the European Witch Hunts]{witchhunts.pdf} (PDF)
+  \item \ref{page_intellectual_property_essay}
   \end{itemize}
 \end{page}
 
@@ -74,4 +75,268 @@
   \item \textit{What If?:} Tesla
   \item \textit{Snapshot and Dedication:} The Editor
   \end{itemize}
+\end{page}
+
+\begin{page}{intell_property.html}
+  \label{page_intellectual_property_essay}
+  \title{Intellectual Property in the Twenty-First Century}
+  \modified{22 May 2008}
+
+  With the advent of the Information Age has come the ability to
+  easily share ideas.  Across great expanses of distance, it is now
+  possible to transmit large quantities of data at virtually no cost.
+  Very easily can a person sitting comfortably at home debate with
+  someone across an ocean. It is no longer necessary to physically
+  print a document or to etch a compact disc for dissemination to the
+  masses as digital information readily lends itself to duplication.
+  Also, the cost of shipping and distribution is no longer a concern
+  beyond the expense of maintaining a connection to the Internet and
+  having enough bandwidth.
+
+  However, with this great ease in transmission has come great
+  consternation to owners of intellectual property.  It is not only
+  possible to replicate ideas and data with great ease, but to
+  replicate copyrighted ideas and data illegally.  In 2001, a
+  Boston-based consulting firm called Viant estimated that roughly
+  350,000 movies were being illegally downloaded every day
+  (Richardson).  If we were to assume each movie is worth about twenty
+  dollars and that economics works in this manner, this is a seventy
+  million dollar loss in revenue per day.
+
+  To protect stakes in intellectual property, content owners have
+  lobbied for additional legal support to gain a better hold on their
+  assets from the apparent dangers of the Internet.  This was the
+  Digital Millennium Copyright Act, or the DMCA.  It was an attempt to
+  solidify what the relationship between the public and the copyright
+  holders ought to be.
+
+  The entire basis of copyright law in the United States rests upon a
+  clause written by the framers of the United States Constitution
+  which states that ``The Congress shall have the Power [. . .] To
+  promote the Progress of Science and useful Arts, by securing for
+  limited Times to Authors and Inventors the exclusive Right to their
+  respective Writings and Discoveries'' (US Const., art. 1, sec. 8).
+  It is simply an incentive for creators to make new works by
+  promising that other people can not compete for a limited time.
+  Interestingly enough, Thomas Jefferson himself was hesitant about
+  including such a thing in the Constitution as he believed monopolies
+  of any sort were of doubtful efficacy, no matter how limited.
+  (Bell, 5).  In the end, though, the founders did see that some
+  protection of intellectual property was important enough that it
+  received notice in the Constitution (Bell, 6) before even the Bill
+  of Rights was drafted.  With this gravitas, we must be careful with
+  how we treat copyrights.
+
+  John Perry Barlow, founder of the Electronic Frontiers Foundation,
+  an organization which fights for the freedoms of the general public
+  in the networked world, argues that it is much too early to
+  legislate the uses of the Internet.  He says
+  \begin{quote}
+    In a more perfect world, we'd be wise to declare a moratorium on
+    litigation, legislation, and international treaties in this area
+    until we had a clearer sense of the terms and conditions of
+    enterprise in Cyberspace.  Ideally, laws ratify already developed
+    social consensus.  They are less the Social Contract itself than a
+    series of memoranda expressing a collective intent that has
+    emerged out of many millions of human interactions. (Barlow)
+  \end{quote}
+  He adds that it is a legislative failure for the law to diverge
+  wildly from social actuality.  Illustrating this, he notes that when
+  he gives lectures on the subject, no more than ten percent of the
+  people of the audience can report honestly having no
+  illegally-acquired software on their hard drives.  One must wonder,
+  then, what the basis of the law is.
+
+  The DMCA, which was passed in 1998, amended title 17 of the
+  U.S. Code to extend the reach of copyright protection.  More
+  specifically, it standardized copyright law with other countries,
+  indemnified Internet Service Providers against the actions of its
+  users, and, most controversially, criminalized circumvention of
+  copy-prevention measures.  In title 1, chapter 12, section 1201 of
+  the act, it states ``No person shall circumvent a technological
+  measure that effectively controls access to a work protected under
+  this title.''  It also states ``No person shall manufacture, import,
+  offer to the public, provide, or otherwise traffic in any
+  technology, product, service, device, component, or part thereof,
+  that'' makes circumvention possible.  This section meant to crack
+  down on mass piracy of digital media.
+
+  Unfortunately, this turned out to not be the case.  The Electronic
+  Frontier Foundation published a whitepaper concering this, saying
+  that the DMCA has not been used as Congress had intended and has
+  instead been abused to stifle legitimate activities such scientific
+  research, fair use, and innovation.  There have been numerous
+  lawsuits and legal threats novelly wielding the DMCA, claiming
+  circumvention.  As cited by the whitepaper:
+
+  In 2001, Dmitry Skylyarov, a Russian programmer, was detained after
+  speaking at a conference in Los Vegas due to his work on a software
+  application which converted ``e-books'' into PDF files.  He was never
+  accused of copyright infringement, but instead accused for creating
+  an application which had the ability to circumvent the copy
+  protection mechanisms embedded in the original files.
+
+  In 2003, a graduate student at Princeton discovered a weakness in a
+  CD copy-protection technology by SunnComm and upon publishing his
+  results was summarily threatened with legal action for having
+  circumvented copy protection.
+
+  One feature that people have come to expect of media, under fair
+  use, is the ability to ``time-shift'' for later listening or viewing,
+  that is, the ability to record a program with a device such as a VCR
+  or cassette deck.  Streambox developed a product that could record
+  Internet media streams for such a purpose.  However, RealNetworks, a
+  streaming media company, obtained an injunction against the product
+  using the DMCA, effectively disallowing the digital equivalent of
+  the VCR.
+
+  The DMCA has also been used to enforce monopolies, blocking
+  innovation.  In 2004, RealNetworks developed a technology to package
+  music purchased from their music store to be playable on an Apple
+  iPod.  Accusing RealNetworks of having the ``tactics and ethics of a
+  hacker,'' Apple threatened legal action under the DMCA and changed
+  their software to prevent RealNetworks from being able to compete in
+  their market.
+
+  Looking at these examples, it is clear that the DMCA has been used
+  for somewhat nefarious purposes.  Instead of protecting copyright
+  owners' works from pirates, it has instead been used to protect
+  ignorance, control, and monopolies over the public.  The DMCA has
+  not been successful in improving the copyright law in the digital
+  age and instead has been trying to carry over old business models
+  which have assumed the distribution of hard, physical copies as
+  opposed to ephemeral replications.
+
+  Despite being excessively complicated with many facets, copyright
+  law is simply an incentive scheme, and an incentive scheme is all
+  copyright law should be.  The code should simply be that all works
+  are to be protected for a limited time starting from the act of
+  creation as is stated in the Constitution.  The protection would
+  simply be an exclusive right to commercialize the work during the
+  time period as opposed to nearly eternal rights to completely
+  control the work.  According to James Boyle, the William Neal
+  Reynolds Professor of Law at Duke Law School, the current protection
+  period of seventy years after death, as prescribed by the Sonny Bono
+  Term Extension Act, is ``outrageous,'' being much too long for a
+  simple incentive.
+
+  One way to work toward updating copyright law is to deprecate it.
+  Instead of clinging onto the old practices, content creators can
+  embrace the digital age.  For example, Cory Doctorow, a science
+  fiction writer, wrote an article for Forbes magazine describing how
+  he offers his books freely as ``e-books'' on his website and yet still
+  makes ``a bunch of money'' for his work.  He makes the point that
+  although many people who download the book do not end up purchasing
+  it, those people wouldn't have bought the book anyway.  The reason
+  this model works, according to him, is that an electronic book is a
+  ``social object.  It wants to be copied from friend to friend
+  [. . .]. Nothing sells books like a personal recommendation''
+  (Doctorow).  He admits it cannot be proven that giving books away
+  for free sells more books, but he argues that it has worked for four
+  books he has published and that it is free advertising for his skill
+  as a writer.
+
+  This has also worked for software.  In the eighties, Richard
+  Stallman, then a Harvard student working at the MIT AI Laboratory,
+  had the idea to create free software under what he called a
+  ``copyleft.''  From this sprouted the entire open-source movement
+  where the source code of applications is available for anyone to
+  examine or modify.  Linux is a notable example of such software.
+  Despite the code being freely available, companies such as IBM and
+  Novell have found a way to make money with a service-oriented
+  business model.  Instead of selling the software, they sell the
+  tech-support, installation, and hard copies of manuals.  Since they,
+  too, use open-source software, they also help fund the software
+  projects.  Thus, this business model embraces the Internet in
+  allowing free dissemination for the public good whilst supporting a
+  profit.
+
+  The Telegraph, a reputable British news source, ran an article in
+  2007 describing the more recent adaptation of the music industry to
+  the Internet.  It is proving to be more profitable to book bands for
+  concerts than to try to create a record with a major label.
+  According to Alan McGee, a previous manager of the well-known band
+  Oasis, ``It is definitely the beginning of the end of the old model.
+  [. . .] With the losses in CD sales, the band [the Charlatans] will
+  get paid more by more people coming to the gigs and buying
+  merchandise.  I believe it's the future business model''
+  (``Radiohead'').
+
+  It used to be that one would have to pay for access to information.
+  With the transition to radio, performers could no longer control who
+  could listen to their shows.  Likewise, with our transition to the
+  Internet, it is impossible to control information from being shared.
+  Business models had to adapt to the radio transition.  Now it's time
+  to adapt to the Internet (Doctorow).
+
+  Even though many people will download works without compensating the
+  authors under these models, we can think about the fact that
+  copyrights are a relationship between copyright holder and the
+  public which is a two-way street.  Copyright law and discussion
+  about the DMCA has generally focused on protecting the copyright
+  holder (Litman 128).  However, it is also in the public's best
+  interest to protect the copyright holder when the author creates
+  something worthwhile, and the public has the desire to see more
+  similar work, expressing the desire in the form of donations and
+  actual purchases.  The DMCA is not required to support the artists,
+  and, if the artist is not supported by the public, one may question
+  whether or not the artist is actually wanted.  Economically, there
+  is an incentive for both parties.  For the public, to keep artists
+  they like, and for the artists, to disseminate their ideas and gain
+  market share, enticing the public.
+
+  It is too early to legislate the new digital age when we are just at
+  the beginning, not yet knowing what is or will be possible.  The
+  Digital Millennium Copyright Act has been stifling innovation, which
+  is quite the opposite of the purpose of copyright law.  New business
+  models need to bring us into the future, understanding the
+  implications of the world in which we now live.  We can not box
+  ourselves in by holding onto the old status quo of intellectual
+  property.  We need to truly update our ideas of what it means to own
+  an idea for the new millennium as opposed to the DMCA's attempt to
+  force the old onto the Internet.  Since the law reflects social
+  custom, we must change how we think of digital media, realizing data
+  can be copied without cost.  We need our business- and
+  congress-people to understand this, too.  Never before has it been
+  so easy to distribute works to so many at such little cost.  Let us
+  experiment.
+
+  \section{Works Cited}
+  Barlow, John Perry. ``The Economy of Ideas: Selling Wine Without
+  Bottles on the Global Net.'' 22 May 2008
+  <\link{http://homes.eff.org/~barlow/EconomyOfIdeas.html}>.
+
+  Bell, Tom. ``Indelicate Imbalancing in Copyright and Patent Law.''
+  \textit{Copyfights}.  Ed. Adam Thierer and Clyde Crews Jr.  Washington,
+  D.C.: Cato Institute, 2002.
+
+  Boyle, James. ``Intellectual Property Rights Do Not Require Greater
+  Protection.'' ``Opposing Viewpoints: The Information
+  Revolution''. Ed. Laura K. Egendorf. San Diego: Greenhaven Press,
+  2004. Opposing Viewpoints Resource Center. Gale. Eden Prairie High
+  School. 22 May 2008 <\link{http://find.galegroup.com/}>.
+
+  Digital Millenium Copyright Act. Pub. L. 105-304. 12 Oct. 1998.
+
+  Doctorow, Cory. ``Giving It Away.'' \textit{Forbes}. 1 Dec. 2006. 22
+  May 2008 <\link{http://www.forbes.com/}>.
+
+  ``Radiohead Generation Believes Music Is Free.'' \textit{The
+    Telegraph}. 16 Oct. 2007. 22 May 2008
+  <\link{http://www.telegraph.co.uk/}>.
+
+  Richardson, Bonnie J.K. ``The Government Must Combat Online Piracy.''
+  \textit{At Issue: Internet Piracy}. Ed. James D. Torr. San Diego:
+  Greenhaven Press, 2005. Opposing Viewpoints Resource
+  Center. Gale. Eden Prairie High School. 22 May 2008
+  <\link{http://find.galegroup.com/}>.
+
+  Litman, Jessica. ``Revising Copyright Law for the Information Age.''
+  \textit{Copyfights}.  Ed. Adam Thierer and Clyde Crews Jr.
+  Washington, D.C.: Cato Institute, 2002.
+
+  ``Unintended Consequences: Seven Years Under the DMCA.''
+  \textit{Electronic Frontier Foundation}. Apr. 2006. 22 May 2008
+  <\link{http://www.eff.org/wp/unintended-consequences-seven-years-under-dmca}>.
+
 \end{page}

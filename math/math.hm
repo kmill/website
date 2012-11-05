@@ -9,10 +9,11 @@
   \title{Mathematics}
   \modified{3 June 2012}
 
-  This is an index of writing on mathematics
+  This is an index of writing on mathematics.
 
   \begin{itemize}
   \item \ref{page_math_platonic}
+%  \item \ref{page_quotient_groups}
   \end{itemize}
 
 \end{page}
@@ -162,4 +163,13 @@
   \textit{Elements} (and probably most of the books leading up to it)
   to get constructions of each of them.
   
+\end{page}
+
+\begin{page}{quot_groups.html}
+  \label{page_quotient_groups}
+  \title{An exposition of quotient groups}
+  \modified{23 August 2012}
+
+  
+
 \end{page}

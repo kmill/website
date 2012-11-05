@@ -4,9 +4,152 @@
 \begin{page}{media.html}
   \label{page_media_consumption}
   \title{Media consumption}
-  \modified{21 August 2012}
+  \modified{4 November 2012}
 
   This is a log of my media consumption.
+
+  \hline
+
+  November 2012. \textit{A Mathematician's Apology} by G. H. Hardy.
+
+  This book is, according to C. P. Snow, a close friend of Hardy who
+  wrote the preface to the edition of the book I read, ``a passionate
+  lament for creative powers that used to be and that will never come
+  again.''
+
+  In the Apology, Hardy tries to justify mathematics, and with it, his
+  own life's work.  He draws the distinction between the interesting
+  and the not, and how it relates to utility.  He argues that there is
+  a certain ``depth'' and ``generality'' which the ``useless'' subject
+  of pure mathematics provides that is ``serious'' and
+  ``interesting,'' unlike what more applied pursuits would offer.
+
+  One thing which people seem to remember from this book is that
+  mathematics ``is a young man's game,'' which Hardy substantiates by
+  saying that he can't think of anyone who had initiated any
+  mathematical advance past the age of fifty.
+
+  One other thing is his saying that mathematics is a good pursuit
+  because of how harmless it is, and how pure mathematics like number
+  theory, because it is so useless, has never harmed anyone in times
+  of war.  People tend to say that, well, number theory is now being
+  used for cryptography, which is very useful for both online commerce
+  and for the Department of Defense.  I'm not convinced, though, that
+  this kind of mathematics would pass Hardy's requirements of depth
+  and generality, especially for something like RSA, which is
+  essentially just an application of Fermat's little theorem.
+
+  Some advice: ``A man who is always asking `Is what I do worth
+  while?' and `Am I the right person to do it?' will always be
+  ineffective himself and a discouragement to others. He must shut his
+  eyes a little and think a little more of his subject and himself
+  than they deserve. This is not too difficult: it is harder not to
+  make his subject and himself ridiculous by shutting his eyes too
+  tightly.''
+
+  The preface reminds me of an essay I read recently by F. Scott
+  Fitzgerald called
+  \link{http://www.esquire.com/features/the-crack-up}{``The Crack
+    Up''}, which is about another creative mind which lost the will to
+  create.  Similar to Fitzgerald, Hardy lived like he was a young man,
+  and depression greeted him when his age finally caught up.
+
+  \hline
+
+  November 2012. \textit{Fearless Symmetry: Exposing the Hidden
+    Patterns of Numbers} by Avner Ash and Robert Gross.
+
+  The book is a technically-oriented popular mathematics book which
+  tries to explain how symmetries helped prove Fermat's Last Theorem.
+  In particular, it tries to explain generalized reciprocity laws
+  (which deal with computing the characters of certain elements of
+  representations of the Galois group of the algebraic closure of
+  $\Q$.  Quadratic reciprocity is an example which can be cast in this
+  language.)
+
+  I found the book to be a bit too hand-wavy for my tastes, since such
+  an exposition makes it easy for the reader to have very little idea
+  of what's going on, but I appreciated learning about what is going
+  on in modern number theory as well as some of the motivation.  Even
+  though I say the book is a bit hand wavy, the authors definitely
+  give enough details to understand the mathematical ideas they are
+  trying to convey.
+
+  I'm fairly impressed by what they managed in this book given their
+  constraint of trying to make it accessible to a
+  mathematically-inclined popular audience, while still getting to
+  talking about characters of group representations of the Galois
+  group of the algebraic closure of $\Q$ and how these relate to the
+  number of points on an elliptic curve over finite fields, and
+  finally how this relates to proving Fermat's Last Theorem!  Some
+  chapters definitely felt hastily constructed, especially the one
+  introducing matrix groups, but considering that I already know about
+  them, and that they aren't the central focus of the book, I can't
+  complain too much.
+
+  \hline
+
+  November 2012. \textit{Jiro Dreams of Sushi} (documentary).
+
+  There's this sushi restaurant in Tokyo that was owned and operated
+  for the last 75 years by this guy named Jiro.  It's in some
+  basement, is spartan with only ten seats or so, yet has a 3-star
+  Michelin rating, which apparently means that it is worth visiting
+  the country for the restaurant alone.  Jiro decided that the only
+  worthwhile thing in life was to make the best sushi he could
+  possibly make.  And, judging by the Michelin rating, it seems he has
+  accomplished that.  The documentary looks at him, his two sons, some
+  of his apprentices, and some of his dealers.  Recommended.
+
+  \hline
+
+  October 2012. \textit{The Royal Tenenbaums} (movie).
+
+  About a repentant father who saves his family from a sinking
+  battleship. Sometimes a bit campy, but overall quirky and
+  entertaining.  I generally liked the narrator with book prop
+  exposition; it made the literary-sounding descriptions of the
+  characters seem to work well in a movie setting.
+
+  \hline
+
+  October 2012. \textit{Math Hysteria} by Ian Stewart.
+
+  This is a book full of magazine columns Stewart had written for
+  Scientific American, I believe, to continue Martin Gardener's
+  \textit{Mathematical Games}.  There are a number of interesting
+  diversions, such as the numbers-on-hats problem and strategy for
+  dots-and-boxes.  Unfortunately, Stewart likes to wrap some of these
+  up into a kind of annoying story full of the worst kind of puns.
+  His writing tries to make things simpler/digestible for a general
+  audience, but I feel like his presentation glosses over exactly
+  those parts which are useful for understanding.  Despite my
+  criticism, I did enjoy reading a good portion of the book, and
+  Stewart curated some good topics.
+
+  \hline
+
+  August 2012. \textit{Sister Bernadette's Barking Dog} by Kitty Burns
+  Florey.
+
+  It's that time of year when immense quantities of stuff percolate
+  down tEp's mighty stairwell and into the center room.  This year,
+  some of that stuff consisted of a stack of Will's books he left when
+  he went off to Korea, and among them was this quirky volume.
+
+  It's a book about diagramming sentences.  It seems like it tries to
+  be \textit{Breakfast of Champions}, interspersing anecdotes with
+  pictures (in this case the pictures are diagrams of sentences from
+  the anectodes).  And it tries to make a thing of ``Sister B's''
+  barking dog as a shorthand for 1950s parochial school with moderate
+  success. The writing was technically immaculate, but, for instance,
+  the metaphors in the book really tended to fall flat.
+
+  The author discusses the writing of various authors from the point
+  of view of sentence diagramming.  Gertrude Stein came up.  She was
+  mentioned by Raeez as someone who was interested in normal motor
+  automatism, which I suspect is the cause of some of the strange
+  sentences which the author was trying to make sense of.
 
   \hline
 
@@ -36,12 +179,82 @@
 
   \hline
 
+  August 2012. \textit{The Alchemist} by Paulo Coelho.
+
+  The ideas of destiny present in this book remind me a lot of the
+  little I know about \textit{The Secret}.  Otherwise, I suppose this
+  is a charming tale of how if you listen to the dreams you have when
+  you are asleep, you will get incredible treasure, the girl, and
+  knowledge of how to turn yourself into the wind.
+
+  \hline
+
   August 2012. \textit{Cosmicomics} by Italo Calvino.
+
+  This book is a collection of short stories by Calvino.  It was
+  generally entertaining and had good imagery, but the themes got
+  repetitive by the end.  The book explores, by way of cosmic
+  anthropomorphisms, the relation between the signed and the
+  signified, a man's love for a woman (and the pain of it being
+  unrequited), and the rise of thingedness.
+
+  Possibly the most memorable story is \textit{The Distance of the
+    Moon}, which vividly describes the moon back when it was closer to
+  the Earth and how there was this rich cheese-like substance people
+  would farm from it, which they could get to using long ladders.
+  Despite the setting, it's mainly a story of unrequited love.
+
+  Many of the stories are about the rise of some property:
+  \textit{Daybreak} is about the solidification of form in a nebula,
+  \textit{A sign in space} the first sign, \textit{Without Colors} the
+  first colors, \textit{How much shall we bet?} the first predictions,
+  and \textit{The Spiral} the first seen (and therefore the reason for
+  the seer).
+
+  A funny (and silly) quote from \textit{Without Colors} is, after
+  Qfwfq can see color because of the newly formed,
+  ultraviolet-blocking atmosphere, ``I was still amazed at discovering
+  fire was red, ice white, the sky pale blue, the earth brown, that
+  rubies were ruby-colered, and topazes the color of topaz, and
+  emeralds emerald.''  Or, in \textit{The Light Years}, inhabitants of
+  millions-of-lightyears-away galaxies see it important to put up a
+  sign saying ``\textsc{You Have A Flannel Undershirt}'' based on
+  observations using their advanced optics.
+
+  Overall, \textit{Cosmicomics} was fairly clever, but I think the
+  short volume was about the right length.
 
   \hline
 
   August 2012. \textit{A Sentimental Journey Through France and Italy}
   by Laurence Sterne.
+
+  I liked seeing a snapshot of life from the 1760s, which was around
+  when Sterne wrote this book.  The edition I have has numerous
+  footnotes explaining every allusion and French phrase, and these
+  were exceedingly helpful for understanding the book.
+
+  \textit{A Sentimental Journey} concerns a Mr. Yorick who, realizing
+  the debate he is having with a friend in England would be better
+  resolved in France, immediately packs, notes the overcoat he has on
+  ``will do,'' and sets off on a boat.  The book is a series of
+  episodes of the adventures Yorick has during his travels, and,
+  unlike other travelogues, Yorick mainly recounts interpersonal
+  interactions rather than descriptions of the sights.  Some of these
+  scenes were cute, like when Yorick was helping a lady into a
+  stagecoach to try it out, but the proprietor of the stagecoach
+  realized he had the wrong key, so Yorick and the lady were frozen in
+  place for a minute, holding hands, not knowing exactly what to do.
+
+  Italy is barely mentioned, but my understanding is that Sterne died
+  before he could finish the final volume.
+
+  I realized during the humorous scene where a count cannot
+  differentiate the story's Yorick with Hamlet's Yorick (and so helps
+  him get a passport because he is the jester to a king after all)
+  that the Poor Yorick Entertainment, the company which produced
+  \textit{Infinite Jest IV} in the book \textit{Infinite Jest}, is a
+  pretty good allusion.
 
   \hline
 
@@ -105,5 +318,55 @@
   \hline
 
   July 2012. \textit{The Sorrows of Young Werther} by Goethe.
+
+  Poor Werther, who loved someone who could not love him back.
+  There's something about his character that reminds me of a
+  more-with-it Herbert from \textit{Monty Python and the Holy
+    Grail}. (At least, it's Herbert's voice that I think of when I
+  read anything Werther says out loud).
+
+  But, the book is very Romantic with nature scenes and suffering and
+  whatnot.  The innovation of switching to a modern novel form to
+  summarize what Wether's letters were incapable of recounting was a
+  nice change in pace, and there was some quaintness to Goethe needing
+  to explain why he was entering narration form.
+
+  I would say ``spoiler alert,'' but it was so painfully obvious how
+  the book would end from nearly the beginning that I don't see it
+  necessary.  It's too bad that none of his friends seemed to realize
+  that Werther's continual talk of suicide was some sort of warning
+  sign that maybe he was considering suicide as a real possibility.
+  But, if they had stopped him, then \textit{The Sorrows of Young
+    Werther} wouldn't have had the beautiful ending of self sacrifice.
+  At least it wasn't as symbolically overbearing as in \textit{Dead
+    Poets Society}.
+
+  \hline
+
+  June 2012. \textit{Ice Nine} by Kurt Vonnegut.
+
+  An idea explored in \textit{Ice Nine} is what happens when someone
+  enters an intellectual oubliette and feels no responsibility to
+  society.  Felix Hoenikker, who developed the atomic bomb and ice
+  nine, is a case study for this idea.
+
+  Bokononism was entertaining and compelling (so much so that there
+  are people online who claim to be Bokononists).  Pedantry alert: for
+  some reason, people tend to pronounce Bokononism as
+  ``bo-kah-nun-ism,'' but the word ``Bokonon'' comes from the San
+  Lorenzon pronunciation of ``Johnson,'' so it should probably
+  actually be pronounced sort of like ``bahknun-ism'' with a really
+  soft ``k''.
+
+  \hline
+
+  June 2012. \textit{Breakfast of Champions} by Kurt Vonnegut.
+
+  This book is very strangely structured: it was like the author was
+  trying to derive sense of the world from basic principles, and then
+  the author at some point finds the thread of a story, and develops
+  that thread to some kind of completion.  However, the thread falls
+  apart during a period of self referentiality in which the author
+  enters the scene and interacts with the characters.
 
 \end{page}

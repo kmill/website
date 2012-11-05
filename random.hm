@@ -1,0 +1,440 @@
+% random.hm
+% random uncategorized nonsense
+
+\begin{page}{random.html}
+  \label{page_random}
+  \title{Random uncategorized nonsense}
+  \modified{22 August 2012}
+
+  \section{Phrases}
+
+  \begin{itemize}
+  \item A fatal blow to my morning routine
+  \item The aborted sneeze
+  \item Watch out for those befedoraed hipsters and don't forget what
+    the chickens say!
+  \item Two is half of all of us.
+  \item Scientists still baffled by colony collapse syndrome
+  \item Wisdom tiddlybits
+  \item Always check the flavors beforehand.
+  \item sometimes an orange is just an orange and sometimes it's not
+  \end{itemize}
+
+  \section{Idioms I don't like}
+  \begin{itemize}
+  \item laughing all the way to the bank
+  \end{itemize}
+
+  \section{Ten days before}
+
+  \textit{From circa January 2009.}
+
+  Ten days before the last friday before the last Tuesday of the month
+  prior to the twenty-second advent of the third lunar eclipse of the
+  fifth season of the tenth decade of the last millennium next to the
+  syzygy of the fifth and seventh planet in our solar system, nothing
+  notable happened. Why do I even reference this then? Truly, there is
+  no good reason. I just wanted to point out that such days and times
+  exist in life. However, the day after the day I just mentioned,
+  which is nine days before the last friday before the last Tuesday of
+  the month prior to the twenty-second advent of the third lunar
+  eclipse of the last season of the tenth decade of the last
+  millennium next to the syzygy of the fifth and seventh planet in our
+  solar system, something semi-notable did, in fact, happen. In fact,
+  this day, the day nine days before the last friday before the last
+  Tuesday of the month prior to the twenty-second advent of the third
+  lunar eclipse of the fifth season of the tenth decade of the last
+  millennium next to the syzygy of the fifth and seventh planet in our
+  solar system, which I really must reiterate, was full of hidden
+  surprises that no historian had ever uncovered before, until now,
+  that is. On this very fine day, a day before the last friday before
+  the last Tuesday of the month prior to the twenty-second advent of
+  the third lunar eclipse of the seventh planet in our solar system by
+  nine days, we have reason to believe that bystanders knew full well
+  that this was, in fact, the day nine days before the last friday
+  before the last Tuesday of the month prior to the twenty-second
+  advent of the third lunar eclipse of the fifth season of the tenth
+  decade of the last millennium next to the syzygy of the fifth and
+  seventh planet in our solar system. And this I find simply amazing.
+
+  \section{Nihilism}
+
+  About absolute nihilism: You need something in which you can gauge
+  the lack of meaning. How would you know exactly how much of a lack
+  you have without an absolute benchmark?
+
+  This is not to be confused with Absolut Nihilism: a brand of vodka
+  that instills a sense of emptiness and lack of meaning in one's
+  heart. It gives new meaning to the phrase ``to drink one's troubles
+  away.''
+
+  \section{Flatness}
+  \textit{From when I was a freshman, Fall 2008.}
+
+  The motivation for this is that the function
+  \begin{equation*}
+    f(x) = e^{-1/x^2}
+  \end{equation*}
+  (with $f(0)=0$) is \emph{really} flat near the origin.
+
+  Let us define a few things:
+
+  \textbf{Definition 1.} For a given function $f(x)$, we say the
+  \emph{flatness} at a given point $a$ in the domain of $f$ is the
+  maximum $n$ such that
+  \begin{equation*}
+    \frac{d^if}{dx^i}=0
+  \end{equation*}
+  for $1\leq i\leq n$.
+
+  \textbf{Definition 2.} We say the \emph{flatness of a function} $f$
+  is the maximum flatness of $f$ at $a$ for any $a$ in the domain of
+  $f$.  This maximum flatness is called the \emph{flatness order} of
+  $f$.
+
+  \textbf{Examples.} The function $f(x)=x^2$ has flatness $1$ at
+  $x=0$.  It also turns out that this is the maximal flatness in all
+  of $f$ so we can say $f$ has flatness of order $1$.
+
+  On the other hand, $g(x)=x^4$ has flatness $3$ at $x=0$.  And,
+  again, this is the maximal flatness, so $g$ has a flatness order of
+  3.  We can also say then that $g$ is flatter than $f$. $\qed$
+
+  Now, let $h(x)=x^5-x^3$.  At $x=0$, there are two derivatives which
+  equal $0$, so the flatness there is $2$.  When $x=\pm 1$, only the
+  first derivative is zero, so the flatness is $1$.  However, the
+  flatness of $h$ is $2$ since this is the maximum flatness.
+
+  \textbf{Theorem 1.} \emph{If a function $f$ has a non-zero flatness
+    for all points in an open interval in its domain, then $f$ is
+    necessarily the constant function over that interval.}
+
+  \textbf{Theorem 2.} (or The [current] Fundamental Theorem of
+  Flatness) \emph{Given functions $f$ and $g$, let
+    \begin{equation*}
+      c=\lim_{h\rightarrow 0} \frac{f(a+h)}{g(b+h)}
+    \end{equation*}
+    where $a$ is in the domain of $f$ and $b$ is in the domain of $g$.
+    Then:
+    \begin{enumerate}
+    \item If $c=0$ then $f$ at $a$ is flatter than $g$ at $b$.
+    \item If $c$ is indeterminant then $g$ at $b$ is flatter than $f$
+      at $a$.
+    \item Otherwise, $f$ at $a$ and $g$ at $b$ have the same
+      flatness.
+    \end{enumerate}
+  }
+
+  \section{Checks and Balances}
+
+  Czechs and Dalliances: A Governmental Story of Scandalous Democracy
+
+  \textit{Coming to a theater near you this summer.}
+
+  \textit{In AP English, for want of treating boredom, Alec and I
+    continued making horrible things along the same lines:}
+
+  Cheques and Valences: The funding of the development of the Bohr model
+
+  Checks and Gallances: The chivalrous world of chess
+
+  Decks and Saliences: The deep-fried world of the Boardwalk
+
+  Czechs and Alliances: The Road to WWI, or: The failure of the French buffer zone
+
+  Pecks and Talliances: Measuring pideons' behavioral responses
+
+  Decks and Talents': The strategy of poker
+
+  Necks and Parlances: A discorse of social intercourse
+
+  Necks and Ball-Lances: Safety precautions in modern jousting
+
+  Flecks and Ol' Ranches: A history of the gold rush
+
+  Treks and Phalanxes: The challenge of long-range infantry transportation
+
+  Sex and our Prances: An analysis of gender identification on the desire to frolic
+
+  Rex and Blancmanges: The desire for a noble dessert
+
+  Treks and Silences: Adventures of mute explorers \textit{(N.B., this
+    one was written by the teacher when he saw what we were doing.)}
+
+  Wrecks and Ball Dances: Sophisticated parties on sinking ships
+
+  The Crux of where Hal Lance is: The police report of a previously missing person
+
+  Pecs and Dopances: The ethics at the competitive edge
+
+  Eycks and Romances: An analysis of the painter's symbolic representation of love
+
+  X and Romances: The civil rights leader's interpretation of love as an administration
+
+  X and Violences: The strategies of a civil rights leader
+
+  X, a Pedant Is: Society's intolerance of the learned among us
+
+  Flex, what Pliance Is: A material engineer's pocket reference
+
+  Specs and Entrances: The intricacies of ocular fashion
+
+  Text and Sentences: A styleguide
+
+  \section{This is a sentence...}
+
+  This is a sentence that will never end, but you may not believe me
+  in this respect, this being the only respect mentioned thus far, but
+  I do have my ways to create such a sentence using such devices as
+  commas, semicolons, a lack of run-ons, and coordinating
+  conjunctions---and, of course, dashes (em dashes, in fact) to set
+  off other ideas---without much typographical license at all,
+  typographical license meaning I am, in effect, cheating and not
+  accomplishing the purported goal of the infinite sentence (plus, I'm
+  not sure about what sort of typographical tricks would allow me to
+  continue with this sentence unabated [or, as some may say,
+    ``unterminated'' where a period is considered a terminal symbol
+    (which shouldn't be confused for a terminal in computing, a
+    console for operating with the system, it being the end point of
+    output, or in formal grammars, both of which can in their own ways
+    be interesting to those who find such things interesting) as it is
+    the termination of a sentence, which isn't apparent in this one,
+    and although a definition of a sentence may be a logical sequence
+    of words with an accompanying delimiting mark (a period), a better
+    definition may have to do with grammatical structure, which may
+    perhaps be painful to indulge at the moment], unless you count the
+  atrocity I have just committed), but it is quite possible to reach
+  this lofty goal, and to prove this I must first reiterate that this
+  is a sentence that will never end, but you may not believe me in
+  this respect, [. . .]
+
+  \section{A very common day}
+
+  \textit{These were sentences which incorporated a particular phrase
+    as required for the assignment, for instance ``the garden everyone
+    loved which was planted by his neighbor.''}
+
+  It was a common day for the residents of Brighton, California, a
+  very common day indeed for everyone who didn't notice the chromatic,
+  pulsating glow of the incoming solar wind with its magnificent tail
+  of downed communication satellites and airplanes, but the number of
+  those who remained oblivious was rapidly approaching zero as more
+  and more consumer electronics were erupting like little
+  firecrackers, and the citizens of the town were quite certain it was
+  not the Fourth of July, but the Sixth.
+
+  Suddenly, as a young boy was grabbing another buttered biscuit from
+  the wicker picnic basket, it being an especially bright day with a
+  thick, comforting fog of ozone, the nearby harbor sunk to the depths
+  of the especially turbulent bay, and, the town being especially low
+  in elevation, a rogue wave engulfed the especially sunny park.
+
+  A news report quickly reached a corporate executive in a nearby
+  villa, and he was enraged over the loss of his industrial park which
+  was a very significant investment for him, but the boy continued
+  munching his biscuit happily until his lungs were oxidized, and he
+  passed out with a contented smile on his face as the foaming waves
+  took him away with the last vestiges of thought flowing through his
+  young mind, remembering the garden everyone loved which was planted
+  by his neighbor, but due to his lack of consciousness, perhaps, we
+  can only guess he did not realize this garden, too, was being washed
+  away, interestingly enough.
+
+  \section{Candy dispenser}
+
+  \textit{Wow was I angsty back in Fall 2007...}
+
+  \textit{I seriously considered submitting this for the Introduction
+    to Engineering and Design class for a project where we had to
+    design a ``candy dispenser'' and make candy shapes to go with
+    it. I wanted to scream.}
+
+
+  It is important to model an idea before making a final prototype
+  because otherwise there is a greater chance of blowing it, and
+  blowing it badly. The idea may be unworkable, or worse, just plain
+  dumb.
+  
+  The challenge of working as a large team is that other people
+  generally don't care because there was nothing in this project to
+  excite them. Making ``fun, unique candy shapes''? I could do it all
+  day.
+
+  A design brief is a document that briefly describes a design. It is
+  a part of engineering that we call ``communication.'' This
+  definition isn't a circular definition (which is a definition that's
+  circular) since I used different forms of the words.
+
+  Besides three-fold brochures (which actually only need two folds to
+  make), the design could be communicated with a giant poster board
+  with equally giant letters emblazoned across the top: ``CANDY
+  DISPENSER DESIGN POSTER.'' Then, no one will be at a loss to explain
+  what has been made.
+
+  Something different that I would do in this process is the fiddly
+  bits along the edges of the device. They're too modern. I'd rather
+  have them rounder.
+
+  I'm hard-pressed trying to find any moment in which I found any
+  meaning over the course of this project. I still have images of
+  wanting to stab my arm with my mechanical pencil rather than fillet
+  another god-forsaken edge. I usually don't believe life has much
+  meaning, if any at all, but I realized there is at least more
+  meaning doing something else than to make this candy dispenser.
+
+  \section{Favorite romantic couple in fiction}
+
+  \textit{This was by my brother Mark, and I found it kind of funny.
+    It's really reminiscent what's immediately above for some reason.}
+  
+  Writing Prompt:
+
+  7) \textit{Who's your favorite romantic couple in fiction? Why?}
+
+  My favorite romantic couple in fiction would probably Beauty and the
+  Beast. The main reason for this is that I can't think of any other
+  romantic Disney couples at the moment, and the reason for that is
+  that I don't want to. But they are my favorite choice out of the one
+  choice I can think of because they loved each other even though one
+  of them was terribly hideous. Bell didn't give up on the Beast
+  because she knew he was good on the inside, she knew he could show
+  it no matter how hated he was (at least I think the beast was a
+  boy).
+
+  \section{Muffins}
+
+  Widely regarded as gastronomical delights, \emph{muffins} are a
+  mushroom-shaped species from the genus \textit{Tricticeae Muffinus}.
+  Feral muffins are natively found in northern Europe, where their
+  doughy hide protects them from the elements.  Sadly, with the
+  industrialization of the global economy over the course of the last
+  one-hundred years, the final tracts of land which the muffins have
+  traditionally roamed have been nearly wiped out by heavy-handed
+  treatment of the environment by industry.  Many wildlife
+  conservation groups are currently concerned about the safety of our
+  baked friends and are now taking active strides in their protection.
+
+  \subsection{Evolution of muffins}
+  The family tree for muffins goes back farther than that of
+  \textit{Homo sapiens}.  Due to their simplistic shape and substance,
+  it was relatively easy for the primordial muffins to evolve.
+  Scientists presume that the first muffin walked the earth roughly
+  three-hundred billion years ago at a time when rocks were still the
+  second most sentient beings.  Very little else is known due to a
+  limited fossil record.
+
+  \subsection{Muffin trauma}
+  Perhaps the most well-known trauma ever to be recorded in muffin
+  history was the Great Muffin Famine of 1891 where millions of
+  Swedish farmers starved when the much-expected muffin crop failed.
+  The generally-accepted theory for the cause of this disaster was
+  that the manufacturer for the little paper cups that wrap muffin
+  were of low quality and that the muffin herds froze to death during
+  that exceptionally frigid winter.
+
+  \subsection{Muffin society}
+  Dr. Linda B. Peterson, a world-renowned muffin researcher, has been
+  studying our savory friends by sitting in on muffin herds for the
+  last 20 years and documenting their activities.  She has found a
+  surprisingly intricate social structure.  According to her research,
+  the muffins are aggregate themselves into groups of tribes of 6 or
+  12 in a gridded hierarchy.  They almost always stay with their own
+  flavor, and blueberry has never been observed to intermingle with
+  raisin.  The tribes lack a central authority figure and appear to
+  make all decisions in a grid-like structure without any perceptible
+  movement.  Dr. Peterson also reports that the muffins always seem to
+  be in the state of decision and hypothesizes the muffins value
+  unanimity in democracy.
+
+  \subsection{Cultural references}
+  Ever since muffins have had widespread fame, they have had an
+  inextricable link to our culture and most basic values.  The
+  references to muffins in arts an entertainment are much too numerous
+  to record.  However, many professors of deconstructionist
+  muffinology seem to agree it would be advisable to look deeper than
+  the lowest level usually encountered in analysis and grapple with
+  the obvious muffin roots we all cherish.
+
+  \subsection{Further reading}
+  \ref{page_muffins_kyle}. A short story about muffin ethics and culture.
+
+  \section{There's a circle of Hell for that...}n
+  \textit{After reading The Inferno for 11th grade English, we had to
+    write about a sin for which a circle of Hell would be reserved.  I
+    chose the hoarding of chairs in the lunchroom.}
+
+  One EPHS crime that should be punished is the hoarding of
+  chairs. The commons have a general shortage of chairs due do some
+  people obtaining and guarding a surplus of them at their tables. A
+  casual lunch eater will find that these chairs are ``saved'' and
+  irretrievable for actual use, presumably because there is a chance
+  that friends of the chairs' ``owner'' will at some point make use of
+  them for some jolly lunchtime conversation. These people who save
+  chairs at the expense of others' lunches deserve to go to the fourth
+  circle of hell to join the hoarders and wasters since in life they
+  thought only of having enough chairs, destroying the light of
+  God. Instead of moving large weights in this circle, those who are
+  guilty of this crime must forever collect and carry stacks of chairs
+  on their shoulders without rest, thereby burdening the guilty with
+  their own hoarding. Also, all of the chairs have no seats so they
+  will have no hope of sitting for any jolly lunchtime conversation.
+
+  \subsection{Marble-based computing}
+  \textit{July 2007.} \emph{Marble computing} is the way of the future
+  for all of our computational needs.  It will solve all of our
+  greenhouse emission problems for energy use since there is no
+  cleaner energy than falling marbles.  Basically, we need to get a
+  giant vat of glass beads suspended in the air, and release the beads
+  one at a time into complex chutes to yield the answers to our
+  problems.  I estimate we could run computers up to a few cycles per
+  second.  We can carry over some of the main ideas of electronics to
+  the newfound field of marbletronics.
+
+  Voltage, which is the potential, can be modeled by
+  \begin{equation*}
+    V=g\Delta h \mathrm{\frac{m^2}{s^2}}
+  \end{equation*}
+  where $g$ is the gravitational constant and $\Delta h$ is the change
+  in height that the marble can experience.  The marbletronic
+  equivalent for the coulomb can be thought of as one marble (or $1
+  \mathrm{M}$).  Thus, current is measured in marbles per second.  To
+  then find the total power used by a marbletronic device, where $x$
+  is the number of marbles per second falling through a height of $h$
+  meters,
+  \begin{equation*}
+    $P = I\cdot V = x \cdot g \cdot h \mathrm{\frac{M\cdot m^2}{s^3}}$
+  \end{equation*}
+
+  The concept of resistance can be developed.  Since
+  \begin{equation*}
+  V = I\cdot R\text{\ and\ }R = \frac{V}{I}
+  \end{equation*}
+  and so
+  \begin{equation*}
+    R = \frac{g\cdot h}{x} \mathrm{\frac{m^2}{M\cdot s}}
+  \end{equation*}
+  From these ideas, the rest of marbletronics can be constructed to
+  provide the theory for efficient marble computer creation.
+
+  \section{Stream of Consciousness}
+  \textit{(Circa 2006)} The man in the hat was as fat as a bat; he
+  didn't know the difference between lemonade and wine. The similarity
+  is subtle, as they're both made of fruit, the object of the most
+  high. Little did the know of the wars that were fought for
+  fruit. You never see this in the newspaper. Fruit has all of the
+  essential viatmins and minerals and everybody knows this. But, these
+  wars are simple and quick. Soon after the attacks first start, the
+  people take all of the trees to make smoothies. Thus, it puts a
+  strain on the national ice economy. Ice is a commodity that is very
+  important for the cooling business. If people don't have ice, the
+  people can't cool things. Then a guy came up. Hi. he said, we
+  haven't seen each other in a while. No, we haven't. I replied. That
+  is too bad. Where were we, the last time we met. I don't know. I
+  think it was in Chicago. That's right... What were we talking about?
+  Then, I thought of the city---Chicago---the majestic city used as a
+  giant lever to move the whole world. The world's fruit, in fact. Or
+  is that New York, the Big Apple. Well, it is one of those two to get
+  a hold of the world's fruit reserves. Those people... \textit{at
+    this point the writer trancended the paper and ran out of room}
+
+\end{page}
