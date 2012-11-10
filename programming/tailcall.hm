@@ -23,7 +23,7 @@
   because it just connects the result of the call to \texttt{f} to the
   \texttt{return} statement), and the call to \texttt{g} is not a tail
   call because the operation of adding one is done after \texttt{g}
-  returns (so it's not in ``tail position''):
+  returns (so it's not in ``tail position'').
 \begin{verbatim}
 def f(n) :
     if n > 0 :
@@ -39,7 +39,7 @@ def f(n) :
   \label{sec:why-tail-calls}
 
   Recursive tail calls can be replaced by jumps.  This is called
-  ``tail call eliminination'', and is a transformation that can help
+  ``tail call eliminination,'' and is a transformation that can help
   limit the maximum stack depth used by a recursive function, with the
   benefit of reducing memory traffic by not having to allocate stack
   frames.  Sometimes, recursive function which wouldn't ordinarily be
@@ -130,10 +130,10 @@ algorithm, it is almost trivial by induction.
 
 Programming languages like Scheme depend on tail calls being
 eliminated for control flow, and it's also necessary for continuation
-passing style.  \footnote{In Scheme, all loops are written as
-  recursive functions since tail calls are the pure way of redefining
-  variables (this is the same technique Haskell uses).  For instance,
-  to print the numbers from 1 to 100, you'd write
+passing style.\footnote{In Scheme, all loops are written as recursive
+  functions since tail calls are the pure way of redefining variables
+  (this is the same technique Haskell uses).  For instance, to print
+  the numbers from 1 to 100, you'd write
 \begin{verbatim}
 (let next ((n 1))
   (if (<= n 100)
@@ -143,11 +143,11 @@ passing style.  \footnote{In Scheme, all loops are written as
       (next (+ n 1)))))
 \end{verbatim}
   where \texttt{next} is bound to be a one-argument function which
-  takes one argument, \texttt{n}, and which has the body \texttt{let}
-  statement as its body.  If that \texttt{100} were any other
-  arbitrary number, that tail call to \texttt{next} had better be
-  handled as a jump, otherwise the stack would overflow!  And there's
-  no other reasonable way to write such a loop!
+  takes one argument, \texttt{n}, and which has the body of the
+  \texttt{let} statement as its body.  If that \texttt{100} were some
+  arbitrarily large number, the tail call to \texttt{next} had better
+  be handled as a jump, otherwise the stack would overflow!  And
+  there's no other reasonable way to write such a loop!
 
   Continuation passing style is commonly used to handle exceptions and
   backtracking.  You write functions of the form
@@ -166,7 +166,7 @@ passing style.  \footnote{In Scheme, all loops are written as
 \label{sec:first-attempt}
 
 Our running example is going to be the factorial function (a classic),
-written with an accumulator argument so that it's recursive call is a
+written with an accumulator argument so that its recursive call is a
 tail call:
 \begin{verbatim}
 def fact(n, r=1) :
@@ -182,7 +182,7 @@ integers.  On my machine, it can compute \texttt{fact(999)}, but
 \texttt{fact(1000)} results in a sad \texttt{RuntimeError: Maximum
   recursion depth exceeded}.
 
-One solution is to modify \texttt{fact} to return object which
+One solution is to modify \texttt{fact} to return objects which
 represent tail calls and then to build a trampoline underneath
 \texttt{fact} which executes these tail calls after \texttt{fact}
 returns. This way, the stack depth will only contain two stack frames:
@@ -199,9 +199,10 @@ class TailCall(object) :
     def handle(self) :
         return self.call(*self.args, **self.kwargs)
 \end{verbatim}
-This is basically just the thunk \texttt{lambda : call(*args, **kwargs)},
-but we don't use a thunk because we would like to be able to
-differentiate between a tail call and returning a function.
+This is basically just the thunk \texttt{lambda : call(*args,
+  **kwargs)}, but we don't use a thunk because we would like to be
+able to differentiate between a tail call and returning a function as
+a value.
 
 The next ingredient is a function which wraps a trampoline around an
 arbitrary function:
@@ -231,10 +232,10 @@ object).
 This isn't that bad: we can get tail calls of arbitrary depth, and
 it's Pythonic in the sense that the user must explicitly label the
 tail calls, limiting the amount of unexpected magic.  But, can we
-eliminate the need to wrap \texttt{t} around the initial call?  I find
-it unclean to have to write that \texttt{t} because it makes calling
-\texttt{fact} different than calling a normal function (like it was
-before the transformation).
+eliminate the need to wrap \texttt{t} around the initial call?  I
+myself find it unclean to have to write that \texttt{t} because it
+makes calling \texttt{fact} different from calling a normal function
+(which is how it was before the transformation).
 
 \section{A second attempt}
 \label{sec:second-attempt}
@@ -255,11 +256,12 @@ writing \texttt{fact = t(fact)} right after the function definition).
 However, there is a problem with this in that the \texttt{fact} in the
 returned tail call is bound to \texttt{t(fact)}, so the trampoline
 will recursively call the trampoline, completely defeating the purpose
-of our work!
+of our work.  In fact, the situation is now worse than before: on my
+machine, \texttt{fact(333)} causes a \texttt{RuntimeError}!
 
-The first ingredient is the following class, which defines the
-trampoline as before, but wraps it in a new type so we can distinguish
-a trampolined function from a plain old function:
+For this solution, the first ingredient is the following class, which
+defines the trampoline as before, but wraps it in a new type so we can
+distinguish a trampolined function from a plain old function:
 \begin{verbatim}
 class TailCaller(object) :
     def __init__(self, f) :
@@ -301,9 +303,9 @@ Also, unlike in the first attempt, we can now have mutually recursive
 functions which all perform tail calls.  The first-called
 \texttt{TailCall} object will handle all the trampolining.
 
-If we wanted, we could also define the following function to possibly
-make tail calls be more consistent with normal function
-calls:\footnote{This is basically a curried\footnote{That is,
+If we wanted, we could also define the following function to make the
+argument lists for tail calls be more consistent with those for normal
+function calls:\footnote{This is basically a curried\footnote{That is,
     \emph{Sch\"{o}nfinkelized}.}  version of \texttt{TailCall}.}
 \begin{verbatim}
 def tailcall(f) :

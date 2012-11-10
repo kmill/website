@@ -1,6 +1,7 @@
 body {
 /*    background-color: #def; */
-    background-color: #BFCFFF;
+   /* background-color: #BFCFFF; */
+    background-color: #FFFFFF;
     padding: 0;
 }
 
@@ -41,13 +42,16 @@ div.main {
 }
 
 div.content {
-    padding: 0.0em 1.5em 0.5em 1.5em;
+  /*  padding: 0.0em 1.5em 0.5em 1.5em; */
+    padding: 0em 0.5em 0.5em 0.5em;
 }
 
 div.content tt {
     font-size: 10pt;
     font-family: "Monaco","DejaVu Sans Mono","Courier New",monospace;
     background: #eee;
+    padding: 1pt  1pt  1pt  1pt;
+    margin: -1pt -1pt -1pt -1pt;
 }
 
 div.content pre {
@@ -62,26 +66,40 @@ div.content span.de_em {
     font-style: normal;
 }
 
+div.content hr {
+    margin: 0.75em -0.5em 0.5em -0.5em;
+    background-color: #6078BF;
+    height: 1pt;
+    border: 0;
+}
+
 div.footer {
     margin: 0;
     padding: 0.75em;
     padding-left: 0.75em;
 /*    background-color: #def; */
-    background-color: #BFCFFF;
+  /*  background-color: #BFCFFF; */
+    background-color: #FFFFFF;
+    border-style: solid;
+    border-width: 1pt 0 1pt 0;
+    border-color: #6078BF;
     font-size: 10pt;
     font-family: "Geneva", "Tahoma", sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: "Helvetica", "Arial", sans-serif;
+  /*  font-family: "Helvetica", "Arial", sans-serif; */
+    font-family: "Georgia", serif;
+    font-style: normal;
+    font-weight: normal;
     color: #002;
 }
 
 div.content h1 {
     font-size: 22pt;
-    margin-top: 0.5em;
+    margin-top: 0.8em;
     padding-top: 0;
-    margin-bottom: 0.5em;
+    margin-bottom: 0.8em;
 }
 
 .tabular {

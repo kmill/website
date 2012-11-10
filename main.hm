@@ -18,12 +18,10 @@
 \begin{page}{index.html}
   \label{page_index}
   \title{Kyle Miller}
-  \modified{22 August 2012}
+  \modified{9 November 2012}
 
-  Welcome to my web site.  I'm a student at
-  \link[MIT]{http://web.mit.edu/} studying mathematics with computer
-  science.  You can contact me via e-mail at \link[kmill #at#
-  mit.edu]{mailto:kmill #at# mit.edu}.
+  Welcome to my web site.  You can contact me via e-mail at
+  \link[kmill #at# alum.mit.edu]{mailto:kmill #at# alum.mit.edu}.
 
   \begin{itemize}
   \item[\ref{page_aboutme}]
@@ -56,6 +54,7 @@
     \item \ref{page_thoughts}
     \item \ref{page_highschool}
     \end{itemize}
+  \item \ref{page_links}
   \end{itemize}
 
 \end{page}
@@ -73,6 +72,7 @@
 \include{findings.hm}
 \include{about/about.hm}
 \include{essays.hm}
+\include{links.hm}
 \include{comics/comics.hm}
 \include{highschool/highschool.hm}
 \include{papers/papers.hm}

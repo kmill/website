@@ -16,6 +16,21 @@
 %  \item \ref{page_quotient_groups}
   \end{itemize}
 
+  At some point, I hope to put up my lecture notes for a
+  Splash\footnote{This is a program put on by ESP at MIT every year
+    where hundreds of high-school (and younger) students come for a
+    weekend to be taught about virtually any topic.} class I taught in
+  2009 called ``The Joy of Eigenvalues'':
+  \begin{quote}
+    Linear recurrence relations, generating functions, graphs, oh my!
+    We will explore the connection between these seemingly unrelated
+    ideas by the numbers which are intrinsic to their
+    structure. Applications include Google PageRank, vibrating
+    systems, and population dynamics. We will start with the
+    definition of an eigenvalue and continue from there (with many
+    examples and $\lambda$'s).
+  \end{quote}
+
 \end{page}
 
 \begin{page}{platonic.html}

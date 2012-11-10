@@ -6,7 +6,8 @@
   \title{Media consumption}
   \modified{4 November 2012}
 
-  This is a log of my media consumption.
+  This is a log of my media consumption.  I might get around to
+  consuming stuff at \ref{page_future_media_consumption}.
 
   \hline
 
@@ -371,4 +372,31 @@
   apart during a period of self referentiality in which the author
   enters the scene and interacts with the characters.
 
+\end{page}
+
+\begin{page}{future_media.html}
+  \label{page_future_media_consumption}
+  \title{To read}
+  \modified{9 November 2012}
+
+  \begin{itemize}
+  \item \link{https://www.createspace.com/4040541}, ``The Allworlds
+    Catalogue,'' by Walter Holland (a tEp, and looks possibly
+    interesting).
+  \item ``Infinite Jest.''  I've started reading it, at least.
+  \item ``The Glass Bead Game''
+  \item ``The Road Not Taken and Other Poems''
+  \item ``The Elements'' by Euclid
+  \item ``Paradigms of Artificial Intelligence Programming: Case
+    Studies in Common Lisp''
+  \item ``Laws of Form''
+  \item ``Learn You a Haskell for Great Good''
+  \item ``Undergraduate Commutative Algebra''
+  \item Samuel's algebraic number theory book
+  \item \link[``Music
+    Ho!'']{http://www.gutenberg.ca/ebooks/lambert-music/lambert-music-00-h.html},
+    which I read some of
+  \item ``Galois Theory'' by Ian Stewart (and maybe Artin's book)
+  \item ... other stuff ...
+  \end{itemize}
 \end{page}

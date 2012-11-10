@@ -1,0 +1,47 @@
+% links.hm
+% Links to useful information
+
+\addbreadcrumb{page_links}
+
+\begin{page}{links.html}
+  \label{page_links}
+  \title{Links}
+  \modified{9 November 2012}
+
+  Links to the rest of the world!
+
+  Math references:
+  \begin{itemize}
+  \item J.S. Milne's \link[Mathematics Site]{http://www.jmilne.org/math/}
+  \item \link[MathOverflow]{http://mathoverflow.net/}
+  \item \link[MathWorld]{http://mathworld.wolfram.com/}
+  \item \link[Open Problem Garden]{http://garden.irmacs.sfu.ca/}
+  \item \link[The On-Line Encyclopedia of Integer
+    Sequences]{http://oeis.org/}
+  \item \link[mathscinet]{http://ams.org/mathscinet/}
+  \item \link[nLab]{http://ncatlab.org/nlab/show/HomePage}
+  \item \link[Front for the arXiv]{http://front.math.ucdavis.edu/}
+  \end{itemize}
+
+  LaTeX-related:
+  \begin{itemize}
+  \item \link[Detexify]{http://detexify.kirelabs.org/classify.html}
+  \end{itemize}
+
+  Music-related:
+  \begin{itemize}
+  \item \link[IMSLP]{http://imslp.org/wiki/Main_Page}
+  \item \link[Neue Mozart, Digitized
+    Version]{http://dme.mozarteum.at/DME/nma/nmapub_srch.php?l=2}
+  \item Staff paper:
+    \link[1]{http://www.dolmetsch.com/manuscriptpaper.htm}
+    \link[2]{http://www.printablepaper.net/category/music}
+    \link[3]{http://people.virginia.edu/~pdr4h/musicpaper/}
+  \end{itemize}
+
+  MIT-related:
+  \begin{itemize}
+  \item \link[tEp!]{http://tep.mit.edu/}
+  \end{itemize}
+  
+\end{page}
