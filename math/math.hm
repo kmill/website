@@ -13,6 +13,7 @@
 
   \begin{itemize}
   \item \ref{page_math_platonic}
+  \item \ref{page_math_relations}
 %  \item \ref{page_quotient_groups}
   \end{itemize}
 
@@ -187,4 +188,191 @@
 
   
 
+\end{page}
+
+\begin{page}{relations.html}
+  \label{page_math_relations}
+  \title{The theory of relations}
+  \modified{30 November 2012}
+
+  I was reading \textit{Naive Set Theory} by Halmos, and he mentioned
+  a reasonable definition for the composition of two relations, as
+  well as the characterization of an equivalence relation using
+  relation composition.  On this page, I want to explore relations in
+  some more detail (this is presently a work in progress).
+
+  We define a relation $R$ between two sets $X$ and $Y$ to be any
+  subset of $X\times Y$, which we write as $R:X\leftrightarrows Y$ for
+  short.  If $(x,y)\in R$, then we say that $x$ is related to $y$ by
+  $R$.  We will write this symbolically as $y\r{R}x$.  While the
+  standard notation for this is $x\r{R}y$, we differ here because it
+  will aid in the notation for relation composition and for functions.
+
+  We write $R(x)$ for the set of all $y$ such that $y\r{R}x$.  Or, if $U$
+  is a subset of $X$, then we write $R(U)$ to be the union of all the
+  $R(x)$, where $x\in U$.  We define $(y)R$ and $(V)R$ analogously.
+  If it so happens that $R(x)$ or $(y)R$ are singleton sets, then we
+  pretend that $R(x)$ or $(y)R$ are the element of their corresponding
+  singleton set.
+
+  The inverse of a relation $R:X\leftrightarrows Y$ is a relation
+  $R\inv:Y\leftrightarrows X$ defined by $x\r{R\inv}y$ whenever
+  $y\r{R}x$.
+
+  There are a few important properties for a relation:
+  \begin{itemize}
+  \item $R$ is a \textit{surjection} if for any $y\in Y$, there exists
+    an $x\in X$ such that $y\r{R}x$.  If we define the \textit{image} of
+    $R$ to be the projection of $R$ onto $Y$, then we can define
+    surjectivity as the image of $R$ being all of $Y$.
+  \item $R$ is a \textit{co-surjection} if $R\inv$ is a surjection.
+    Similarly, we can define the \textit{co-image} to be the
+    projection of $R$ onto $X$, and so $R$ is co-surjective if it's
+    co-image is all of $X$.
+  \item $R$ is an \textit{injection} if whenever $x_1,x_2\in X$ and
+    $y\in Y$ are such that $y\r{R}x_1$ and $y\r{R}x_2$, then
+    $x_1=x_2$.  We could just have well said that $R$ is
+    \textit{one-to-many}.  An example of such a relation is ``is the
+    biological mother of'' if $X$ and $Y$ are both the set of all
+    people.
+  \item $R$ is a \textit{co-injection} if $R\inv$ is an injection.
+    This property is the same as saying that $R$ is
+    \textit{many-to-one}.  An example of this is the relation ``lives
+    in'' for $X$ being the set of all people and $Y$ being the set of
+    all houses.  Note that this relation isn't necessarily a
+    co-surjection since not everyone needs to live in a house.
+  \end{itemize}
+
+  A relation which is both an injection and an co-injection can also
+  be called \textit{one-to-one}.  An example of such a relation is
+  ``is the right foot of'' where $X$ is the set of feet and $Y$ is the
+  set of people.
+
+  A \textit{function} $f:X\to Y$ is a relation which is a
+  co-surjection and a co-injection.  This means that for every $x\in
+  X$, there is exactly one $y\in Y$ such that $y\r{f}x$.  We refer to
+  this $y$ using the notation $f(x)$.  A \textit{co-function} is a
+  relation whose inverse is a function.  Note that this means a
+  co-function is a surjection and an injection.  Hence, a
+  \textit{bijection} is a relation which is both a function and a
+  co-function.
+
+  We define the composition of two relations $R:X\leftrightarrows Y$
+  and $S:Y\leftrightarrows Z$ to be a relation $SR:X\leftrightarrows
+  Z$ defined by $z\r{SR}x$ whenever $z\r{S}y$ and $y\r{R}x$ for some
+  $y\in Y$.  In general, if $R$ and $S$ are relations which both
+  satisfy the same one of the four properties, then $SR$ has that
+  property, too.  In particular, if $f:X\to Y$ and $g:Y\to Z$ are
+  functions, then we see that $gf$ is also a function: $gf$ is a
+  co-surjection since, for any $x\in X$, there is a $y\in Y$ such that
+  $y\r{f}x$, and there is a $z\in Z$ such that $z\r{g}y$, hence
+  $z\r{gf}x$; and $gf$ is a co-injection since, if $z_1,z_2\in Z$ and
+  $x\in X$ are such that $z_1\r{gf}x$ and $z_2\r{gf}x$, there are
+  $y_1,y_2\in Y$ such that $y_1\r{f}x$ and $y_2\r{f}x$, so $y_1=y_2$
+  by co-injectivity of $f$, and hence $z_1=z_2$ by co-injectivity of
+  $g$.
+
+  What is the inverse of the composition of relations?  Suppose we
+  want to check if $x\r{(SR)\inv} z$, which is equivalent to
+  $z\r{SR}x$, which is equivalent to some $y\in Y$ existing such that
+  $z\r{S}y$ and $y\r{R}x$, which is equivalent to $x\r{R\inv} y$ and
+  $y\r{S\inv} x$ for some $y\in Y$, and this is equivalent to
+  $x\r{R\inv S\inv} y$.  Therefore, $(SR)\inv=R\inv S\inv$.
+
+  One can see that composition of relations is associative, as one
+  would expect (for functions, at least).
+
+  Define $I_A:A\leftrightarrows A$ to be the relation consisting only
+  of $(a,a)$ for all $a\in A$.  Some common properties for a relation
+  $R:X\to X$ can be described as follows:
+  \begin{itemize}
+  \item A relation is \textit{reflexive} if $I_X\subset R$.
+  \item A relation is \textit{symmetric} if $R\subset R\inv$ (or,
+    equivalently, if $R\inv\subset R$).
+  \item A relation is \textit{transitive} if $RR\subset R$.
+  \end{itemize}
+
+  An \textit{equivalence relation} on $X$ is a relation
+  $R:X\leftrightarrows X$ which satisfies all three of these
+  properties (which I suppose can be succinctly written as $I_X\subset
+  RR\subset R\subset R\inv$, using the fact that $R\subset RR$ by the
+  reflexive property).
+
+  There is a canonical equivalence relation on $X$ for a function
+  $f:X\to Y$ defined by $f\inv f$, which says that two elements $x_1$
+  and $x_2$ in $X$ are related if and only if $f(x_1)=f(x_2)$.  The
+  proof for this is straight-forward.  First, for an arbitrary $x\in
+  X$, there is a $y\in Y$ such that $y\r{f}x$, so since $x\r{f\inv}
+  x$, we have reflexivity: $x\r{f\inv f}x$.  Second suppose that $x_2
+  \r{f\inv f} x_1$.  Then there is a $y\in Y$ such that $y \r{f} x_2$
+  and $y \r{f} x_1$, so by co-injectivity, $x_1=x_2$, hence symmetry.
+  Third, suppose that $x_3 \r{f\inv f} x_2$ and $x_2 \r{f\inv f} x_1$.
+  Then there are $y$ and $z$ such that $y \r{f} x_3$, $y \r{f} x_2$,
+  $z \r{f} x_2$, and $z \r{f} x_1$.  By co-injectivity, $y=z=f(x_2)$,
+  and so $x_3 \r{f\inv f} x_1$, hence transitivity.
+
+  As an aside, since an equivalence relation is equivalent to a
+  partition of a set, we have a first isomorphism theorem for sets by
+  this construction: the set of partitions of $X$ induced by $f\inv f$
+  is in bijective correspondence to the image of $f$.
+
+  Suppose $R:X\leftrightarrows X$ is a relation on a set $X$.  What is
+  the smallest equivalence relation $E$ on $X$ which contains $R$?  We
+  know that $I_X$ must be in $E$ for reflexivity, and we know that
+  $R\inv$ must be in $E$, too. Let $S=R\cup R\inv$, which is the
+  symmetrified $R$.  Let $E$ be the union of $I_X$, $S$, $SS$, $SSS$,
+  $SSSS$, and so on (this could be called the \textit{transitive
+    closure} of $S$ if it didn't have the $I_X$ term).  For
+  convenience, let $S^n$ represent $S$ composed with itself $n$ times,
+  with $S^0=I_X$.  Since each $S^n$ is symmetric, $E$ is symmetric as
+  well.  Furthermore, suppose $y\r{E}x$ and $z\r{E}y$.  Then,
+  $y\r{S^n}x$ and $z\r{S^m}y$ for some $n,m$.  Then, $z\r{S^{n+m}}y$,
+  and so $E$ is transitive.  Actually, we could have just let $E=H\inv
+  H$, where $H=I_X\cup R$.  Note the similarity between the formulas
+  \begin{equation*}
+    \frac{1}{1+x} = 1 + x + x^2 +x^3+\ldots
+  \end{equation*}
+  and
+  \begin{equation*}
+    (I_X\cup R)\inv = I_x\cup R\cup R^2\cup R^3\cup\ldots.
+  \end{equation*}
+  There are nice algebraic properties between unions and compositions
+  of relations.  For instance, if $T,U,V:X\leftrightarrows Y$ are
+  relations, $(T\cup U)V=TV\cup UV$.  I'm sure more can be said about
+  this aspect of relations, but I'll leave that as an exercise for the
+  reader until I get around to it.
+
+  It turns out we can define (co-)surjectivity and (co-)injectivity
+  using composition properties, too:
+  \begin{itemize}
+  \item A relation is surjective if and only if $I_Y\subset RR\inv$.
+  \item A relation is co-surjective if and only if $I_X\subset R\inv R$.
+  \item A relation is injective if and only if $R\inv R\subset I_X$.
+  \item A relation is co-injective if and only if $RR\inv\subset I_Y$.
+  \end{itemize}
+
+  So, if $R\inv R=I_X$, then $R$ is co-surjective and injective, and
+  if $RR\inv=I_Y$, then $R$ is surjective and co-injective.  So, if
+  $S:X\leftrightarrows X$, and $S\inv S=SS\inv=I_X$, then $S$ is a
+  bijection (and, as a consequence, a group of relations with relation
+  composition as the binary operation is actually a group of
+  bijections).
+
+  We see that some of the proofs for $f\inv f$ being an equivalence
+  relation can be done more algebraically: first, $(f\inv f)\inv=f\inv
+  f$, so it is symmetric; second, $(f\inv f)(f\inv
+  f)=f\inv(ff\inv)f=f\inv I_Af$ since $f$ is co-injective, where
+  $A\subset Y$ is the image of $f$, and $f\inv I_Af=f\inv f$, hence
+  $f\inv f$ is transitive.
+
+  There are nice algebraic properties for unions and intersections.
+  Let $R:X\leftrightarrows Y$ and $U,V\subset X$.  Then $R(U\cup
+  V)=R(U)\cup R(V)$, by definition.  We also have that $R(U\cap
+  V)\subset R(U)\cap R(V)$, since if $y\r{R}x$ for some $x\in U\cap
+  V$, then because $x$ is in both $U$ and $V$, $y$ is in $R(U)\cap
+  R(V)$.  If, in addition, $R$ is surjective, then it is an equality:
+  $R(U\cap V)=R(U)\cap R(V)$.  The inverse of a function is a
+  surjective relation, so this is why unions and intersections work so
+  nicely with them.
+  
 \end{page}

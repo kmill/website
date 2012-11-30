@@ -10,3 +10,6 @@
 \def{ell}{}{\mathit{l}}
 %\def{frac}{num,denom}{\math{(\var{num})/(\var{denom})}}
 %\def{frac}{num,denom}{\math{\begin{matrix}\var{num}\\\hline\var{denom}\end{matrix}}}
+\def{inv}{}{\math{^{-1}}}
+\def{r}{v}{\,\var{v}\,}
+\def{ldots}{}{\char{hellip}}
