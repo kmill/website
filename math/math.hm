@@ -14,7 +14,7 @@
   \begin{itemize}
   \item \ref{page_math_platonic}
   \item \ref{page_math_relations}
-%  \item \ref{page_quotient_groups}
+  %\item \ref{page_quotient_groups}
   \end{itemize}
 
   At some point, I hope to put up my lecture notes for a
@@ -184,9 +184,56 @@
 \begin{page}{quot_groups.html}
   \label{page_quotient_groups}
   \title{An exposition of quotient groups}
-  \modified{23 August 2012}
+  \modified{2 December 2012}
 
-  
+  The purpose of this page is to show a different way of looking at
+  quotient groups (and quotients in general).  A common presentation
+  for quotient groups is to take the set of cosets and show that there
+  is a natural group operation defined on them.  However, I feel that
+  this muddles the intuition for the construction.
+
+  Let $G$ be some arbitrary group, and let $H$ be some subgroup of
+  $G$.  We can define a relation on $G$ as follows:
+  \begin{equation*}
+    x\equiv y\pmod{H}\text{\ if\ and\ only\ if\ }xy\inv\in H.
+  \end{equation*}
+  Note that the $\pmod{H}$ refers to the $\equiv$ symbol, not $y$.  We
+  pronounce this as ``$x$ is equivalent to $y$, modulo $H$''.
+
+  If we consider $G=\Z$ as an additive group, and let $H$ be the set
+  of multiples of $5$, then this relation amounts to the standard
+  definition for ``modulo 5'' on the integers (i.e., $x\equiv
+  y\pmod{5}$ if and only if $x$ and $y$ are different by a multiple of
+  $5$).
+
+  The first minor result is that this relation is actually an
+  equivalence relation (hence the suggestive pronunciation of the
+  symbol).  Reflexivity follows from the definition of inverses,
+  symmetry follows from the fact that the subgroup $H$ is closed under
+  inverses, and transitivity follows from $H$ being closed under
+  composition: if $x\equiv y$ and $y\equiv z\pmod{H}$, then both
+  $xy\inv$ and $yz\inv$ are in $H$, so $(xy\inv)(yz\inv)$ is in $H$,
+  too, and therefore $xz\inv$ is in $H$.
+
+  The second minor result is that the composition law respects the
+  equivalence, if and only if $H$ is a normal subgroup: that is, if
+  $x_1\equiv x_2$ and $y_1\equiv y_2\pmod{H}$, then $x_1y_1\equiv
+  x_2y_2\pmod{H}$.  Intuitively, this means we can ``replace likes
+  with likes.''  Why does this work?  First, we know that $y_1y_2\inv$
+  is in $H$.  Since $H$ is normal, this means that $x_1y_1y_2\inv
+  x_1\inv$ is in $H$, too.  Since $x_1x_2\inv$ is in $H$, we can
+  compose these to get $x_1y_1y_2\inv x_2\inv\in H$, which is the same
+  as $x_1y_1(x_2 y_2)\inv$, and this proves that $x_1y_1\equiv
+  x_2y_2\pmod{H}$.  Conversely, supposing that we can replace likes
+  with likes, we will show that $H$ must therefore be normal.  Let
+  $y\in H$ and $x\in G$.  Since $y\equiv 1\pmod{H}$ we have that
+  $xyx\inv\equiv 1\pmod{H}$, by first left-multiplying and then
+  right-multiplying by $x$ and $x\inv$, respectively.  Since this is
+  equivalent to saying that $xyx\inv\in H$, and since both $x$ and $y$
+  were arbitrary, this proves $H$ is a normal subgroup of $G$.
+
+  The third minor result is that inverses still work as expected, but
+  this is really easy to show: 
 
 \end{page}
 
@@ -208,27 +255,28 @@
   standard notation for this is $x\r{R}y$, we differ here because it
   will aid in the notation for relation composition and for functions.
 
-  We write $R(x)$ for the set of all $y$ such that $y\r{R}x$.  Or, if $U$
-  is a subset of $X$, then we write $R(U)$ to be the union of all the
-  $R(x)$, where $x\in U$.  We define $(y)R$ and $(V)R$ analogously.
-  If it so happens that $R(x)$ or $(y)R$ are singleton sets, then we
-  pretend that $R(x)$ or $(y)R$ are the element of their corresponding
-  singleton set.
+  We write $R(x)$ for the set of all $y$ such that $y\r{R}x$.  Or, if
+  $U$ is a subset of $X$, then we write $R(U)$ to be the union of all
+  the $R(x)$, where $x\in U$.  We define $(y)R$ and $(V)R$
+  analogously.  If it so happens that $R(x)$ or $(y)R$ are singleton
+  sets, then we pretend that $R(x)$ or $(y)R$ are the element of their
+  corresponding singleton set.  Two special sets are the
+  \textit{image} of a relation, $R(X)$, and the \textit{co-image} (or
+  \textit{domain}) of a relation, $(Y)R$.
 
   The inverse of a relation $R:X\leftrightarrows Y$ is a relation
   $R\inv:Y\leftrightarrows X$ defined by $x\r{R\inv}y$ whenever
-  $y\r{R}x$.
+  $y\r{R}x$.  Generally, something is \textit{co-} for some relation
+  if the non-\textit{co-} version applies to its inverse (i.e., ``the
+  arrows are reversed'').
 
   There are a few important properties for a relation:
   \begin{itemize}
   \item $R$ is a \textit{surjection} if for any $y\in Y$, there exists
-    an $x\in X$ such that $y\r{R}x$.  If we define the \textit{image} of
-    $R$ to be the projection of $R$ onto $Y$, then we can define
-    surjectivity as the image of $R$ being all of $Y$.
+    an $x\in X$ such that $y\r{R}x$.  We can also define surjectivity
+    by the condition $R(X)=Y$.
   \item $R$ is a \textit{co-surjection} if $R\inv$ is a surjection.
-    Similarly, we can define the \textit{co-image} to be the
-    projection of $R$ onto $X$, and so $R$ is co-surjective if it's
-    co-image is all of $X$.
+    Similarly, we can also say that $R$ is co-surjective if $(Y)R=X$.
   \item $R$ is an \textit{injection} if whenever $x_1,x_2\in X$ and
     $y\in Y$ are such that $y\r{R}x_1$ and $y\r{R}x_2$, then
     $x_1=x_2$.  We could just have well said that $R$ is
@@ -280,7 +328,7 @@
   $x\r{R\inv S\inv} y$.  Therefore, $(SR)\inv=R\inv S\inv$.
 
   One can see that composition of relations is associative, as one
-  would expect (for functions, at least).
+  would expect (at least one would expect for functions, at least).
 
   Define $I_A:A\leftrightarrows A$ to be the relation consisting only
   of $(a,a)$ for all $a\in A$.  Some common properties for a relation
@@ -305,11 +353,11 @@
   X$, there is a $y\in Y$ such that $y\r{f}x$, so since $x\r{f\inv}
   x$, we have reflexivity: $x\r{f\inv f}x$.  Second suppose that $x_2
   \r{f\inv f} x_1$.  Then there is a $y\in Y$ such that $y \r{f} x_2$
-  and $y \r{f} x_1$, so by co-injectivity, $x_1=x_2$, hence symmetry.
-  Third, suppose that $x_3 \r{f\inv f} x_2$ and $x_2 \r{f\inv f} x_1$.
-  Then there are $y$ and $z$ such that $y \r{f} x_3$, $y \r{f} x_2$,
-  $z \r{f} x_2$, and $z \r{f} x_1$.  By co-injectivity, $y=z=f(x_2)$,
-  and so $x_3 \r{f\inv f} x_1$, hence transitivity.
+  and $y \r{f} x_1$, so $x_1\r{f}x_2$, hence symmetry.  Third, suppose
+  that $x_3 \r{f\inv f} x_2$ and $x_2 \r{f\inv f} x_1$.  Then there
+  are $y$ and $z$ such that $y \r{f} x_3$, $y \r{f} x_2$, $z \r{f}
+  x_2$, and $z \r{f} x_1$.  By co-injectivity, $y=z=f(x_2)$, and so
+  $x_3 \r{f\inv f} x_1$, hence transitivity.
 
   As an aside, since an equivalence relation is equivalent to a
   partition of a set, we have a first isomorphism theorem for sets by
@@ -327,20 +375,24 @@
   with $S^0=I_X$.  Since each $S^n$ is symmetric, $E$ is symmetric as
   well.  Furthermore, suppose $y\r{E}x$ and $z\r{E}y$.  Then,
   $y\r{S^n}x$ and $z\r{S^m}y$ for some $n,m$.  Then, $z\r{S^{n+m}}y$,
-  and so $E$ is transitive.  Actually, we could have just let $E=H\inv
-  H$, where $H=I_X\cup R$.  Note the similarity between the formulas
-  \begin{equation*}
-    \frac{1}{1+x} = 1 + x + x^2 +x^3+\ldots
-  \end{equation*}
-  and
-  \begin{equation*}
-    (I_X\cup R)\inv = I_x\cup R\cup R^2\cup R^3\cup\ldots.
-  \end{equation*}
-  There are nice algebraic properties between unions and compositions
-  of relations.  For instance, if $T,U,V:X\leftrightarrows Y$ are
-  relations, $(T\cup U)V=TV\cup UV$.  I'm sure more can be said about
-  this aspect of relations, but I'll leave that as an exercise for the
-  reader until I get around to it.
+  and so $E$ is transitive.  %Actually, we could have just let $E=H\inv
+%  H$, where $H=I_X\cup R$.  Note the similarity between the formulas
+%   \begin{equation*}
+%     \frac{1}{1+x} = 1 + x + x^2 +x^3+\ldots
+%   \end{equation*}
+%   and
+%   \begin{equation*}
+%     (I_X\cup R)\inv = I_x\cup R\cup R^2\cup R^3\cup\ldots.
+%   \end{equation*}
+%   There are nice algebraic properties between unions and compositions
+%   of relations.  For instance, if $T,U,V:X\leftrightarrows Y$ are
+%   relations, $(T\cup U)V=TV\cup UV$.  I'm sure more can be said about
+%   this aspect of relations, but I'll leave that as an exercise for the
+%   reader until I get around to it.
+  This shows $E$ is an equivalence relation containing $R$, but is it
+  the smallest such?  Since any equivalence relation which contains
+  $R$ must contain $I_X$, $S$, $SS$, and so on, and $E$ contains no
+  more than this, it follows that $E$ is smallest.
 
   It turns out we can define (co-)surjectivity and (co-)injectivity
   using composition properties, too:
