@@ -8,5 +8,6 @@
   \title{Not found}
   \modified{5 January 2013}
 
-  That URL doesn't seem to have a corresponding page.  Maybe you should try going to the \ref[home page]{page_index}.
+  That URL doesn't seem to have anything there. Maybe you'll find what
+  you're looking for from the \ref[home page]{page_index}?
 \end{page}
