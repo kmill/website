@@ -1,0 +1,12 @@
+% error.hm
+% error pages
+
+\setoutputdir{error}
+
+\begin{page}{error404.html}
+  \label{page_error_404}
+  \title{Not found}
+  \modified{5 January 2013}
+
+  That URL doesn't seem to have a corresponding page.  Maybe you should try going to the \ref[home page]{page_index}.
+\end{page}
