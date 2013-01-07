@@ -32,6 +32,39 @@
     examples and $\lambda$'s).
   \end{quote}
 
+  \section{Small problems}
+
+  These are just some small problems with their solutions.
+
+  \hline
+
+  This one was given to me in my 5th grade math class.
+
+  \textit{Suppose you have an array of lockers, labeled $1$, $2$, $3$,
+    and so on, and they're all closed.  By ``toggling a locker,'' we
+    mean opening it if its closed and closing it if it is open. You
+    have a lot of time on your hands, so you decide to do the
+    following.  First you toggle every locker, then you toggle lockers
+    $2$, $4$, $6$, and so on (multiples of two).  Then you toggle
+    lockers which are multiples of three, and then you keep doing this
+    process of toggling the multiples of four, five, six, and so on.
+    Which lockers are open by the end, if any? }
+
+  You can try this experimentally, and with about 20 lockers you can
+  see the pattern: the lockers which are open are those which are
+  squares! (i.e., $1, 4, 9, 16, \ldots$).
+
+  Why is this?  First, to determine whether a particular locker is
+  open or not, all you need to know is whether the number of times it
+  was toggled is even or odd.  Each locker is toggled once for each of
+  its divisors, and divisors usually come in pairs (if $d$ is a
+  divisor of $n$, then $n/d$ is a divisor of $n$, too).  But are $d$
+  and $n/d$ distinct?  If $n$ is a square, then $d$ being its square
+  root gives $d=n/d$.  If $n$ is not a square, then $d$ and $n/d$ are
+  always different.  This means that a square has an odd number of
+  divisors, and a non-square has an even number of divisors; hence,
+  the squares are the ones with the open lockers!
+
 \end{page}
 
 \begin{page}{platonic.html}
