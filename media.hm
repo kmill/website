@@ -4,10 +4,41 @@
 \begin{page}{media.html}
   \label{page_media_consumption}
   \title{Media consumption}
-  \modified{16 January 2013}
+  \modified{23 January 2013}
 
   This is a log of my media consumption.  I might get around to
   consuming stuff at \ref{page_future_media_consumption}.
+
+  \hline
+
+  January 2013. \textit{Mathematical Treks: From Surreal Numbers to
+    Magic Circles} by Ivars Peterson.
+
+  This is another one of those books which is a compilation of
+  Martin-Gardner-like columns, but in this case they were written by
+  Ivars Peterson and not Martin Gardner.  The writing was solid (much
+  better than Ian Stewart), but it was very light on the mathematics.
+  Though, because the columns were so short and unsubstantial, it made
+  for easy reading on the subway.
+
+  I liked the matchstick problems he gave.  An example of one is: what
+  is the minimum number of matchsticks so that there is an arrangement
+  of them where the matchsticks only touch at their ends and each
+  vertex has exactly four matchsticks incident to it?  I believe the
+  answer to this is twelve, but it's a little tricky to find an
+  arrangement.  Trickier is with five at each vertex instead of four.
+  These are good games to play at bars with their free matchsticks
+  (that is, right before beginning to fling the matchsticks with the
+  tab on the top of a metal can).
+
+  One article was about Paul Erd\"{o}s, and it contained a theorem he
+  had proved when he was young:
+  \begin{quote}
+    Let $n>2$ be an integer.  Then there is a prime $p$ such that
+    $n\leq p < 2n$.
+  \end{quote}
+  It seems very believable to me, but I haven't yet found a proof for
+  it.
 
   \hline
 
@@ -15,11 +46,11 @@
 
   I was supposed to have read this book back in sixth grade, but I
   don't think I must have read it very carefully, because I didn't
-  remember much from it.  What prompted me to read the book again was
-  that a coworker was showing me his fountain pen, and we discussed
-  the various ways by which a fountain pen can be refilled.  This
-  reminded me about \textit{The View from Saturday} because of Noah
-  Grishom's calligraphy.
+  remember much from it at all.  What prompted me to read the book
+  again was that a coworker was showing me his fountain pen, and we
+  discussed the various ways by which a fountain pen can be refilled.
+  This reminded me about \textit{The View from Saturday} because of
+  Noah Grishom's calligraphy.
 
   The main focus in the plot is these four sixth graders and their
   teacher, Mrs. Olinski, and how they became a group they called ``the
@@ -108,7 +139,7 @@
 
   Set in Hollywood when silent films were making way for talkies,
   \textit{The Artist} is itself a black-and-white (mostly) silent
-  movie, following a silent actor whose career washes up, and his love
+  movie, following a silent actor whose career washes up and his love
   interest, an up-and-coming actress.
 
   The soundtrack was excellent, sounding exactly like music from the

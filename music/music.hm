@@ -3,7 +3,7 @@
 \begin{page}{music_comps.html}
   \label{page_music_comps}
   \title{Music Compositions}
-  \modified{12 Sep 2011}
+  \modified{2 Mar 2013}
 
   One of the things I like to do is compose music.  While my main
   course of study is mathematics, I've also been studying music.  MIT
@@ -72,6 +72,16 @@
     Vln II.: \file[PDF]{menuet_trio_1/menuet_trio_vlnii.pdf} \quad
     Vla.: \file[PDF]{menuet_trio_1/menuet_trio_viola.pdf} \quad
     Vlc.: \file[PDF]{menuet_trio_1/menuet_trio_cello.pdf}
+
+  \item[\textbf{The Anniversary Song} (for violin and bass instrument,
+    c. 2 min.)]  In Summer 2010, around my parents' anniversary, I
+    wrote a short piece for violin and bassoon/cello/viola.  My sister
+    and I periodically perform it with me playing a viola like a
+    cello, held between my knees; the recording is an older version of
+    the piece with a violin and viola played as such.
+
+    Score: \file[PDF]{anniv/anniv.pdf} \quad
+    Recording: \file[MP3]{anniv/anniv.mp3}
 
   \item[\textbf{Theme and Variations} (for violin, clarinet, and two
     cellos, c. 10 min.)]  For Spring semester, 2010, one of the
