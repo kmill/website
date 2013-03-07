@@ -3,7 +3,7 @@
 \begin{page}{music_comps.html}
   \label{page_music_comps}
   \title{Music Compositions}
-  \modified{2 Mar 2013}
+  \modified{7 Mar 2013}
 
   One of the things I like to do is compose music.  While my main
   course of study is mathematics, I've also been studying music.  MIT
@@ -36,13 +36,16 @@
     \link[YouTube]{http://youtu.be/SBziOFT2al4}.
 
   \item[\textbf{Piano Sonatina No. 2} (c. 8.5 min)] A piano sonatina
-    in a somewhat classical style, completed January 2011.
+    in a somewhat classical style, completed January 2011.  The
+    recording is of me trying to play it on an old MIT student center
+    practice room piano.
 
-    Recording:\\
-    Mvt I.: \file[M4A]{sonatina2/1_allegro.m4a}\quad
-    Mvt II.: \file[M4A]{sonatina2/2_andante.m4a}\quad
-    Mvt III.: \file[M4A]{sonatina2/3_vivace.m4a}
-
+    Score: \file[PDF]{sonatina2/sonatina2.pdf}\\
+    \begin{itemize}
+    \item Allegro. \file[M4A]{sonatina2/1_allegro.m4a}
+    \item Andante. \file[M4A]{sonatina2/2_andante.m4a}
+    \item Vivace. \file[M4A]{sonatina2/3_vivace.m4a}
+    \end{itemize}
 
   \item[\textbf{Decision} (c. 2 min)] This was written in 2011 for
     21M.310 (Techniques of 20th Century Composition).  The project was
