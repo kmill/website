@@ -4,10 +4,67 @@
 \begin{page}{media.html}
   \label{page_media_consumption}
   \title{Media consumption}
-  \modified{3 April 2013}
+  \modified{21 April 2013}
 
   This is a log of my media consumption.  I might get around to
   consuming stuff at \ref{page_future_media_consumption}.
+
+  \hline
+
+  April 2013. \textit{Infinite Jest} by David Foster Wallace.
+
+  This Entertainment is very intricate and involved.  I'm reminded of
+  a Brahms symphony: the work's fabric's motifs are stitched together
+  in various juxtapositions which let you see meanings you hadn't
+  previously considered, and the presence of motifs relates otherwise
+  unrelated-seemings contexts.  It all just seems very connected.
+  Writing the book must have been an obsession of Wallace for quite a
+  long time.
+
+  Perhaps I shouldn't be surprised that Infinite Jest itself is a
+  piece of anticonfluential literature; James O. Incandenza is treated
+  in an almost painfully self-referential manner (q.v. the parts where
+  Hal is watching his father's movies in the video rooms and they are
+  complaining about how heavy handed the symbolism is --- it's like the
+  joke is that Wallace is misdirecting the reader so that the reader
+  doesn't realize how intentionally heavy handed Wallace is being!),
+  so his filmic proclivities might carry over to the book itself.
+
+  One of J.O. Incandenza's Entertainments which seems fairly central
+  is \textit{Cage III --- Free Show}, in which there is a carnival
+  sideshow where the audience is the show: people are turning into
+  giant eyeballs while watching people undergoing unspeakable
+  degradations for the purpose of watching the first group turn into
+  giant eyeballs.  The concept which shows up in different contexts is
+  a thing which exists between two forces, but I haven't developed
+  this well enough myself to explain it --- and Wallace took a
+  thousand pages to explore this concept, so I don't feel bad not
+  being able to do it here.  In particular, I want to relate this to
+  the core of the book: the problem of psychic holes --- where do they
+  come from, and how does one mend one?
+
+  I found the treatment of mathematical concepts to be unpleasantly
+  transparent; while I saw these references as broad strokes to paint
+  a certain kind of conceptual figurant for the scene, it did make me
+  wonder what other things were done in such broad strokes as to be
+  non-sensical.
+
+  A general feeling I had about the book is that the content felt like
+  it was from the Vipassana nanas in the so-called ``Dark Night of the
+  Soul'' or ``Knowledges of Suffering.''  Dissolution, fear, misery,
+  disgust, desire for deliverence.  The book can be very uncomfortable
+  to read because of this.  I find the the lack of resolution and the
+  lack of anyone reaching any sort of equinamity (discounting the
+  static characters of Lyle and Mario) to be somewhat interesting in
+  light of that.
+
+  For a book which is so long, it's surprising to me that I don't have
+  more to say right now, but it's just too big (``gargantuan''
+  proclaims the book's back cover) with too much content to discuss in
+  this format.  I have a friend who reads this book every year.  While
+  I don't think I'd go that far, I'm probably going to read it again
+  at some point (but first I'll read something light like \textit{The
+    Phantom Tollbooth}).
 
   \hline
 
@@ -919,14 +976,12 @@
 \begin{page}{future_media.html}
   \label{page_future_media_consumption}
   \title{To read}
-  \modified{9 November 2012}
+  \modified{21 April 2013}
 
   \begin{itemize}
   \item \link{https://www.createspace.com/4040541}, ``The Allworlds
     Catalogue,'' by Walter Holland (a tEp, and looks possibly
     interesting).
-  \item ``Infinite Jest.''  I've started reading it, at least.
-  \item ``The Glass Bead Game''
   \item ``The Road Not Taken and Other Poems''
   \item ``The Elements'' by Euclid
   \item ``Paradigms of Artificial Intelligence Programming: Case
@@ -939,7 +994,8 @@
     Ho!'']{http://www.gutenberg.ca/ebooks/lambert-music/lambert-music-00-h.html},
     which I read some of
   \item ``Galois Theory'' by Ian Stewart (and maybe Artin's book)
-  \item ``Laws of Form''
+  \item ``Tristram Shandy''
+  \item ``The Illuminatus! Trilogy''
   \item ... other stuff ...
   \end{itemize}
 \end{page}
