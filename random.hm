@@ -4,7 +4,35 @@
 \begin{page}{random.html}
   \label{page_random}
   \title{Random uncategorized nonsense}
-  \modified{28 February 2013}
+  \modified{5 May 2013}
+
+  \section{A song once stuck in my head}
+  \label{sec:song-once-stuck}
+
+  Somehow this song got stuck in my head, a bizarre variant which
+  made me laugh:
+
+  \begin{quote}
+    Hush little baby don't say a word\\
+    `cause momma's gonna buy you a diamond ring.
+    
+    And if that diamond ring don't shine,\\
+    Momma's gonna buy you a diamond ring.
+    
+    And if that diamond ring is cracked,\\
+    Momma's gonna buy you a diamond ring.
+    
+    And if that diamond ring is broke,\\
+    Momma's gonna buy you a diamond ring.
+    
+    And if that diamond ring's no good,\\
+    Momma's gonna buy you a diamond ring
+    
+    And if that diamond ring's a joke,\\
+    Momma's gonna buy you a diamond ring.
+    
+    And if that diamond ring's... \textit{(ad nauseum)}\\
+  \end{quote}
 
   \section{Things one may try}
 
