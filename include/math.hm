@@ -13,3 +13,8 @@
 \def{inv}{}{\math{^{-1}}}
 \def{r}{v}{\,\var{v}\,}
 \def{ldots}{}{\char{hellip}}
+\def{cdots}{}{\char{#8943}}
+\def{vdots}{}{\char{#8942}}
+\def{udots}{}{\char{#8944}}
+\def{ddots}{}{\char{#8945}}
+%\def{choose}{n}{\math{\begin{pmatrix}3\\2\end{pmatrix}}}

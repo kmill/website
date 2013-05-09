@@ -13,6 +13,7 @@
 
   \begin{itemize}
   \item \ref{page_math_platonic}
+  \item \ref{page_math_recurrence}
   \item \ref{page_math_relations}
   %\item \ref{page_quotient_groups}
   \end{itemize}
@@ -459,5 +460,327 @@
   $R(U\cap V)=R(U)\cap R(V)$.  The inverse of a function is a
   surjective relation, so this is why unions and intersections work so
   nicely with them.
+  
+\end{page}
+
+\begin{page}{recurrence.html}
+  \label{page_math_recurrence}
+  \title{Multivariable recurrence relations}
+  \modified{9 May 2013}
+
+  I'm going to ramble on about what I found out about multivariable
+  recurrence relations today, and digress here and there.  One thing
+  that I found to be particularly interesting was a way to show that
+  Pascal's triangle has binomial coefficients as entries.
+
+  \section{An example of methods}
+  \label{sec:an-example-methods}
+
+  Helping Colleen with a 6.006 problem set, I came across the
+  following problem (which I paraphrase, keeping some of the silly
+  flavor of the original).
+  \begin{quote}
+    Right when an upcoming concert is announced, some extraordinary
+    fans of the band dutifully line up in front of the ticket office.
+    When it's time, the ticket master opens his door and says, ``Hey!
+    So you think you're all fans? I'll show you what a \textit{real}
+    fan is!'' and then points a large fan at the them, turning it on.
+    Each person is either sitting in a flimsy chair or standing; the
+    fan blows away those that are sitting in a chair and those that
+    are standing in front of a sitting person, but the line is so long
+    that the last person in line is standing in front of a brick wall
+    and so is not blown away.  How many ways can $n$ fans be sitting
+    or standing so that exactly $k$ fans remain?  (and write a program
+    to compute this.)
+  \end{quote}
+  Let's just go through with finding the recurrence relation --- it
+  doesn't take too long.  We define $T_u(n, k)$ to be the number of
+  configurations of $n$ fans so that $k$ remain, given that, behind
+  the last fan (i.e., after these $n$ fans), there is either a
+  standing fan or a brick wall; the idea is that we know from the
+  given that if the last fan is standing, that fan will remain.  Let
+  $T_d(n, k)$ be the same, except it supposes that the last person is
+  in front of a fan who's sitting, so, sitting or standing, there is
+  no way the last fan can remain.  From these, we get the following
+  two equations, where the left-hand side of the addition corresponds
+  to the last person in line standing, and the right-hand side,
+  sitting:
+  \begin{equation*}
+    T_u(n, k) = T_u(n-1,k-1) + T_d(n-1,k) 
+  \end{equation*}
+  \begin{equation*}
+    T_d(n, k) = T_u(n-1,k) + T_d(n-1,k)
+  \end{equation*}
+  The most remarkable term is $T_u(n-1,k-1)$: the $k-1$ is there
+  because we assume the last person is standing, so they know they
+  will remain; hence, one fewer required fan in the remainder of the
+  line.
+
+  These are sufficient for writing a $O(nk)$-time algorithm to compute
+  $T_u(n, k)$.\footnote{ For completeness, here's a short Python
+    program to compute $T(n,k)$ in $O(nk)$ time.  This performs some
+    extraneous computations out of simplicity, but we're not trying to
+    break a speed record here.
+\begin{verbatim}
+def T(n, k) :
+    if n < 0 or k < 0 :
+        return 0
+    valsu = [0, 1] + [0]*k
+    valsd = [0, 1] + [0]*k
+    for i in xrange(1, n+1) :
+        valsu2 = [0]
+        valsd2 = [0]
+        for j in xrange(0, k + 1) :
+            valsu2.append(valsu[j] + valsd[j+1])
+            valsd2.append(valsu[j+1] + valsd[j+1])
+        valsu = valsu2
+        valsd = valsd2
+    return valsu[k+1]
+\end{verbatim}
+  } But, I'm more interested right now in understanding these
+  mutually-recursive multivariable functions.
+
+  From the second, we see that $T_d(n-1,k) = T_d(n,k)-T_u(n-1,k)$,
+  and, combining this with the first, we get $T_d$ in terms of $T_u$:
+  \begin{equation*}
+    T_d(n,k)=T_u(n,k)+T_u(n-1,k)-T_u(n-1,k-1),
+  \end{equation*}
+  which we can put back into the first to get the following recurrence
+  relation:
+  \begin{equation*}
+    T_u(n, k) = T_u(n-1,k-1) + T_u(n-1,k) + T_u(n-2,k)-T_u(n-2,k-1)
+  \end{equation*}
+  From now on, we'll write $T=T_u$.
+
+  Just to get a sense of the function, here is a table of $T(n,k)$
+  with the the rows and columns being $n$ and $k$.\footnote{Like
+    Pascal's triangle, the data in each diagonal parallel to the major
+    diagonal is described by a polynomial.  I couldn't find any
+    reasonable pattern in these polynomials, though.}
+  \begin{center}
+    \begin{tabular}{rrrrrrrrrl}
+      1 &  &  &  &  &  &  &  &  \\
+      1 & 1 &  &  &  &  &  &  &  \\
+      2 & 1 & 1 &  &  &  &  &  &  \\
+      3 & 3 & 1 & 1 &  &  &  &  &  \\
+      5 & 5 & 4 & 1 & 1 &  &  &  &  \\
+      8 & 10 & 7 & 5 & 1 & 1 &  &  &  \\
+      13 & 18 & 16 & 9 & 6 & 1 & 1 &  &  \\
+      21 & 33 & 31 & 23 & 11 & 7 & 1 & 1 &  \\
+      34 & 59 & 62 & 47 & 31 & 13 & 8 & 1 & 1 \\
+      \vdots & & & & & & & & & \ddots
+    \end{tabular}
+  \end{center}
+
+  My motivating question is whether there's a closed-form solution to
+  compute $T$. While I didn't actually find one, I learned about
+  multivariable generating functions in the process, and this is
+  mainly what I'm wanting to write about.  The multivariable case of a
+  generating function is similar to the single variable case, except
+  that there is a $c_{ij}x^iy^j$ for every term $c_{ij}$ (in what
+  might be called a bi-sequence).  Hence, we let
+  \begin{equation*}
+    g(x,y)=\Sigma_{i,j}T(i,j)x^iy^j
+  \end{equation*}
+  be our generating function.
+
+  I managed to compute $g$ at first as a generating function of
+  generating functions, fixing each variable one at a time, using
+  Mathematica to do some of the hairy symbolic manipulation.  However,
+  it turns out there is a much simpler way.  To see how we'd do this,
+  consider that
+  \begin{equation*}
+    x^ay^bg(x,y) = \Sigma_{i,j}T(i,j)x^{i+a}y^{j+a} = \Sigma_{i,j}T(i-a,j-b)x^iy^j,
+  \end{equation*}
+  by defining $T$ of negative numbers to be zero.  That is,
+  multiplication of $g$ by $x^ay^b$ gives a generating function $g'$
+  of
+  \begin{equation*}
+    T'(n,k)=T(n-a,k-b). 
+  \end{equation*}
+  Hence, the right hand side of the recurrence relation has the
+  generating function
+  \begin{equation*}
+    xyg(x,y)+xg(x,y)+x^2g(x,y)-x^2yg(x,y),
+  \end{equation*}
+  and when we consider the boundary conditions (namely that
+  $T(0,0)=1$), we have
+  \begin{equation*}
+    g(x,y)=1+    xyg(x,y)+xg(x,y)+x^2g(x,y)-x^2yg(x,y),
+  \end{equation*}
+  and so
+  \begin{equation*}
+    g(x,y)=\frac{1}{1-x-x^2-xy+x^2y}.
+  \end{equation*}
+  Aside: if $y=0$ (which is equivalent to saying $k=0$ since $y=0$
+  kills all terms involving non-zero $k$), this reduces to the
+  recurrence relation of the Fibonacci sequence.  In fact, a
+  combinatorial proof is that $k=0$ corresponds to having each person
+  stand only when there is a sitting person behind them; that is, tile
+  an $n\times 1$ board with $2\times 1$ and $1\times 1$ pieces,
+  representing a stander-sitter and a sitter, respectively.  I've seen
+  that this problem is counted by the Fibonacci sequence, so it's
+  enough of a proof for me at least!
+
+  Unfortunately, this polynomial is irreducible, so there's not really
+  anything I know we can do to find a closed form.  Perhaps
+  interestingly, using the geometric series
+  $1/(1-t)=1+t^2+t^3+\ldots$, we can rewrite $g$ in the form
+  \begin{equation*}
+    g(x,y)=1+(x+x^2+xy-x^2y) + (x+x^2+xy-x^2y)^2+(x+x^2+xy-x^2y)^3+\ldots,
+  \end{equation*}
+  so to compute $T(n,k)$, we need only keep track of which of these
+  terms contribute to $x^ny^k$, which can only happen for exponents
+  (roughly) from $(n+k)/3$ to $n+k$.
+
+  \section{The binomial coefficient}
+  \label{sec:another-function}
+
+  Another function which is conducive to study using multivariable
+  recurrences is the binomial coefficient. Let's say we start with
+  Pascal's triangle:
+  \begin{center}
+    \begin{tabular}{rrrrrl}
+      1 \\
+      1 & 1\\
+      1 & 2 & 1 \\
+      1 & 3 & 3 & 1 \\
+      1 & 4 & 6 & 4 & 1 \\
+      \vdots & &  & &  & \ddots
+    \end{tabular}
+  \end{center}
+  which is generated by the recurrence $P(i,j)=P(i-1,j)+P(i-1,j-1)$,
+  where $P$ is $0$ everywhere outside the triangle, and $P(0,0)=1$,
+  which is the tip of the triangle.  Using similar techniques, and
+  letting $f(x,y)$ be the generating function of $P$, we have
+  \begin{equation*}
+    f(x,y)=1+xf(x,y)+xyf(x,y),
+  \end{equation*}
+  and the closed form for the generating function is
+  \begin{equation*}
+    f(x,y)=\frac{1}{1-x-xy}.
+  \end{equation*}
+  Similarly rewriting using the geometric series, we have
+  \begin{equation*}
+    f(x,y)=1+(x+xy)+(x+xy)^2+(x+xy)^3+\ldots.
+  \end{equation*}
+  Importantly, each monomial in $f$ comes from exactly one of the
+  $(x+xy)^n$ terms, which are each composed of monomials $x^ny^{n-k}$
+  (and $x^n$ can only come from this particular term).  What are the
+  coefficients of these monomials?  They're the binomial coefficients
+  of course!\footnote{Where we're defining binomial coefficients to
+    the the coefficients of polynomials $(x+y)^n$, for varying $n$.
+    The ``of course'' refers to how they are binomial coefficients by
+    definition.}  Therefore, the entries in Pascal's triangle are all
+  binomial coefficients!
+
+  The identity involving binomial coefficients (which we'll denote by
+  $B$), namely
+  \begin{equation*}
+    B(n, k) = B(n-1,k) + B(n-1,k-1),    
+  \end{equation*}
+  follows from the recurrence relation.
+
+  What about going the other way?  These $x+xy$ terms aren't as nice
+  as $x+y$, and $(x+y)^n$ gives binomial coeffients just as well.  So,
+  consider the generating function
+  \begin{equation*}
+    h(x,y)=1+(x+y)+(x+y)^2+\ldots=\frac{1}{1-x-y},
+  \end{equation*}
+  which has $h(x,y)-xh(x,y)-yh(x,y)=1$ and a corresponding recurrence
+  relation
+  \begin{equation*}
+    H(a,b)=H(a-1,b)+H(a,b-1)
+  \end{equation*}
+  with $H(0,0)=1$.  This is actually Pascal's triangle again, except
+  transformed into a right triangle.
+
+  This suggests a notation I sometimes would rather have for the
+  Binomial coefficient:\footnote{I haven't seen this notation anywhere
+    else; I'd definitely like to see where others have used similar
+    notation if it's been done.} We define $[a,b]$ to be the number of
+  ways of ordering $a$ of one kind of indistinguishable object among
+  $b$ of another (that is, it's $(a+b)$ choose $a$).  With this
+  notation, the Binomial theorem would look like
+  \begin{equation*}
+    (x+y)^n=\Sigma_{a+b=n}[a,b]x^ay^b.
+  \end{equation*}
+  The recurrence relation provides the following identity:
+  \begin{equation*}
+    [a,b] = [a-1,b] + [a,b-1].
+  \end{equation*}
+  What is the intuition for this?  The first object in any permutation
+  is either an object of the first kind or of the second kind; add up
+  each case.
+
+  Using similar combinatorial reasoning, the notation can be extended
+  to a multinomial coefficient with a similar identity:
+  \begin{equation*}
+    [a_1,a_2,\ldots,a_n] = [a_1-1,a_2,\ldots,a_n] + [a_1,a_2-1,\ldots,a_n]
+    + \ldots + [a_1,a_2,\ldots,a_n-1].
+  \end{equation*}
+
+  \section{Stirling's numbers}
+  \label{sec:stirlings-numbers}
+
+  One reason for keeping the binomial coefficients with the same
+  notation is that there is a striking parallel between it and what
+  are called Stirling's numbers.  Define $S(n,k)$ and $C(n,k)$, where
+  $S(n,k)$ is the number of ways to partition $n$ objects into $k$
+  non-empty subsets, and where $C(n,k)$ is the number of elements in
+  the symmetric group $S^n$ which have $k$ permutation
+  cycles.\footnote{Knuth has better notation for these, but, with some
+    amount of not-unnoticed irony, I'm not able to typeset them with
+    my \ref[LaTeX-like typesetting software]{page_htmacros} which is
+    used this website.  Anyway, Knuth describes these, which are known
+    as Stirling's numbers of the second and first kind, respectively,
+    much better than I do in \link[Two notes on
+    notation]{http://arxiv.org/abs/math/9205211}.}  These (including
+  $B$ for parallelism) have the following recurrence relations:
+  \begin{equation*}
+    B(n,k) = B(n-1,k) + B(n-1,k-1)
+  \end{equation*}
+  \begin{equation*}
+    S(n,k) = kS(n-1,k) + S(n-1,k-1)
+  \end{equation*}
+  \begin{equation*}
+    C(n,k) = (n-1)C(n-1,k) + C(n-1,k-1)
+  \end{equation*}
+  Each considers taking a single object from $n$ objects, and then
+  handling two cases for the object:
+  \begin{itemize}
+  \item For $B$: whether it is not chosen or chosen to be among the
+    $k$ chosen objects;
+  \item For $S$: whether it is in one of the $k$ subsets with others
+    or in its own singleton; or
+  \item For $C$: whether it is in one of the cycles with others (in
+    which case it can be between any of the $n-1$ objects in the
+    permutation) or in its own 1-cycle.
+  \end{itemize}
+
+  Is there similar notation for $S$ and $C$ like $[a,b]$ for
+  $B(a+b,b)$ which preserves the parallelism?  If so, can they be
+  extended into a multi-$S$ and a multi-$C$?  If not, then it seems
+  the parallelism between $B$ and the other two might be something of
+  a red herring.
+
+  Like how $[a,b]$ is $B(a+b,a)$, suppose we define
+  $[a,b]_S=S(a+b,a)$.  This gives $[a,b]_s=a[a,b-1]_S+[a-1,b]_S$ using
+  the above recurrence.  I'm far from convinced that this has given us
+  anything.
+
+  \section{Conclusion}
+  \label{sec:conclusion}
+
+  You can use deal with generating functions even if the recurrence
+  relations is over multiple variables.  Going the other way, this
+  suggests that polynomial long division can be done by first
+  determining the corresponding recurrence relation.
+
+  Also, the seemingly innocuous polynomial
+  \begin{equation*}
+    \frac{1}{1-x-y}
+  \end{equation*}
+  is hiding all of Pascal's triangle.
   
 \end{page}
