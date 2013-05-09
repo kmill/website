@@ -590,7 +590,7 @@ def T(n, k) :
   it turns out there is a much simpler way.  To see how we'd do this,
   consider that
   \begin{equation*}
-    x^ay^bg(x,y) = \Sigma_{i,j}T(i,j)x^{i+a}y^{j+a} = \Sigma_{i,j}T(i-a,j-b)x^iy^j,
+    x^ay^bg(x,y) = \Sigma_{i,j}T(i,j)x^{i+a}y^{j+a} = \Sigma_{i,j}T(i-a,j-b)x^iy^j
   \end{equation*}
   by defining $T$ of negative numbers to be zero.  That is,
   multiplication of $g$ by $x^ay^b$ gives a generating function $g'$
@@ -717,7 +717,11 @@ def T(n, k) :
   to a multinomial coefficient with a similar identity:
   \begin{equation*}
     [a_1,a_2,\ldots,a_n] = [a_1-1,a_2,\ldots,a_n] + [a_1,a_2-1,\ldots,a_n]
-    + \ldots + [a_1,a_2,\ldots,a_n-1].
+    + \ldots + [a_1,a_2,\ldots,a_n-1],
+  \end{equation*}
+  which has the generating function
+  \begin{equation*}
+    M(x_1,x_2,\ldots,x_n)=\frac{1}{1-x_1-x_2-\ldots-x_n}.
   \end{equation*}
 
   \section{Stirling's numbers}
