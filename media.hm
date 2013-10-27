@@ -4,10 +4,150 @@
 \begin{page}{media.html}
   \label{page_media_consumption}
   \title{Media consumption}
-  \modified{5 May 2013}
+  \modified{27 October 2013}
 
   This is a log of my media consumption.  I might get around to
   consuming stuff at \ref{page_future_media_consumption}.
+
+  \hline
+  
+  October 2013. \textit{House of Games} (movie).
+
+  This is an intriguing movie.  I feel like discussing it might spoil
+  the effect of sitting through the story, so I won't say much.  To
+  remind myself about the movie later: it's about a psychologist who
+  has written a book and has become successful.  One of her patients
+  comes to her and says he has a gambling problem, and she promises
+  (unlike a normal psychologist) that she will actually help him.  The
+  movie seems to be about femininity clashing with masculinity, and
+  how weak, feminine activities like psychology (which deal with
+  squishing things like emotional state) are no match for the strong,
+  masculine activities in the Real World (where emotional state never
+  gets in the way).  There's interesting analysis about the movie
+  elsewhere online.  In any case, the movie seemed like a big dream,
+  itself clashing with the archetypes.
+
+  After we watched the movie, we watched videos of Ricky Jay, greatest
+  magician in the world.
+
+  \hline
+
+  September 2013. \textit{Let Over Lambda: 50 Years of Lisp} by Doug
+  Hoyte.
+
+  I had to force myself to finish this one.  Mr. Hoyte thinks very
+  highly of Lisp (an opinion I could get behind), but he does it in a
+  way which belies an ignorance of other languages and programming
+  languages as a subject.  It's clear he has an incredible amount of
+  practice writing applications in Lisp, and he does show some
+  interesting uses of metaprogramming with macros, but the way in
+  which he exposits this I found to be incredibly irritating.  He
+  references Paul Graham's \textit{On Lisp} a number of times; perhaps
+  that would have a more illuminating discussion of concepts such as
+  anaphoric macros (which is done somewhat hazily in \textit{LOL}).
+  What kind of book devotes an appendix to espousing the virtues of Vi
+  over Emacs?  What kind of book switches to a pseudomathematical
+  voice to define ``important concepts'' like in the following?
+  \begin{quote}
+    Let L be a programming language, F a feature in that programming
+    language, and A and B arbitrary programs in L. F provides a
+    duality of syntax feature if the modifications required to change
+    A into B become fewer than in a version of L without F.
+  \end{quote}
+  What kind of book? This one.
+
+  \hline
+
+  September 2013. \textit{The Old Man And The Sea} by Ernest
+  Hemmingway.
+
+  Based on how a friend described this book back in high school, I
+  expected it to be quite boring.  It was a short book, and I wanted
+  something short to read, so I decided to read it (plus, I decided
+  that the criticism of 10th graders should be taken lightly in
+  regards to reading).  I can see why this book was a ``great American
+  novel.''  I enjoyed reading these philosophical wanderings of a man
+  being pulled along by something great and beautiful far into the
+  sea.
+
+  \hline
+
+  August 2013. \textit{Beauty and the Beast} (movie).
+
+  I hadn't watched this for over a decade, and when I had seen it I
+  was very young.  The silly slapstick was certainly silly, but it
+  was, overall, quite excellent.  I was amazed at how well they
+  portrayed the feelings between Belle and the Beast: you could easily
+  see them sparkle in their faces.
+
+  The songs' lyrics were funny.  Some of the songs were written in a
+  way where you had to wonder if it was actually good or just bad
+  enough it was good.  An example is the expositional song called
+  ``Gaston:'' it has so many words crammed in!
+
+  \hline
+
+  August 2013. \textit{Oh Brother, Where Art Thou?} (movie).
+  
+  While watching the credits, I was surprised to see that it was based
+  on The Odyssey.  Sure enough, I could call some plot points ahead of
+  time because of my basic familiarity with the classic; I'm thinking
+  in particular about when the Sirens were about to make an
+  appearance.
+
+  I thought the movie was well put together, and I liked the attention
+  to detail (for instance, running gags about the hair product and
+  certain catch phrases).  My only complaint might be that I thought
+  the pacing was too quick, but that may have just been because the
+  Coen brothers wanted to do so much in such a small amount of time.
+
+  \hline
+
+  July 2013. \textit{Hijacked} (movie).
+
+  A view into the workings of a corporation during a time of stress: a
+  hijacking of a company ship by pirates.  The pace of the movie is
+  very slow, which gives time to experience the confined quarters in
+  which the pirates put the crew, to see the evolving psychological
+  states, and to view some good cinematography.  Nothing like I
+  imagined it would be based on the preview for the other ship
+  hijacking movie which came out recently (that one appeared to be
+  much more action-packed with no emotional scarring or your money
+  back!).
+
+  \hline
+
+  July 2013. \textit{Monsters University} (movie).
+
+  Sequel (prequel) to \textit{Monsters, Inc.}; interesting in that it
+  goes against the standard theme of ``against all odds, if you try
+  hard, you will succeed,'' and instead says that ``embrace what you
+  are and be good at that.''
+
+  \hline
+
+  May 2013. \textit{Labyrinths} by Jorge Luis Borges.
+
+  I really need to read this book again.  I like the tone of dusty
+  pseudo-erudition, his being a careful scholar of un-reality.  What I
+  didn't expect before reading the book was that I would get a glimpse
+  of Borges himself, which was unfortunately hazy at best. I think
+  part of the key of understanding the book might be seeing what
+  \textit{isn't} related, but this is likely a difficult exercise.
+
+  What are the labyrinths?  This is a motif which shows up in almost
+  all of the stories.  It seems to be the idea of getting lost in
+  levels of meaning or of playing with falsehoods.
+
+  
+
+  \hline
+
+  May 2013. \textit{Iron Man III} (movie).
+
+  It is what it is.  It's nice to be able to both worship and reject
+  the cult of the industrialist!  And, wooo, Christmas and America and
+  the President of the United States! (Product placements, too!)
 
   \hline
 

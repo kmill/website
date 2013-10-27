@@ -16,7 +16,7 @@
       </DIV>
       <DIV CLASS="footer">
 	\textit{Modified \var{pagemodified}}<BR>
-	\copyright 2011 Kyle Miller<BR>
+	\copyright \copyyear{} Kyle Miller<BR>
 	\ref[Back to kylem.net]{page_index}
       </DIV>
     </DIV>
