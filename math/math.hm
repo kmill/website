@@ -827,21 +827,24 @@ def T(n, k) :
   actual sum.  So, how is interval arithmetic possible on a computer?
   What does IEEE 754 give us?  The answer is rounding modes.  There
   are four rounding modes in IEEE 754: towards infinity, towards 0,
-  towards negative infinite, and even-biased ``normal'' rounding.
-  Floating point hardware computes with more precision than is
-  represented (but exactly as much as is required), and these rounding
-  modes are for dealing with these extra bits.  So, the lower bounds
-  are computed rounding towards $-\infty$, and the upper bounds are
-  computed rounding towards $\infty$.  In the example above, the
-  resulting interval would be \texttt{[1.0, 1.0000000000000002]},
-  which is, in fact, an interval which contains the result.
+  towards negative infinity, and even-biased ``normal'' rounding (the
+  nonsense-inducing-but-generally-what-you-want default).  Floating
+  point hardware computes with more precision than is represented (but
+  exactly as much as is required), and these rounding modes are for
+  dealing with these extra bits.  So, the right thing to do with
+  intervals is for the lower bounds to be computed rounding towards
+  $-\infty$ and the upper bounds to be computed rounding towards
+  $\infty$.  In the example above, the resulting interval would be
+  \texttt{[1.0, 1.0000000000000002]}, which is, in fact, an interval
+  which contains the result.
 
   Sometimes the resulting intervals can be too pessimistic.  One
-  example is \texttt{x*x} if \texttt{x = [-1.0, 1.0]}.  While we can
-  tell that the minimal interval for \texttt{x*x} is \texttt{[0.0,
-    1.0]}, intervals don't know the correlation between the \texttt{x}
-  on either side of the multiplication sign, so the resulting interval
-  would be \texttt{[-1.0, 1.0]}.\footnote{\link[Affine
+  example is \texttt{x*x} if \texttt{x} is \texttt{[-1.0, 1.0]}.
+  While we can tell that the minimal interval for \texttt{x*x} is
+  \texttt{[0.0, 1.0]}, intervals don't know the correlation between
+  the \texttt{x} on either side of the multiplication sign, so the
+  resulting interval would be \texttt{[-1.0,
+    1.0]}.\footnote{\link[Affine
     arithmetic]{http://en.wikipedia.org/wiki/Affine_arithmetic} is a
     way to preserve and make use of correlations.}  But, if we split
   the interval for \texttt{x} into the two intervals \texttt{[-1.0,
@@ -849,28 +852,29 @@ def T(n, k) :
   can obtain the correct interval \texttt{[0.0, 1.0]} as the union of
   the images.
 
-  So, what do these intervals help us do?  A first example is proving
-  that a function $f$ has no root on an interval \texttt{[a, b]},
+  So, what can these intervals help us do?  A first example is proving
+  that a function $f$ has no roots on an interval \texttt{[a, b]},
   where $f$ is a function composed of interval-friendly operations.
   If we compute \texttt{$f$([a, b])} and see that \texttt{0.0} is not
   in the resulting interval, then this is a \textit{proof} that $f$
-  has no root there.  It might instead be that \texttt{0.0} appears in
-  the interval, but because intervals are pessimistic, this does not
-  constitute a proof that $f$ has a root (consider \texttt{x*x + 1} on
-  \texttt{[-2.0, 2.0]}).  But, might be able to subdivide that
-  interval and show that for each subinterval that \texttt{0.0} is not
-  present.  Each of these individual proofs would, together,
-  constitute a proof of $f$ having no root anywhere on \texttt{[a,
-    b]}.
+  has no root there.  Otherwise, while it might be that \texttt{0.0}
+  appears in the interval, because intervals are pessimistic, this
+  does not constitute a proof that $f$ has a root (consider
+  \texttt{x*x + 1} on \texttt{[-2.0, 2.0]}).  But, we might be able to
+  subdivide that interval and show that for each subinterval that
+  \texttt{0.0} is not present.  Each of these individual proofs would,
+  together, constitute a proof of $f$ having no root anywhere on
+  \texttt{[a, b]}.
 
   Suppose we have a function $f$, its derivative $f'$, and its second
-  derivative $f''$.  If we want to prove that $f$ has a strict local
-  maximum in \texttt{[a, b]}, we can try the following process:
+  derivative $f''$ (with each of these continuous).  If we want to
+  prove that $f$ has a strict local maximum in \texttt{[a, b]}, we can
+  try the following process:
   \begin{enumerate}
-  \item Show that $f'$ has a root in that interval using the
+  \item Show that $f'$ has a root on that interval using the
     intermediate value theorem (possibly using $f'$ and $f''$ with
     Newton's method).
-  \item Show that $f''$ has no root.
+  \item Show that $f''$ has no root, using the process outlined above.
   \item Show that $f''$ is negative somewhere on that interval.
   \end{enumerate}
   With these together, we can conclude that $f$ must reach a local
