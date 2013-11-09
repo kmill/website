@@ -20,7 +20,7 @@
 \begin{page}{index.html}
   \label{page_index}
   \title{Kyle Miller}
-  \modified{27 October 2012}
+  \modified{9 Nov 2013}
 
   Welcome to my web site.  You can contact me via e-mail at
   \link[kmill #at# alum.mit.edu]{mailto:kmill #at# alum.mit.edu}.
@@ -51,12 +51,8 @@
   \item \ref{page_media_consumption}
   \item \ref{page_findings}
   \item \ref{page_random}
-  \item[Old stuff]
-    \begin{itemize}
-    \item \ref{page_thoughts}
-    \item \ref{page_highschool}
-    \end{itemize}
   \item \ref{page_links}
+  \item \ref{page_old}
   \end{itemize}
 
 \end{page}
@@ -74,6 +70,7 @@
 \include{writings.hm}
 \include{random.hm}
 \include{findings.hm}
+\include{old.hm}
 \include{about/about.hm}
 \include{essays.hm}
 \include{links.hm}

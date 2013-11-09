@@ -1,0 +1,14 @@
+% old.hm
+% old stuff I don't want directly on the main page.
+
+\begin{page}{old.html}
+  \label{page_old}
+  \title{Old stuff}
+  \modified{9 Nov 2011}
+
+  \begin{itemize}
+  \item \ref{page_thoughts}
+  \item \ref{page_highschool}
+  \end{itemize}
+  
+\end{page}

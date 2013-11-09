@@ -15,6 +15,7 @@
   \item \ref{page_math_platonic}
   \item \ref{page_math_recurrence}
   \item \ref{page_math_relations}
+  \item \ref{page_math_intervals}
   %\item \ref{page_quotient_groups}
   \end{itemize}
 
@@ -787,4 +788,103 @@ def T(n, k) :
   \end{equation*}
   is hiding all of Pascal's triangle.
   
+\end{page}
+
+\begin{page}{intervals.html}
+  \label{page_math_intervals}
+  \title{Proving strict local maxima with interval arithmetic}
+  \modified{9 Nov 2013}
+
+  At least until recently, floating point numbers on a computer were
+  to me approximations which I couldn't imagine trusting in any
+  substantial way.  They're rounded!  You have nonsense like
+  \texttt{1.0 + 1e-16 == 1.0}, or like \texttt{1.0/1 + 1.0/2 + 1.0/3 +
+    ...} being a convergent series!  How could one obtain
+  mathematically meaningful results?
+
+  However, I learned recently that \link[IEEE 754 floating point
+  numbers]{http://en.wikipedia.org/wiki/IEEE_floating_point} (the
+  standard-issue floating point numbers on most hardware, sometimes
+  called ``floats'') were designed to support obtaining mathematically
+  meaningful results.  But, how can that be, given the nonsense above?
+  These floating point numbers support doing what's called
+  \link[interval
+  arithmetic]{http://en.wikipedia.org/wiki/Interval_arithmetic}.\footnote{
+    \link[Validated Numerics for
+    Pedestrians]{http://www2.math.uu.se/~warwick/main/papers/ECM04Tucker.pdf}
+    by Warwick Tucker is a short paper about the subject.}
+
+  Basically, instead of representing a number as a single float you
+  instead represent a closed interval which contains that number.  The
+  basic operations (addition, multiplication, etc.) can be defined on
+  intervals so that the bounds are set appropriately to give a
+  minimally pessimistic interval which is guaranteed to contain the
+  result.
+
+  If we naively try to implement intervals, we'd get the same
+  nonsense: \texttt{[1.0, 1.0] + [1e-16, 1e-16] == [1.0 + 1e-16, 1.0 +
+    1e-16] == [1.0, 1.0]}, which is not an interval which contains the
+  actual sum.  So, how is interval arithmetic possible on a computer?
+  What does IEEE 754 give us?  The answer is rounding modes.  There
+  are four rounding modes in IEEE 754: towards infinity, towards 0,
+  towards negative infinite, and even-biased ``normal'' rounding.
+  Floating point hardware computes with more precision than is
+  represented (but exactly as much as is required), and these rounding
+  modes are for dealing with these extra bits.  So, the lower bounds
+  are computed rounding towards $-\infty$, and the upper bounds are
+  computed rounding towards $\infty$.  In the example above, the
+  resulting interval would be \texttt{[1.0, 1.0000000000000002]},
+  which is, in fact, an interval which contains the result.
+
+  Sometimes the resulting intervals can be too pessimistic.  One
+  example is \texttt{x*x} if \texttt{x = [-1.0, 1.0]}.  While we can
+  tell that the minimal interval for \texttt{x*x} is \texttt{[0.0,
+    1.0]}, intervals don't know the correlation between the \texttt{x}
+  on either side of the multiplication sign, so the resulting interval
+  would be \texttt{[-1.0, 1.0]}.\footnote{\link[Affine
+    arithmetic]{http://en.wikipedia.org/wiki/Affine_arithmetic} is a
+    way to preserve and make use of correlations.}  But, if we split
+  the interval for \texttt{x} into the two intervals \texttt{[-1.0,
+    0.0]} and \texttt{[0.0, 1.0]} and compute \texttt{x*x} on each, we
+  can obtain the correct interval \texttt{[0.0, 1.0]} as the union of
+  the images.
+
+  So, what do these intervals help us do?  A first example is proving
+  that a function $f$ has no root on an interval \texttt{[a, b]},
+  where $f$ is a function composed of interval-friendly operations.
+  If we compute \texttt{$f$([a, b])} and see that \texttt{0.0} is not
+  in the resulting interval, then this is a \textit{proof} that $f$
+  has no root there.  It might instead be that \texttt{0.0} appears in
+  the interval, but because intervals are pessimistic, this does not
+  constitute a proof that $f$ has a root (consider \texttt{x*x + 1} on
+  \texttt{[-2.0, 2.0]}).  But, might be able to subdivide that
+  interval and show that for each subinterval that \texttt{0.0} is not
+  present.  Each of these individual proofs would, together,
+  constitute a proof of $f$ having no root anywhere on \texttt{[a,
+    b]}.
+
+  Suppose we have a function $f$, its derivative $f'$, and its second
+  derivative $f''$.  If we want to prove that $f$ has a strict local
+  maximum in \texttt{[a, b]}, we can try the following process:
+  \begin{enumerate}
+  \item Show that $f'$ has a root in that interval using the
+    intermediate value theorem (possibly using $f'$ and $f''$ with
+    Newton's method).
+  \item Show that $f''$ has no root.
+  \item Show that $f''$ is negative somewhere on that interval.
+  \end{enumerate}
+  With these together, we can conclude that $f$ must reach a local
+  maximum on that interval, and, furthermore, because the second
+  derivative is never zero, that $f'$ is injective on that interval,
+  and so it has exactly one root.
+
+  Later, I will provide code to compute this as well as show how to
+  use automatic differentiation techniques to compute \textit{exact}
+  derivatives.  With these techniques, I'm able to prove that $x^3-x$
+  has a strict local maximum between $-2$ and $-0.1$ as well as prove that
+  \begin{equation*}
+    \frac{1}{1+x^2}
+  \end{equation*}
+  has a strict local maximum between $-0.1$ and $0.1$.
+
 \end{page}
