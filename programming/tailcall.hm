@@ -75,7 +75,8 @@ d = a + e
   code which does a binary search.  It has two recursive tail calls.
 \begin{verbatim}
 def binary_search(x, lst, low=None, high=None) :
-    (low, high) = (low or 0, high or len(lst)-1)
+    if low == None : low = 0
+    if high == None : high = len(lst)-1
     mid = low + (high - low) // 2
     if low > high :
         return None
@@ -92,7 +93,8 @@ def binary_search(x, lst, low=None, high=None) :
 \begin{verbatim}
 def binary_search(x, lst, low=None, high=None) :
   start:
-    (low, high) = (low or 0, high or len(lst)-1)
+    if low == None : low = 0
+    if high == None : high = len(lst)-1
     mid = low + (high - low) // 2
     if low > high :
         return None
@@ -108,7 +110,8 @@ def binary_search(x, lst, low=None, high=None) :
 which, one can observe, can be written in actual Python as
 \begin{verbatim}
 def binary_search(x, lst, low=None, high=None) :
-    (low, high) = (low or 0, high or len(lst)-1)
+    if low == None : low = 0
+    if high == None : high = len(lst)-1
     while True :
         mid = low + (high - low) // 2
         if low > high :
@@ -283,7 +286,7 @@ class TailCall(object) :
         if type(self.call) is TailCaller :
             return self.call.f(*self.args, **self.kwargs)
         else :
-            return self.f(*self.args, **self.kwargs)
+            return self.call(*self.args, **self.kwargs)
 \end{verbatim}
 
 Since classes are function-like and return their constructed object,
