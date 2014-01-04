@@ -16,6 +16,7 @@
   \item \ref{page_math_recurrence}
   \item \ref{page_math_relations}
   \item \ref{page_math_intervals}
+  \item \ref{page_math_roots_unity}
   %\item \ref{page_quotient_groups}
   \end{itemize}
 
@@ -891,4 +892,160 @@ def T(n, k) :
   \end{equation*}
   has a strict local maximum between $-0.1$ and $0.1$.
 
+\end{page}
+
+\begin{page}{roots_unity.html}
+  \label{page_math_roots_unity}
+  \title{Sums of roots of unity}
+  \modified{3 Jan 2014}
+
+  \begin{figure}[r]
+    \label{fig_roots_unity}
+    \includegraphics[alt=Ninth roots of unity,width=242]{roots_unity_9.png}
+    \begin{center}
+      \caption{Ninth roots of unity on the complex plane.}
+    \end{center}
+  \end{figure}
+
+  This note, which I'll probably expand upon later, is about roots of
+  unity.  I was reading Shafarevich's excellent
+  \link[\textit{Discourses on
+    Algebra}]{http://www.amazon.com/Discourses-Algebra-Igor-R-Shafarevich/dp/3540422536},
+  and wondered what the identity at the end of section 2.4 meant for
+  the polynomial $x^n-1$, the defining polynomial for the $n$th roots
+  of unity (where $n>1$).
+
+  The reason I wondered was that the roots of unity are very
+  symmetric: they lie evenly along the unit circle in the complex
+  plane.  As an example, the ninth roots of unity (i.e., the roots of
+  the polynomial when $n$ is $9$) are represented in figure
+  \ref{#fig_roots_unity}.
+
+  Really, I started thinking about the identity (as \ref[discussed
+  below]{#sec:shafarevich}), but then I wondered what other ways there
+  are to show that the sum of all of the roots of unity is $0$.  This
+  note has a number of ways of showing this fact.
+
+  \section{The intuitive way}
+  \label{sec:intuitive-way}
+
+  The $n$th roots of unity lie evenly on the unit circle, so their
+  center of mass better be at the origin.  So, the sum of the complex
+  numbers as vectors is zero.
+
+  \section{The direct way}
+  \label{sec:direct-way}
+
+  The most direct way to find the sum of the $n$th roots of unity is
+  as follows.  Let $x=\omega_0+\cdots+\omega_{n-1}$ be the sum of all
+  $n$ of the roots of unity.  Since roots of unity have unit length,
+  since $\omega_i^n=1$ for all $i$, and since $1/\omega_i$ is also an
+  $n$th root of unity, $\omega_ix$ must be exactly $x$ ($\omega_i$
+  just permutes the components of the sum).  That is,
+  $(1-\omega_i)x=0$, which means either $x=0$ or $\omega_i=1$, and
+  because we can choose an $i$ such that $\omega_i\neq1$, we conclude
+  that $x=0$.
+
+  \section{By representation theory}
+  \label{sec:repr-theory}
+
+  The direct way reminded me of one-dimensional representations of the
+  cyclic group $C_n$.  Take an irreducible complex one-dimensional
+  representation $\rho$ of $C_n=\gen{\alpha}$, and first note that the
+  value of $\rho_\alpha$ completely characterizes $\rho$ since
+  $\rho_{\alpha^k}=(\rho_\alpha)^k$.
+
+  One can show that all of the irreducible representations of $C_n$
+  are one-dimensional from the fact that $C_n$ is abelian, and
+  furthermore, using the fact that the sum of the squares of the
+  dimensions of the irreducible representations is equal to $|C_n|$,
+  we can conclude that each root of unity corresponds to a different
+  irreducible representation of $C_n$.
+
+  Next, we compute $x=1+\alpha+\alpha^2+\cdots+\alpha^{n-1}$.  Since
+  $\rho_x$ is an endomorphism of complex representations from
+  irreducible $\rho$, it must be some constant in $\C$.  We can see,
+  as before, that $1-\alpha$ is in the kernel of $\rho_x$, so either
+  $\rho$ is the trivial representation or $x=0$, and since we can
+  choose $\rho$ not to be trivial, this completes the proof.
+
+  \section{By polynomial theory}
+  \label{sec:poly-theory}
+
+  This kind of method should be well known to anyone who did
+  high-school competition math.  We take the polynomials $f(x)=x^n-1$
+  and $g(x)=(x-\omega_0)(x-\omega_1)\cdots(x-\omega_{n-1})$ and note
+  that they are the same because they are both degree $n$, have the
+  same $n$ roots, and are monic.  We use the fact they are monic by
+  seeing that dividing each polynomial through by $x-\omega_i$ results
+  in a monic polynomial, and so dividing through by all such monomials
+  will result in 1 for each of them, proving $f=g$.  Now, the
+  $x^{n-1}$ term has $0$ as a coefficient according to $f$ and
+  $-\omega_0-\omega_1-\cdots-\omega_{n-1}$ according to $g$, which
+  completes the proof.
+
+  \section{By Shafarevich's identity}
+  \label{sec:shafarevich}
+
+  This method is the reason I thought about any of this to begin with.
+  It's not very direct, but I think it is kind of interesting.  First,
+  we need the identity from the end of section 2.4 of
+  \textit{Discourses on Algebra}, which I will derive here.  To do
+  this, we will develop the theory of the interpolating polynomial.
+  The idea is that, given a set of $n+1$ values $v_i$ at distinct
+  values $x_i$, what is the $n$th degree polynomial $f$ with
+  $f(x_i)=v_i$ for all $i$?
+
+  Let $F(x)=(x-x_1)(x-x_2)\cdots(x-x_{n+1})$, and let $F_i(x)$ be the
+  polynomial obtained by dividing $F$ through by $x-x_i$.  We define
+  \begin{equation*}
+    f_i(x)=\frac{1}{F_i(x_i)}F_i(x)
+  \end{equation*}
+  so that $f_i(x_i)=1$ and $f_i(x_j)=0$ when $i\neq j$.  This provides
+  a convenient basis for polynomials: observe that
+  \begin{equation*}
+    f(x)=v_1f_1(x) + v_2f_2(x) + \cdots + v_{n+1}f_{n+1}(x)   
+  \end{equation*}
+  is the interpolating polynomial as discussed.
+
+  If $k$ is a natural number not exceeding $n$, if we have
+  $v_i=x_i^k$, then since $f(x)$ must be $x^k$, we have
+  \begin{equation*}
+    x^k = \frac{x_1^k}{F_1(x_1)}F_1(x) + \cdots + \frac{x_{n+1}^k}{F_{n+1}(x_{n+1})}F_{n+1}(x)
+  \end{equation*}
+  and since each $F_i$ is a monic degree-$n$ polynomial, this means
+  that if $k < n$,
+  \begin{equation*}
+    \frac{x_1^k}{F_1(x_1)} + \cdots + \frac{x_{n+1}^k}{F_{n+1}(x_{n+1})} = 0,
+  \end{equation*}
+  and if $k = n$, then 
+  \begin{equation*}
+    \frac{x_1^n}{F_1(x_1)} + \cdots + \frac{x_{n+1}^n}{F_{n+1}(x_{n+1})} = 1.
+  \end{equation*}
+  These are the identities at the end of section 2.4.
+
+  We won't be using these identities directly, but rather in
+  spirit\footnote{Truthfully, this is because I forgot the exact
+    formulation of the identities while considering their application
+    to roots of unity.}.  We let $x_i=\omega_i$ and $v_i=1$, where
+  $\omega_i$ is an $n$th root of unity (with $\omega_1=1$).  Notice
+  that each $F_i$ is an $(n-1)$-degree polynomial, so since both
+  $f(x)$ and $g(x)=1$ are at-most-$(n-1)$-degree polynomials which
+  agree at $n$ points, $f=g$.  By taking the leading $x^{n-1}$
+  coefficient, this means
+  \begin{equation*}
+    \frac{1}{F_1(\omega_1)} + \cdots + \frac{1}{F_n(\omega_n)} = 0.
+  \end{equation*}
+
+  Notice that $F_i(\omega_i)$ is the product of all $\omega_i -
+  \omega_j$ for $j\neq i$, and
+  $\omega_i-\omega_j=\omega_i(1-\omega_i\inv\omega_j)$.  Then, we can
+  see $F_i(\omega_i) = \omega_i^{n-1}F_1(\omega_1)$ since
+  $\omega_i\inv$ is just permuting the roots of unity.  Because
+  $(\omega_i^{n-1})\inv=\omega_i$, we have
+  \begin{equation*}
+    \frac{\omega_1}{F_1(\omega_1)} + \cdots + \frac{\omega_n}{F_1(\omega_1)} = 0,
+  \end{equation*}
+  and so $\omega_1+\cdots+\omega_n = 0$.
+  
 \end{page}

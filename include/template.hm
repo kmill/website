@@ -14,6 +14,7 @@
 	<H1>\var{pagetitle}</H1>
 	\var{pagecontent}
       </DIV>
+      <DIV CLASS="clear"></DIV>
       <DIV CLASS="footer">
 	\textit{Modified \var{pagemodified}}<BR>
 	\copyright \copyyear{} Kyle Miller<BR>

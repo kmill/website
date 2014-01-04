@@ -18,3 +18,5 @@
 \def{udots}{}{\char{#8944}}
 \def{ddots}{}{\char{#8945}}
 %\def{choose}{n}{\math{\begin{pmatrix}3\\2\end{pmatrix}}}
+
+\def{gen}{x}{\langle\var{x}\rangle}
