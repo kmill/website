@@ -35,4 +35,4 @@
   
 \end{page}
 
-\include{/Users/kyle/Projects/htmacros/doc/doc_content.hm}
+\include{../htmacros/doc/doc_content.hm}

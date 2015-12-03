@@ -4,33 +4,47 @@
 \begin{page}{about.html}
   \label{page_aboutme}
   \title{About Me}
-  \modified{22 June 2011}
+  \modified{16 May 2015}
   
   \begin{figure}[r]
     \includegraphics[alt=Me]{kyle.jpg}
     \begin{center}
-      \caption{My portrait.}
+      \caption{My portrait, 2006.}
     \end{center}
     \label{fig_me}
   \end{figure}
 
-  \textit{You can view my \ref[r\'{e}sum\'{e}]{page_resume} or
-    \ref[academics]{page_academics}.  I wrote the following
-    description before I graduated...}
+  I am a \link[math PhD student at UC
+  Berkeley]{https://math.berkeley.edu/~kmill/} studying algebra,
+  topology, and computation.  Before that, I engineered some software
+  for a company and as a research assistant at Microsoft Research.
+  And before that I was an MIT student.
+
+  You can view my (outdated) \ref[r\'{e}sum\'{e}]{page_resume} or
+  \ref[courses I took at MIT]{page_academics}.
+
+
+  You can contact me via e-mail at \emph{kmill #at#
+    math.berkeley.edu}.
+
+
+  % \textit{You can view my \ref[r\'{e}sum\'{e}]{page_resume} or
+  %   \ref[academics]{page_academics}.  I wrote the following
+  %   description before I graduated...}
   
-  I'm Kyle Miller, a student at MIT studying ``mathematics with
-  computer science'' (course 18-C) and a bit of music composition.  I
-  like learning about new things.  Sometimes I work on
-  software projects.  Other times I play music.
+  % I'm Kyle Miller, a student at MIT studying ``mathematics with
+  % computer science'' (course 18-C) and a bit of music composition.  I
+  % like learning about new things.  Sometimes I work on
+  % software projects.  Other times I play music.
 
-  I live at a place called \link[tEp]{http://tep.mit.edu/}, which is a
-  fine fraternity in the illustrious Back Bay area of Boston.  At
-  least twenty-two words can be said about the place.
+  % I live at a place called \link[tEp]{http://tep.mit.edu/}, which is a
+  % fine fraternity in the illustrious Back Bay area of Boston.  At
+  % least twenty-two words can be said about the place.
 
-  This summer, I'm working with \link[Prof. Abhinav
-  Kumar]{http://web.mit.edu/abhinavk/www/}, and we are currently
-  building software to explore four-dimensional spaces.  It involves
-  anaglyphic glasses.
+  % This summer, I'm working with \link[Prof. Abhinav
+  % Kumar]{http://web.mit.edu/abhinavk/www/}, and we are currently
+  % building software to explore four-dimensional spaces.  It involves
+  % anaglyphic glasses.
 
 %   I enjoy music a lot, especially classical and occasional jazz.  I
 %   play the piano and cello, but I can play a few chords on ukulele,

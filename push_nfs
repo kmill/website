@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+rsync -rvz build/ kmill_kylem@ssh.phx.nearlyfreespeech.net:/home/public

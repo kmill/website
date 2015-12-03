@@ -1,3 +1,28 @@
+@font-face {
+  font-family: 'PT Serif';
+  font-style: normal;
+  font-weight: 400;
+  src: local('PT Serif'), local('PTSerif-Regular'), url(fonts/PTSerif-Regular.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'PT Serif';
+  font-style: normal;
+  font-weight: 700;
+  src: local('PT Serif Bold'), local('PTSerif-Bold'), url(fonts/PTSerif-Bold.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'PT Serif';
+  font-style: italic;
+  font-weight: 400;
+  src: local('PT Serif Italic'), local('PTSerif-Italic'), url(fonts/PTSerif-Italic.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'PT Serif';
+  font-style: italic;
+  font-weight: 700;
+  src: local('PT Serif Bold Italic'), local('PTSerif-BoldItalic'), url(fonts/PTSerif-BoldItalic.ttf) format('truetype');
+}
+
 body {
 /*    background-color: #def; */
    /* background-color: #BFCFFF; */
@@ -37,7 +62,9 @@ div.main {
     padding: 0;
     background-color: #fff;
     width: 48em;
-    font-size: 12pt;
+    font-family: "PT Serif", "Times New Roman", serif;
+    font-size: 16px;
+
 /*    line-height: 1.5em;*/
 }
 

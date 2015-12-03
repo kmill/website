@@ -141,7 +141,7 @@
     then manipulated with an image editor.  The score is a PNG of the
     BMP image I fed into \texttt{arss}.
 
-    Score: \file[PNG]{staplers/staplers.PNG} |
+    Score: \file[PNG]{staplers/staplers.png} |
     \file[PDF]{staplers/staplers.pdf} \quad
     Recording: \file[M4A]{staplers/staplers.m4a}
 

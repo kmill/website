@@ -1,11 +1,19 @@
 % This is the main file for my website, kylem.net
 
-\def{copyyear}{}{2013}
+\def{copyyear}{}{2015}
 
 \setstylesheet{include/default.css}
 \setpagetemplate{include/mainpage_template.hm}
 
 \file{favicon.png}
+\file{robots.txt}
+
+\setoutputdir{css}
+\file{fonts/PTSerif-BoldItalic.ttf}
+\file{fonts/PTSerif-Bold.ttf}
+\file{fonts/PTSerif-Italic.ttf}
+\file{fonts/PTSerif-Regular.ttf}
+\setoutputdir{.}
 
 % Usage: \thumbnail{filename}
 %
@@ -20,10 +28,7 @@
 \begin{page}{index.html}
   \label{page_index}
   \title{Kyle Miller}
-  \modified{9 Nov 2013}
-
-  Welcome to my web site.  You can contact me via e-mail at
-  \link[kmill #at# alum.mit.edu]{mailto:kmill #at# alum.mit.edu}.
+  \modified{16 May 2015}
 
   \begin{itemize}
   \item[\ref{page_aboutme}]
@@ -32,6 +37,7 @@
     \item \ref{page_academics}
     \end{itemize}
   \item[\ref{page_history}]
+  \item \ref{page_stuff}
   \item \ref{page_papers}
   \item \ref{page_math}
   \item \ref{page_programming}
@@ -83,3 +89,4 @@
 \include{software/software.hm}
 \include{hardware/hardware.hm}
 \include{programming/programming.hm}
+\include{stuff/stuff.hm}
