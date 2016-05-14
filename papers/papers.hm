@@ -8,8 +8,10 @@
   \title{Papers}
   \modified{3 March 2011}
 
-  Here are some papers I've written.  They relate either to my
-  research or to my classwork.
+  % Here are some papers I've written.  They relate either to my
+  % research or to my classwork.
+
+  \section{Unpublished}
 
   \begin{itemize}
   \item \ref{page_quad_iter_graphs}

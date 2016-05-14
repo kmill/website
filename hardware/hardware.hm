@@ -7,7 +7,7 @@
 \begin{page}{hardware.html}
   \label{page_hardware}
   \title{Hardware}
-  \modified{22 December 2011}
+  \modified{15 January 2016}
 
   This page has various things which one could consider existing in
   the physical world (as opposed to \ref{page_software}).
@@ -26,9 +26,12 @@
   the Internet in 2005. It is fairly easy to build, with the main
   difficulty being cutting rectangles out of the center of the paper.
   I would recommend printing the sheets on card stock for durability
-  (I think I used 110 lbs.).
+  (I think I used 110 lbs).
 
-  Here are PDF files to print and assemble:
+  Here are PDF files to print and assemble:\footnote{This CARDIAC
+    reproduction by Kyle Miller is licensed under a \link[Creative
+    Commons Attribution 4.0 International
+    License]{http://creativecommons.org/licenses/by/4.0/}.}
   \begin{tabular}{lll}
     \thumbnail{cardiac/cardiacalu.pdf}
     & \thumbnail{cardiac/cardiacmemory.pdf}

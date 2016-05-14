@@ -1,13 +1,15 @@
 \begin{page}{resume.html}
   \label{page_resume}
   \title{R\'{e}sum\'{e}}
-  \modified{27 October 2013}
+  \modified{18 March 2016}
 
   My CV is available \file[here]{cv/cv.pdf}.  Otherwise, the following
   is my r\'{e}sum\'{e}.
 
   \section{Education}
   \begin{description}
+  \item[\textbf{University of California, Berkeley.} 2014--present.]
+    Ph.D. Mathematics.
   \item[\textbf{Massachusetts Institute of Technology.} 2008--2012]
     S.B. Mathematics with Computer Science, minor in Music. GPA 4.8/5.0.
   \item[\textbf{Eden Prairie Senior High School.} 2004--2008]
@@ -45,6 +47,10 @@
   \section{Work Experience}
 
   \begin{description}
+  \item[\textbf{Swift Navigation, Inc.} Summer 2015] Software
+    engineer.  Helped design and implement the programming language
+    \link[Plover]{http://swift-nav.github.io/plover/}, which is for
+    compiling linear algebra algorithms to C.
   \item[\textbf{Vecna Technologies, Inc.} 2012--2013] Software
     engineer. Architected enterprise Java software relating to sending
     e-mails for healthcare systems.

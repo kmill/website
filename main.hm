@@ -28,14 +28,14 @@
 \begin{page}{index.html}
   \label{page_index}
   \title{Kyle Miller}
-  \modified{16 May 2015}
+  \modified{18 March 2016}
 
   \begin{itemize}
   \item[\ref{page_aboutme}]
-    \begin{itemize}
-    \item \ref{page_resume}
-    \item \ref{page_academics}
-    \end{itemize}
+%    \begin{itemize}
+%    \item \ref{page_resume}
+%    \item \ref{page_academics}
+%    \end{itemize}
   \item[\ref{page_history}]
   \item \ref{page_stuff}
   \item \ref{page_papers}

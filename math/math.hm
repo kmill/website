@@ -12,6 +12,7 @@
   This is an index of writing on mathematics.
 
   \begin{itemize}
+  \item \ref{page_math_fib_diffeq}
   \item \ref{page_math_platonic}
   \item \ref{page_math_recurrence}
   \item \ref{page_math_relations}
@@ -1048,4 +1049,92 @@ def T(n, k) :
   \end{equation*}
   and so $\omega_1+\cdots+\omega_n = 0$.
   
+\end{page}
+
+\begin{page}{fib_diff_eq.html}
+  \label{page_math_fib_diffeq}
+  \title{The Fibonacci sequence by way of differential equations}
+  \modified{29 April 2016}
+
+  The well-known Fibonacci sequence,
+  \begin{equation*}
+    0,1,1,2,3,5,8,\ldots,
+  \end{equation*}
+  is described by the recurrence relation $c_{n+2}=c_n+c_{n+1}$, with
+  the initial conditions $c_0=0$ and $c_1=1$.  An interesting thing
+  you can do is to create what is called a generating function
+  \begin{equation*}
+    f(t)=\Sigma\,c_n t^n
+  \end{equation*}
+  (where the sum is over $0\leq n$) which is a power series that holds
+  onto a sequence as coefficients (and, basically, linear independence
+  of $1,t,t^2,\ldots$ means they are recoverable).  For the Fibonacci
+  sequence, this is
+  \begin{equation*}
+    f(t)=0+t+t^2+2t^3+3t^4+5t^5+8t^6+\cdots
+  \end{equation*}
+  The great thing about writing a sequence in this way is that
+  multiplying the generating function by $t$ shifts it right-ward,
+  inserting a $0$ at the beginning.  So, we can make use of the fact
+  that each term is the sum of the preceding two to get a simpler
+  characterization of $f$:
+  \begin{equation*}
+    (1-t-t^2)f(t)=t
+  \end{equation*}
+  which of course means $f(t)=t/(1-t-t^2)$.  This, by the way, gives
+  rational numbers you can use to amaze and entertain your
+  mathematically-literate friends.  For instance,
+  $100/9899\approx0.01010203050813\ldots$.  But what you can also do
+  is use the partial fraction decomposition of $t/(1-t-t^2)$
+  \begin{equation*}
+    f(t)=5^{-1/2}((1-\phi t)^{-1} - (1-(1-\phi)t)^{-1})
+  \end{equation*}
+  where $\phi$ is the golden ratio, $(1+5^{1/2})/2$, and use the power
+  series expansions of these reciprocals to obtain a closed form
+  equation for the Fibonacci sequence, namely
+  \begin{equation*}
+    c_n = 5^{-1/2}(\phi^n - (1-\phi)^n).
+  \end{equation*}
+
+  While leading recitation for a differential equations course, I
+  realized it's possible to get this same equation by way of
+  differential equations.  What we start with is the homogenous
+  second-order linear differential equation $y''-y'-y=0$, and solve it
+  the normal way (using the characteristic equation), by finding a
+  Taylor series, and then comparing the two solutions.  In contrast to
+  above, where the sequence is stored as coefficients to a power
+  series, the sequence will instead be stored as the derivatives of
+  some function.  The characteristic polynomial $r^2-r-1$ has roots
+  $\phi$ and $(1-\phi)$, so every solution is of the form
+  \begin{equation*}
+    y=Ae^{\phi t}+Be^{(1-\phi)t}
+  \end{equation*}
+  for some constants $A$ and $B$.  Because I know where this is going,
+  let's solve the initial value problem with $y(0)=0$ and $y'(0)=1$,
+  which (sparing you the details) gives
+  \begin{equation*}
+    y=5^{-1/2}(e^{\phi t}-e^{(1-\phi)t}).
+  \end{equation*}
+  This readily gives us a Taylor series:
+  \begin{equation*}
+    y=\Sigma 5^{-1/2}(\phi^n-(1-\phi)^n) t^n/n!.
+  \end{equation*}
+  But we can also solve such differential equations as Taylor series
+  directly.  Supposing the solution is of the form
+  $y=\Sigma c_n t^n/n!$ (and every solution indeed has a Taylor series
+  due to theory), we can differentiate this to get
+  $y'=\Sigma c_{n+1}t^n/n!$ and $y''=\Sigma c_{n+2}t^n/n!$, and so a
+  solution must satisfy $\Sigma (c_{n+2}-c_{n+1}-c_n)t^n/n!=0$.  That
+  is, the coefficients (excepting the $n!$'s) satisfy a linear
+  recurrence relation $c_{n+2}=c_{n}+c_{n+1}$, sort of like the power
+  series case.  Every such solution is entirely determined by the
+  values of $c_0$ and $c_1$, and these correspond to $y(0)$ and
+  $y'(0)$, respectively.  This means these coefficients form the
+  Fibonacci sequence, and by comparing with the previous solution to
+  the differential equation, we once obtain obtain the following
+  closed-form formula
+  \begin{equation*}
+    c_n=5^{-1/2}(\phi^n-(1-\phi)^n).
+  \end{equation*}
+
 \end{page}
