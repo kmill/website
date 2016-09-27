@@ -1,0 +1,163 @@
+<!doctype html>
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
+<script src="markov.js"></script>
+<!--<script src="fortunes.json"></script>-->
+<script>
+  function quasi_normal(mean, stdev) {
+    var u = (Math.random()*2-1)+(Math.random()*2-1)+(Math.random()*2-1);
+    return mean + u * stdev;
+  }
+  function doGenerate() {
+    setGlobalGamma($("#gamma").val()/100);
+    var emergency = 0;
+    do {
+      emergency++;
+      do {
+        var sentence = generateSentence();
+      } while (haveSeen(sentence));
+      $("#fortuneDest").text(sentence);
+    } while (emergency < 100 && $("#fortune").innerHeight()*3/4 < $("#fortuneDest")[0].scrollHeight);
+    $("#fortune").find(".fortuneDisp").css({
+      top: quasi_normal(4, 5),
+      left: quasi_normal(-20, 20)
+    });
+    rejigger();
+  }
+  function rejigger() {
+    $("#fortuneDest").css({
+      "margin-top" : ($("#fortune").innerHeight()*2/4 - $("#fortuneDest")[0].scrollHeight)/2
+    });
+  }
+  $(function () {
+    $("#generateLink").on("click", function (e) {
+      e.preventDefault();
+      doGenerate();
+      return false;
+    });
+    $(window).resize(rejigger);
+  });
+  function updateGammaWidget(gamma) {
+    $("#gamma").val(gamma*100);
+  }
+
+  loadFortunes(function () {
+    $(function () {
+      $("#fortune").fadeIn();
+      updateGammaWidget(getGlobalGamma())
+      doGenerate();
+    });
+  });
+
+  //doGenerate();
+</script>
+<style>
+  body {
+    font-family: sans-serif;
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+    background: #ffffcc;
+    background: #090002;
+    background-image: url("mushu05.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
+
+  #generate {
+    background: #fefefa;
+    position: absolute;
+    right: 1em;
+    top: 1em;
+    padding: 0.5em 1em;
+    border-radius: 8px;
+  }
+  #generateLink {
+    display: inline-block;
+    text-decoration: none;
+    margin: 0.5em 0.5em 0.5em 0;
+    padding: 1em 1.5em;
+    background: #fefefa;
+    border: 1px solid #4F67B8;
+    border-radius: 8px;
+  }
+  #generateLink:hover {
+    /*text-decoration: underline; */
+    background: #4F67B8;
+    color: #fefefa;
+  }
+  #gamma {
+    vertical-align: middle;
+  }
+
+  #fortune {
+    display: none;
+    position: relative;
+    background: #fefefa;
+    background-image: url("paper.jpg");
+    color: #363;
+    color: #4F67B8;
+    margin: 5em 1em;
+    font-family: serif;
+    /*font-weight: bold;*/
+    font-size: 36px;
+    text-align: center;
+    box-shadow: 5px 5px 40px 5px #eed;
+    overflow: hidden;
+  }
+  .fortuneDisp {
+    padding-left: 1em;
+    padding-right: 1em;
+    position: relative;
+    top: 4px;
+    left: -20px;
+    height: 100px;
+    padding: 1em;
+    padding-left: 75px;
+    padding-right: 35px;
+  }
+  #fortuneDest {
+  }
+  #ul, #ur, #ll, #lr {
+    background: #4F67B8;
+    opacity: 0.9;
+    height: 30px;
+    width: 100px;
+    position: absolute;
+  }
+  #ul {
+    top: -20px; left: -30px;
+  }
+  #ll {
+    bottom: -10px; left: -30px;
+  }
+  #ur {
+    top: -20px; right: -70px;
+  }
+  #lr {
+    bottom: -10px; right: -70px;
+  }
+</style>
+</head>
+<body>
+
+<div id="generate">
+  <a id="generateLink" href="#">Generate another</a>
+  &nbsp;&nbsp
+  Sense:
+  <input id="gamma" type="range" name="points" min="101" max="300">
+</div>
+
+<div id="fortune">
+  <div class="fortuneDisp">
+    <div id="ul"></div>
+    <div id="ll"></div>
+    <div id="ur"></div>
+    <div id="lr"></div>
+    <div id="fortuneDest"></div>
+  </div>
+</div>
+
+</body>
+</html>

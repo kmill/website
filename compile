@@ -1,3 +1,7 @@
 #!/usr/bin/env bash
 
-python2.7 htmacros/runhm.py main.hm build
+BUILD_DIR=~/tmp/kylem.net/build
+
+mkdir -p $BUILD_DIR
+
+python2.7 htmacros/runhm.py main.hm $BUILD_DIR

@@ -1,0 +1,523 @@
+% stuff.hm
+% stuff
+
+\setoutputdir{stuff}
+\addbreadcrumb{page_stuff}
+
+\begin{page}{index.html}
+  \label{page_stuff}
+  \title{Stuff}
+  \modified{16 May 2015}
+
+  \begin{itemize}
+  \item \ref{page_gorilla}
+  \item \ref{page_sieve_eratosthenes}
+  \item \ref{page_e_trains}
+  \item \ref{page_zero_computer}
+  \item \ref{page_platformless}
+  \item \ref{page_homsim}
+  \item \ref{page_fortune_markov}
+  \end{itemize}
+
+\end{page}
+
+\begin{page}{zero_computer.html}
+  \label{page_zero_computer}
+  \title{Computing zero to arbitrary precision}
+  \modified{11 May 2015}
+
+  Computing mathematical constants to high precision is a favorite
+  pastime for many characters in the history of computation and
+  mathematics, reaching back thousands of years to Archimedes finding
+  half a dozen digits of $\pi$ by computing the area of regular
+  $3\cdot 2^n$-gons.  However, no constant is as interesting and
+  useful as the additive identity, the non-negative non-positive
+  nilpotent, the number that almost wasn't, \emph{zero}.
+
+  We present to \link[the Academie]{http://stupidhackathon.github.io/}
+  a program which computes \emph{zero}, which we will denote by $z$,
+  to arbitrary precision.  This is by using the well-known limit
+  $1/2^n\to z$ as $n\to \infty$.  Solving for $2^{-d}$ error, where
+  $d$ is the required number of binary digits of precision, we see
+  that $n>d$ for the limit to converge within the specified tolerance.
+
+  The source code is available \file[here]{zero/zero.c}.  To compile, run
+\begin{verbatim}
+gcc --std=gnu99 -O2 -o zero zero.c
+\end{verbatim}
+  and to compute at least ten-million digits of zero, run
+\begin{verbatim}
+./zero -n 1100000
+\end{verbatim}
+  It is recommended that the output be redirected to a file since some
+  digits may be lost in the scrollback buffer.
+
+  \section*{See also}
+  \begin{itemize}
+  \item \ref{page_platformless}
+  \item \ref{page_e_trains}
+  \end{itemize}
+  
+\end{page}
+
+\file{platformless/game.js}
+\file{platformless/index.html}
+\file{platformless/util.js}
+\begin{page}{platformless.html}
+  \label{page_platformless}
+  \title{Platformless}
+  \modified{10 May 2015}
+
+  \begin{figure}[r]
+    \file[\includegraphics[alt=Screenshot,width=200]{platformless/screenshot.jpg}]{platformless/index.html}
+    % \begin{center}
+    %   \caption{My portrait, 2006.}
+    % \end{center}
+%    \label{fig_me}
+  \end{figure}
+
+  \file[Play platformless.]{platformless/index.html}
+
+  Platformless is a prototype for a next-generation platformer game.
+  Made for the browser, this game transcends and problematizes the
+  genre by attempting the impossible: a platformer without the
+  platforms.
+
+  In the sequel will be a platformer without the platformer.
+
+  This was a project made during the San Fransisco \link[Stupid
+  Hackathon]{http://stupidhackathon.github.io/}.
+
+  \section*{See also}
+  \begin{itemize}
+  \item \ref{page_zero_computer}
+  \end{itemize}
+\end{page}
+
+\file{2015-05-12/trains.html}
+\file{2015-05-12/trains.js}
+\file{2015-05-12/util.js}
+\begin{page}{e_trains.html}
+  \label{page_e_trains}
+  \title{Parallel computation of e to arbitrary precision}
+  \modified{12 May 2015}
+
+  \begin{figure}[r]
+    \file[\includegraphics[alt=Screenshot]{2015-05-12/trains.jpg}]{2015-05-12/trains.html}
+    \caption{\file[Simulation]{2015-05-12/trains.html} of multithreaded\\long division for $e$.}
+%    \label{fig_me}
+  \end{figure}
+  
+  % TODO make this an iframe
+  \file[View simulation.]{2015-05-12/trains.html}
+
+  The constant $e$ can be computed to arbitrary precision using the
+  following partial Taylor series evaluated at $1$
+  \begin{equation*}
+    e = \frac{1}{n!} + \frac{1}{(n-1)!} + \cdots + \frac{1}{1!} + 1
+  \end{equation*}
+  factored as
+  \begin{equation*}
+    e = (\cdots((1/n + 1)/(n-1) + 1)/(n-2)\cdots + 1)/1 + 1.
+  \end{equation*}
+
+  The constant $n$ is chosen so that $\log_{10}n!$ is greater than the
+  number of base-10 digits which should be computed. This is a
+  consequence of a bound on the remainder in \link[Taylor's
+  theorem]{http://en.wikipedia.org/wiki/Taylor\%27s_theorem}.
+
+  Written in Python, the algorithm is
+\begin{verbatim}
+e = 0.0
+n = 18
+for i in range(n, 0, -1) :
+  e += 1
+  e /= i
+e += 1
+print("e = %s" % e)
+\end{verbatim}
+  where the $18$ is chosen because double-precision floating point
+  numbers have $52$ bits of precision.
+
+  The long divisions have a very local effect, and it is possible to
+  have many long divisions occuring at once so long as the long
+  dividers are spaced safely along the number, like trains on a track.
+  This locking mechanism is best seen in a
+  \file[simulation]{2015-05-12/trains.html}.
+
+  This algorithm was written in C (\file[available
+  here]{2015-05-12/e.c}), and it was used to compute over 10 million
+  digits of $e$ in less than an hour and a half.  Much of that time
+  was spent printing the number out at the end because that was not
+  parallelized.  There are preprocessor macros at the top of the file
+  specifying the number of digits to compute as well as the number of
+  threads to use.  Make sure that the number of threads is not greater
+  than the number of CPU cores.  Compile with
+\begin{verbatim}
+gcc --std=gnu99 -O2 -o e e.c -lpthread
+\end{verbatim}
+
+\end{page}
+
+
+
+\file{homsim/gl-matrix.js}
+\file{homsim/homsim2.html}
+\file{homsim/homsim4.html}
+\file{homsim/jquery.mousewheel.js}
+\begin{page}{homsim.html}
+  \label{page_homsim}
+  \title{Homology and complex rational function visualizer}
+  \modified{7 Apr 2014}
+
+  \begin{figure}[r]
+    \file[\includegraphics[alt=Screenshot of R2 Homology Simulator
+    2014,width=300]{homsim/screenshot.jpg}]{homsim/homsim2.html}
+%    \caption{\file[Simulation]{2015-05-12/trains.html} of multithreaded\\long division for $e$.}
+%    \label{fig_me}
+  \end{figure}
+
+  I was thinking about what might be an interesting exhibit for a
+  mathematics museum, and I thought a visualization of the first
+  (co)homology groups of the punctured plane might be interesting.
+  Elements of the first homology group are characterized by a number
+  at each missing hole, and I imagined these holes would have the
+  rainbow appear around themselves that number many times, with the
+  sign designating counterclockwise vs. clockwise.  This is
+  \file[$\R^2$ Homology Simulator 2014]{homsim/homsim2.html}.
+
+  \section{Explanation}
+
+  Let $c_1,\ldots,c_n$ be the locations of the holes on the plane and
+  $d_1,\ldots,d_n$ be the degrees of the respective holes. The way the
+  color is computed at a particular point $z$ is to compute
+  $f(z)=\Sigma_id_i\theta_i(z)$, where $\theta_i(z)$ is the angle
+  between the $x$-axis and the vector $z-c_i$.  This computation is
+  unique modulo $2\pi$, and so this maps into color space as a hue.
+  For some intuition, I found it helpful to think about how
+  $d_i\theta_i(z)$ is nearly constant when $z$ is far away from $c_i$,
+  and when $z$ is close then the $d_i$ causes the rainbow to cycle
+  $d_i$ times as $z$ revolves around $c_i$.  In some sense, this is
+  the only way get the rainbows to perform their required duty.
+
+  If you press tab, the visualizer switches between rainbows and a
+  single-color mode.  This other mode represents a ``branch cut'' of a
+  covering space above the punctured plane.  The function $f$ above
+  can be thought of as a multivalued function, and taking only a
+  $2\pi$-lengthed interval describes some pieces of the helicoidal
+  surfaces.
+
+  What I didn't realize while making this, and only learned when
+  talking with Henry Cohn, is that this is the imaginary part of the
+  logarithm of the rational function $q(z)=\Pi_i(z-c_i)^{d_i}$, and so
+  the numbers associated with the holes are actually the orders of the
+  poles and zeros of the function.  The real part of the logarithm of
+  this function is also visualizable, see \file[$\R^2$ Homology
+  Simulator 2014 with magnitudes]{homsim/homsim4.html} (note: this
+  version takes more computing power).  Notice that the isochromal
+  lines are perpendicular to the isoluminal; this is a consequence of
+  the complex logarithm being analytic.
+
+  I've been told that this toy is a visual proof of some part of Morse
+  theory, since it demonstrates the flow lines from the Morse
+  function, though I'm not quite sure how that works yet.
+
+  \section{Things to try}
+
+  \begin{itemize}
+  \item Make the degrees sum to zero.
+  \item Arrange the points in a regular pattern.
+  \item Place the points far from each other.
+  \item Place the points very close to each other.
+  \item Press the tab key.
+  \item Create points with large degree.
+  \end{itemize}
+
+  \section{Further work}
+
+  I would like to see a user interface for this toy which is a
+  physical collection of knobs one can place on a screen, where the
+  knobs respond to twisting to select the degree at that point.  I
+  think this would turn the toy into a compelling museum piece.
+
+\end{page}
+
+
+\file{fortunes/fortunes.html}
+\file{fortunes/fortunes.txt}
+\file{fortunes/markov.js}
+\file{fortunes/mushu05.jpg}
+\file{fortunes/paper.jpg}
+
+\file{fortunes/wisdom.html}
+\file{fortunes/topics.js}
+\file{fortunes/topics.jsonp}
+\begin{page}{fortunes.html}
+  \label{page_fortune_markov}
+  \title{Fortune cookie generator}
+  \modified{9 Oct 2013}
+
+  \begin{figure}[r]
+    \file[\includegraphics[alt=Screenshot of fortune cookie generator,width=300]{fortunes/screenshot.jpg}]{fortunes/fortunes.html}
+%    \caption{\file[Simulation]{2015-05-12/trains.html} of multithreaded\\long division for $e$.}
+%    \label{fig_me}
+  \end{figure}
+
+  The \file[Fortune cookie generator]{fortunes/fortunes.html} is in
+  essence a Markov-chain-based text generator, but with the novel
+  improvement of ``smoothing'' the model with a prior based on the
+  $1$- through $(n-1)$-grams.
+
+  The standard algorithm involves creating a Markov transition matrix
+  for all observed $n$-grams in a corpus.  The choice of $n$ has a
+  large effect on the quality of the generated text.  For small $n$,
+  the effect is word salad, but for large $n$ because there have been
+  so few observations the generator tends to quote large portions of
+  text from the corpus.
+
+  The question I wondered was whether there was a way to merge the
+  models of various chain lengths so that, while it could quote large
+  portions, it could also pivot on one or two words, creating more
+  interesting generated output.
+
+  \section{Creating the model}
+
+  The intuition of the smoothed model comes from thinking about text
+  generation as a \emph{prediction} problem.  What is the most likely
+  next word given the words seen thus far?  Given a sequence of $n$
+  words never before seen in the training data, an $n$-gram model
+  would have nothing to say.  But surely there is a way to predict a
+  next word, since, at the least, the last word in the sequence could
+  predict a next word using the $1$-gram model.
+
+  The first thing to notice is that it is possible to create an
+  equivalent $n$-gram model from an $(n-1)$-gram model by prefixing
+  each $(n-1)$-gram with every word from the dictionary.  The second
+  thing to notice is that it is possible to combine two $n$-gram
+  models by computing the weighted average of the two transition
+  matrices, and this is equivalent to creating the $n$-gram model of a
+  corpus created by appending the corresponding corpuses (with
+  multiplicity, when the weight is a rational number).
+
+  The smoothed $n$-gram model with parameter $\beta$ then is the
+  smoothed $(n-1)$-gram model lifted to an $n$-gram model averaged
+  with $\beta$ of the standard $n$-chain model.  This has the stated
+  effect of creating an $n$-chain model with a prior from the
+  smaller-chained models.  This particular way of doing it is simple
+  enough to implement, and doubtless there are other ways of choosing
+  the prior.
+
+  \section{Implementation}
+
+  Luckily we do not need to create the full transition matrix for the
+  smoothed model, since it would contain every sequence of $n$ words
+  in the dictionary.  Instead, the generator chooses which model to
+  follow at random (with geometrically decreasing probability), from
+  all models which have a prediction for the next word in the
+  sequence.  The parameter which controls the expected length of the
+  chain is called ``sense.''
+
+  \section{Other details}
+
+  One problem many Markov text generators face is of how long to keep
+  generating text.  One choice is to choose in advance some number of
+  words to generate.  However, this does not give good results because
+  sentences may be cut off.  Instead, this generator has special
+  ``words'' for the beginning and end of a document so that the
+  generator can 1) start at the start word and 2) end when it
+  generates the end word.
+
+  Also: why fortunes?  I thought people might have a tolerance for
+  grammatical issues in this genre, as well as a willingness to look
+  for some deeper meaning.
+
+  \section{See also}
+  \begin{itemize}
+  \item \link{https://twitter.com/exquisit_ebooks} is a Twitter
+    account which has text generated using the same method but with
+    different corpuses.
+  \item \file[Wisdom]{fortunes/wisdom.html} is a different version in
+    which I tried to do topic modeling to create a Markov model for
+    each topic.  What you say determines a weighted average of models
+    for the text generation.  The results are questionable.
+  \end{itemize}
+
+\end{page}
+
+
+
+
+\begin{page}{sieve_eratosthenes.html}
+  \label{page_sieve_eratosthenes}
+  \title{Unbounded sieve of Eratosthenes}
+  \modified{5 March 2016}
+
+  The normal \link[sieve of
+  Eratosthenes]{https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes}
+  enumerates primes by taking a list of natural numbers and striking
+  off from it each multiple of each prime as the primes are found.
+  The primes are the numbers which haven't been stricken off the list
+  yet.
+
+  One downside to the normal sieve is that you have to decide up front
+  the upper bound on your primes is going to be: you have to make that
+  list to strike numbers off.
+
+  However, with the right data structure, it's possible to make an
+  unbounded sieve.  I like to think of it as a long Mancala board with
+  stones colored by the primes in the cups.  You look at each cup one
+  at a time in increasing order.  When a cup contains no stones, it
+  corresponds to a prime number, and you create a new stone.  Whenever
+  you have a prime stone colored with $p$, you move it $p$ cups
+  forward.  That's the algorithm.
+
+  As a Python generator, you can represent the Mancala board as a
+  dictionary whose keys are natural numbers and whose values are
+  arrays containing primes.  In fact, once the algorithm gets to a
+  particular number, the elements of the array are all of its prime
+  factors (without multiplicity).
+
+\begin{verbatim}
+def primes() :
+    counters = {}
+    p = 2
+    while True :
+        while p in counters :
+            for step in counters[p] :
+                counters.setdefault(p+step, []).append(step)
+            del counters[p]
+            p += 1
+        yield p
+        counters[p] = [p]
+\end{verbatim}
+
+  Another way to understand this is as an inversion of the normal
+  order of the loops in the sieve.  The \texttt{counters} dictionary
+  is keeping track of each strike-off loop currently in progress.
+
+  Of course, there are a few optimizations one can make to this, for
+  instance only considering odd numbers, or perhaps only considering
+  numbers which are divisible by neither two nor three.\footnote{This
+    also has the optimization that, if a number is composite and
+    between $p$ and $p^2$, then it is divisible by a second prime as
+    well.
+\begin{verbatim}
+def primes() :
+    counters = {}
+    yield 2
+    p = 3
+    while True :
+        while p in counters :
+            for step in counters[p] :
+                counters.setdefault(p+2*step, []).append(step)
+            del counters[p]
+            p += 2
+        yield p
+        counters[p*p] = [p]
+        p += 2
+\end{verbatim}
+}
+
+  \hline
+
+  Thanks to Scott Kovach, here is a similarly short Haskell
+  implementation (though with a $O(\log n)$ map):
+\begin{verbatim}
+import qualified Data.IntMap as M
+import Data.List
+
+primes :: [Int]
+primes = step 2 M.empty
+  where step :: Int -> M.IntMap [Int] -> [Int]
+        step n m | Just vs <- M.lookup n m =
+          step (n+1) $ foldl' (\m v -> M.insertWith (++) (n+v) [v] m) m vs
+        step p m = p : step p (M.insert p [p] m)
+\end{verbatim}
+  
+\end{page}
+
+\begin{page}{gorilla.html}
+  \label{page_gorilla}
+  \title{GORILLA.JS}
+  \modified{30 July 2016}
+
+    \begin{figure}[r]
+    \file[\includegraphics[alt=Screenshot GORILLA.JS,width=300]{gorilla/screenshot.png}]{gorilla/gorilla.html}
+%    \caption{\file[Simulation]{2015-05-12/trains.html} of multithreaded\\long division for $e$.}
+%    \label{fig_me}
+  \end{figure}
+
+  \file[Play GORILLA.BAS]{gorilla/gorilla.html}
+
+  The first programming language I first seriously studied was QBasic,
+  from a dusty book I found at the back of an ailing computer store in
+  the local mall, not too long before it became a GameStop.
+
+  Because of this, I knew about
+  \link[Gorilla.bas]{https://en.wikipedia.org/wiki/Gorillas_(video_game)}
+  and
+  \link[Nibbles.bas]{https://en.wikipedia.org/wiki/Nibbles_(video_game)}
+  and how it was present in the Windows folder on our school's
+  computers.  We would have Gorilla competitions in our fourth-grade
+  class.
+
+  A couple of days ago I found the QBasic interpreter again, because I
+  wanted to remind myself what kinds of things the IDE provided
+  (surprisingly a lot!), and then I started poking around the example
+  programs, which back then I could navigate just enough to fix delay
+  loops or add cheats to Nibbles, but not enough to understand how
+  they worked.
+
+  I wondered how hard it would be to port one of the games to HTML5,
+  and then many hours later, Gorilla appears to work.  It is not quite
+  pixel-perfect since I wasn't sure how to reproduce the exact pixels
+  of QBasic's line, circle, and ellipse drawing commands.
+
+  It turns out there are a few bugs in Gorilla because of
+  uninitialized variables.  I only fixed one which had to do with
+  level generation --- the inverted ``V'' layout never actually made
+  an inverted ``V''.
+
+  For sound generation, I had to reimplement QBasic's \texttt{PLAY}
+  command.  Perhaps for realism, but mainly because I'm teaching
+  differential equations right now so have differential equations on
+  my mind, I put in some filter so it wasn't just a raw square wave.
+  I could have taken an impulse response of a computer case, but
+  instead I made up some quasireasonable values for an LRC filter.
+
+  The banana sprites from the game were stored in \texttt{DATA}
+  statements, and it took a while to reverse engineer the format.  For
+  some reason, it was basically impossible to find any reference for
+  what was going on in it --- the QBasic online help had a formula for
+  calculating the number of required bytes, and the many helpful
+  tutorials on the Internet let me know that I could use \texttt{GET}
+  to produce such data for use with \texttt{PUT}.  In EGA mode
+  (\texttt{SCREEN 9}), it stores four ``bit planes'' one at a time,
+  and then you reconstitute them into a four-bit attribute per pixel,
+  which then is an indexed color you look up in the current palette.
+  May the bananas eternally spin.
+
+  I didn't completely simulate EGA graphics.  Instead, for pixel
+  lookups (required by the collision detection!) it just reverses the
+  pixel from the palette to get the pixel's attribute number.
+
+  The whole game is threaded using generators.  It's structured as a
+  coroutine which gives commands to the outer loop, for instance
+  ``pause for $n$ milliseconds'' or ``wait for key press.''  This let
+  me keep the program structure basically unchanged from the original
+  QBasic, while letting it be non-blocking, which is necessary to
+  process events, generate audio, and rerender the screen.  To give
+  the true Gorilla experience, I put in artificial pauses here and
+  there to make it seem as slow as it would have been in QBasic.  One
+  example is during cityscape generation.
+
+  One feature of Gorilla I'm not sure about is why, when a gorilla is
+  exploding, there is this red square which forms while the explosion
+  ellipse is expanding.  I commented it out from the Javascript
+  version.
+
+\end{page}
+
+\file{gorilla/gorilla.html}
+\file{gorilla/gorilla.js}
+\file{gorilla/ega8x14.js}

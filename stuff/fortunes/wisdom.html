@@ -1,0 +1,180 @@
+<!doctype html>
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<script src="topics.js"></script>
+<script src="topics.jsonp"></script>
+<script>
+  function doGenerate() {
+    if (!$("#seed").val()) return;
+    setGlobalGamma($("#gamma").val()/100);
+    var $record = $('<div class="seedRecord">').text($("#seed").val()).appendTo($("#fortunes"));
+    makeFortune($("#fortunes"), $("#seed").val());
+    $("#seed").val('');
+    $(window).scrollTop($(document).height());
+  }
+  $(function () {
+    $("#seed").focus();
+    $("#generateLink").on("click", function (e) {
+      e.preventDefault();
+      doGenerate();
+      return false;
+    });
+    $("#seedForm").on("submit", function (e) {
+      e.preventDefault();
+      doGenerate();
+      return false;
+    });
+  });
+  function updateGammaWidget(gamma) {
+    $("#gamma").val(gamma*100);
+  }
+
+  loadFortunes(function (data) {
+    $(function () {
+      updateGammaWidget(getGlobalGamma())
+//      doGenerate();
+    });
+  });
+
+  //doGenerate();
+</script>
+<style>
+  body {
+    font-family: sans-serif;
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+    background: #ffffcc;
+    background: #090002;
+    background-image: url("mushu05.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+
+  #generate {
+    background: #fefefa;
+    position: fixed;
+    z-index: 22;
+    right: 1em;
+    bottom: 1em;
+    padding: 0.5em 1em;
+    border: 1px solid #090002;
+    border-radius: 8px;
+  }
+  #generateLink {
+    display: inline-block;
+    text-decoration: none;
+    margin: 0em 0.5em 0.5em 0.5;
+    padding: 1em 1.5em;
+    background: #fefefa;
+    border: 1px solid #4F67B8;
+    border-radius: 8px;
+  }
+  #generateLink:hover {
+    /*text-decoration: underline; */
+    background: #4F67B8;
+    color: #fefefa;
+  }
+  #gamma {
+    vertical-align: middle;
+  }
+
+  .fortune {
+    position: relative;
+    background: #fefefa;
+    background-image: url("paper.jpg");
+    color: #363;
+    color: #4F67B8;
+    margin: 0em 1em;
+    font-family: serif;
+    /*font-weight: bold;*/
+    font-size: 36px;
+    text-align: center;
+    box-shadow: 5px 5px 40px 5px #eed;
+    overflow: hidden;
+  }
+  .fortuneDisp {
+    padding-left: 1em;
+    padding-right: 1em;
+    position: relative;
+    top: -5px;
+    left: 20px;
+    height: 100px;
+    padding: 1em;
+    padding-left: 55px;
+    padding-right: 55px;
+  
+  }
+  .fortuneDest {
+  }
+  .ul, .ur, .ll, .lr {
+    background: #4F67B8;
+    opacity: 0.9;
+    height: 30px;
+    width: 100px;
+    position: absolute;
+  }
+  .ul {
+    top: -15px; left: -50px;
+  }
+  .ll {
+    bottom: -15px; left: -50px;
+  }
+  .ur {
+    top: -15px; right: -50px;
+  }
+  .lr {
+    bottom: -15px; right: -50px;
+  }
+  .seedRecord {
+    margin: 2em 2em 1em 2em;
+    background: #fefefa;
+    padding: 1em 2em;
+    border: 1px solid #090002;
+    border-radius: 8px;    
+    font-size: 24px;
+    font-family: sans-serif;
+    font-weight: bold;
+    width: 650px;
+  }
+  #seedArea {
+    display: inline-block;
+    margin: 4em 4em;
+    background: #fefefa;
+    padding: 0.5em 1em;
+    border: 1px solid #090002;
+    border-radius: 8px;    
+  }
+  #seed {
+    font-size: 24px;
+    border: 1px solid #4F67B8;
+    padding: 0.2em 1em;
+    font-family: sans-serif;
+    font-weight: bold;
+    vertical-align: middle;
+    width: 600px;
+  }
+  #seedForm {
+    display: inline-block;
+  }
+</style>
+</head>
+<body>
+
+<div id="generate">
+  Sense:
+  <input id="gamma" type="range" name="points" min="101" max="300">
+</div>
+
+<div id="fortunes"></div>
+<div id="seedArea">
+  <form id="seedForm">
+    <input id="seed" placeholder="Oh, wise fortune cookie..." type="text"/>
+  </form>
+  <a id="generateLink" href="#">Get wisdom</a>
+</div>
+</body>
+</html>
