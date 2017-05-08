@@ -544,10 +544,10 @@ eval := \expr env
 
 \begin{page}{coin_series.html}
   \label{page_coin_series}
-  \title{Solving the change-making problem using generating functions}
+  \title{Solving the change-counting problem using generating functions}
   \modified{8 May 2017}
   
-  The change-making problem is a standard example of a dynamic
+  The change-counting problem is a standard example of a dynamic
   programming problem and frequently appears in undergraduate computer
   science courses and in job interviews.  One setup is that there is
   some number of distinct denominations of coins, and, given a
@@ -578,7 +578,7 @@ eval := \expr env
   counted by respective generating functions $f(x)$ and $g(x)$, you
   just multiply the generating functions.  (This is because
   $x^{a}x^{b}=x^{a+b}$.)  So, the generating function for the
-  change-making problem is
+  change-counting problem is
   \begin{equation*}
     f(x)=\frac{1}{1-x^{d_1}}\cdot\frac{1}{1-x^{d_2}}\cdot\cdots\cdot\frac{1}{1-x^{d_k}}
   \end{equation*}
@@ -672,7 +672,7 @@ def coin_series(coins):
         return pdivide(coin_series(coins[1:]), [1]+[0]*(d-1)+[-1])
 \end{verbatim}
 The \verb|[1]+[0]*(d-1)+[-1]| gives the coefficients to the polynomial
-$1-x^{d}$.  Finally, the solution to the change-making problem is to
+$1-x^{d}$.  Finally, the solution to the change-counting problem is to
 obtain the $n$th coefficient of the series.  The use of
 \texttt{islice} is just a way to skip to the term we care about.
 \begin{verbatim}
