@@ -7,9 +7,10 @@
 \begin{page}{index.html}
   \label{page_stuff}
   \title{Stuff}
-  \modified{16 May 2015}
+  \modified{8 May 2017}
 
   \begin{itemize}
+  \item \ref{page_coin_series}
   \item \ref{page_gorilla}
   \item \ref{page_sieve_eratosthenes}
   \item \ref{page_e_trains}
@@ -521,3 +522,197 @@ primes = step 2 M.empty
 \file{gorilla/gorilla.html}
 \file{gorilla/gorilla.js}
 \file{gorilla/ega8x14.js}
+
+\begin{page}{universal_lambda.html}
+  \label{page_universal_lambda}
+  \title{Making a metacircular evaluator in the lambda calculus}
+  \modified{29 April 2017}
+
+  The \link[lambda
+  calculus]{https://en.wikipedia.org/wiki/Lambda_calculus} is a formal
+  system which models functions and function application --- but
+  strangely ignoring the domain of any of the functions.  An evaluator is an expression which takes a description of another expression as input and then produces ...
+
+
+\begin{verbatim}
+cons := \head tail (\f (f head tail))
+
+eval := \expr env 
+\end{verbatim}
+
+\end{page}
+
+\begin{page}{coin_series.html}
+  \label{page_coin_series}
+  \title{Solving the change-making problem using generating functions}
+  \modified{8 May 2017}
+  
+  The change-making problem is a standard example of a dynamic
+  programming problem and frequently appears in undergraduate computer
+  science courses and in job interviews.  One setup is that there is
+  some number of distinct denominations of coins, and, given a
+  particular amount of change to dispense, we would like to count the
+  number of ways to make that change.  For instance, if there are 1-
+  and 3-cent pieces, there are three ways to make 6 cents in change:
+  all 1-cent pieces, one 3-cent piece and three 1-cent pieces, and two
+  3-cent pieces.  A common variation is only allowing up to a certain
+  number of a particular denomination, and another part which varies
+  is whether only a particular amount is considered, or whether it is
+  all amounts up to a given amount.  And one other variation is
+  whether we want to find the way to use the least number of coins,
+  but we will not consider this.
+
+  This also happens to be a standard example for generating functions,
+  and one thing I have not seen before is to make a program which
+  implements the generating function.  (Source code: \file{coins.py})
+
+  For the simple case of a single coin with denomination $d$, the
+  series $f_d(x)=1+x^d+x^{2d}+\cdots=1/(1-x^d)$ counts the number of
+  ways to dispense change.  The coefficient in front of $x^n$ gives
+  the number of ways of dispensing $n$ cents, and here there are zero
+  ways unless $n$ is a multiple of $d$, in which case the only way to
+  make change is with $n/d$ of the $d$-cent pieces.
+
+  A nice fact about generating functions is that to count the number
+  of ways to make a particular sum $a+b=n$, where $a$ and $b$ are
+  counted by respective generating functions $f(x)$ and $g(x)$, you
+  just multiply the generating functions.  (This is because
+  $x^{a}x^{b}=x^{a+b}$.)  So, the generating function for the
+  change-making problem is
+  \begin{equation*}
+    f(x)=\frac{1}{1-x^{d_1}}\cdot\frac{1}{1-x^{d_2}}\cdot\cdots\cdot\frac{1}{1-x^{d_k}}
+  \end{equation*}
+  where $d_1,\cdots,d_k$ are the denominations of the coins.
+
+  This can be calculated by repeated division of $1$ by each of the
+  denominators, and this can be effectively implemented using Python
+  generators (or Haskell lists).  We will represent an infinite series
+  as an infinite generator consisting of the series coefficients.  The
+  first ingredient is a way to convert polynomials (finite lists) into
+  series.
+\begin{verbatim}
+def series_from_poly(p):
+    """Takes a polynomial (a list of coefficients, least to greatest
+    power) and returns a series representation (an infinite generator
+    of coefficients)."""
+    yield from p
+    while True:
+        yield 0
+\end{verbatim}
+  The next ingredient is a function which produces the series obtained
+  by dividing a series by a polynomial, which is a straightforward
+  implementation of long division.  Our series involve only integer
+  coefficients, so to get full precision we use integer division (and
+  the assert can be uncommented to verify it).
+\begin{verbatim}
+def pdivide(f, g) :
+    """f is a generator of series coefficients.  g is a finite series (a
+    polynomial)."""
+
+    g = list(g)
+    r = [next(f) for i in range(len(g)-1)]
+    r.append(0) # this is the location "bringing down" the next term of f goes
+
+    for fj in f:
+        r[len(r)-1] = fj
+        q0 = r[0]//g[0]
+        #assert r[0]-q0*g[0] == 0 # we know all terms _must_ be integers for this problem
+        yield q0
+        # now do r[0:-2] = r[1:] - q0*g[1:].
+        # (note r[0]-q0*g[0] == 0, and gets dropped off front of remainder)
+        for i in range(len(g)-1):
+            r[i] = r[i+1]-q0*g[i+1]
+\end{verbatim}
+
+  To test this, here is a utility function to take a certain number of
+  terms from a series.
+\begin{verbatim}
+def take(n, f):
+    """Gives an nth order polynomial approximation of the series f."""
+    from itertools import islice
+    return list(islice(f, 0, n+1))
+\end{verbatim}
+  Some useful series to test are geometric series and the Fibonacci
+  sequence, whose generating function is $1/(1-x-x^2)$.
+\begin{verbatim}
+def geom_series(a):
+    """return 1/(1-ax)"""
+    return pdivide(series_from_poly([1]), [1,-a])
+
+def geom_series_pow(a,n):
+    """return 1/(1-ax^n)"""
+    g = [1]+[0]*(n-1)+[-a]
+    return pdivide(series_from_poly([1]), g)
+
+def fib_series():
+    return pdivide(series_from_poly([1]), [1,-1,-1])
+\end{verbatim}
+For example,
+\begin{verbatim}
+>>> take(10, geom_series(2))
+[1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024]
+>>> take(10, geom_series_pow(2,2))
+[1, 0, 2, 0, 4, 0, 8, 0, 16, 0, 32]
+>>> take(10, fib_series())
+[1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+\end{verbatim}
+
+The coin series is just a ``right fold,'' but instead of messing
+around with \texttt{reduce}, we'll just implement it directly.
+\begin{verbatim}
+def coin_series(coins):
+    """Coins is a list of denominations.  Returns the generating function
+    for the number of ways to dispense a particular amount of change.
+    1/(1-x^d1) * 1/(1-x^d2) * ... * 1/(1-x^dn)."""
+
+    if not coins:
+        return series_from_poly([1])
+    else:
+        d = coins[0]
+        return pdivide(coin_series(coins[1:]), [1]+[0]*(d-1)+[-1])
+\end{verbatim}
+The \verb|[1]+[0]*(d-1)+[-1]| gives the coefficients to the polynomial
+$1-x^{d}$.  Finally, the solution to the change-making problem is to
+obtain the $n$th coefficient of the series.  The use of
+\texttt{islice} is just a way to skip to the term we care about.
+\begin{verbatim}
+def dispense(coins, amount):
+    """Returns the number of ways to dispense a certain amount given a
+    list of allowed denominations."""
+    from itertools import islice
+    return next(islice(coin_series(coins), amount, None))
+\end{verbatim}
+So, the number of ways to dispense 100 cents using U.S. currency
+(excluding the dollar coin) is
+\begin{verbatim}
+>>> dispense([1,5,10,25,50], 100)
+292
+\end{verbatim}
+
+Taking stock in the solution, we can see that each divider keeps track
+of $d_i$ numbers for the current remainder, and that for each term of
+\texttt{coin_series} they are all iterated over once, so the running
+time is $O(nd_1d_2\cdots d_k)$, where $n$ is desired amount of change.
+
+\section{Questions}
+
+\begin{itemize}
+\item Can this approach be used to find the largest amount which
+  cannot be dispensed with the given coins? For example, 5-cent and
+  7-cent coins, 23 cents cannot be dispensed, but you can always
+  dispense 24 cents or more.  (This is known as the \link[Frobenius
+  coin problem]{https://en.wikipedia.org/wiki/Coin_problem}, or the
+  McNuggest problem.  It seems the problem is NP-hard.)
+\item Can a more traditional dynamic programming solution do better
+  than $O(nd_1d_2\cdots d_k)$?  Is it easier to understand?
+\item It is possible to calculate a particular Fibonacci number in
+  logarithmic time by doing fast exponentiation of the transition
+  matrix \verb|[[0,1],[1,1]]|.  Does the coin dispensing problem admit
+  a similar speedup? (My guess for the worst case is
+  $O(\mu(m)\log n)$, where $n$ is the amount, $m=d_1\cdots d_k$, and
+  $\mu(m)$ is the running time for $m\times m$ matrix multiplication.)
+\item Can generating functions be used to find the way to dispense $n$
+  coins with the least number of coins?
+\end{itemize}
+
+\end{page}

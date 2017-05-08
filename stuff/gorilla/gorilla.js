@@ -442,15 +442,15 @@ function* PlayGame(pPlayer1, pPlayer2, pNumGames) {
              TotalWins[1].toString().slice(0,1)
              +">Score<"
              +TotalWins[2].toString().slice(0,1));
-      var Tosser = J+1; var Tossee = 3-J;
+      var pTosser = [J+1]; var Tossee = 3-J;
       scr.flip();
 
       //Plot the shot. Hit is true if Gorilla gets hit
-      Hit = yield* DoShot(Tosser, GorillaX[Tosser], GorillaY[Tosser]);
+      Hit = yield* DoShot(pTosser, GorillaX[pTosser[0]], GorillaY[pTosser[0]]);
 
       if (SunHit) yield* DoSun(SUNHAPPY);
 
-      if (Hit) UpdateScores(TotalWins, Tosser, Hit);
+      if (Hit) UpdateScores(TotalWins, pTosser[0], Hit);
     }
     yield* pause(1000);
   }
@@ -663,10 +663,10 @@ function* DoSun(Mouth) {
   scr.flip();
 }
 
-function* DoShot(PlayerNum, x, y) {
+function* DoShot(pPlayerNum, x, y) {
   // Input shot
   var LocateCol;
-  if (PlayerNum === 1) {
+  if (pPlayerNum[0] === 1) {
     LocateCol = 1;
   } else {
     LocateCol = 66;
@@ -680,7 +680,7 @@ function* DoShot(PlayerNum, x, y) {
   scr.print("Velocity:");
   var Velocity = yield* GetNum(3, LocateCol + 10);
 
-  if (PlayerNum === 2) {
+  if (pPlayerNum[0] === 2) {
     Angle = 180 - Angle;
   }
 
@@ -694,12 +694,12 @@ function* DoShot(PlayerNum, x, y) {
   scr.flip();
 
   SunHit = false;
-  var PlayerHit = yield* PlotShot(x, y, Angle, Velocity, PlayerNum);
+  var PlayerHit = yield* PlotShot(x, y, Angle, Velocity, pPlayerNum[0]);
   if (PlayerHit === 0) {
     return false;
   } else {
-    if (PlayerHit === PlayerNum) PlayerNum = 3 - PlayerNum;
-    yield* VictoryDance(PlayerNum);
+    if (PlayerHit === pPlayerNum[0]) pPlayerNum[0] = 3 - pPlayerNum[0];
+    yield* VictoryDance(pPlayerNum[0]);
     return true;
   }
 }

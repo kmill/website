@@ -1,6 +1,6 @@
 % This is the main file for my website, kylem.net
 
-\def{copyyear}{}{2015}
+\def{copyyear}{}{2017}
 
 \setstylesheet{include/default.css}
 \setpagetemplate{include/mainpage_template.hm}
