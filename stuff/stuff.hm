@@ -715,4 +715,19 @@ time is $O(nd_1d_2\cdots d_k)$, where $n$ is desired amount of change.
   coins with the least number of coins?
 \end{itemize}
 
+\section{In Mathematica}
+
+Of course, Mathematica is particularly well-disposed for such
+problems, since we can just ask it for a particular coefficient in the
+series.
+\begin{verbatim}
+changegen[denoms_] := Times @@ ((1/(1 - x^#)) & /@ denoms);
+changeways[n_, denoms_] := 
+  SeriesCoefficient[changegen[denoms], {x, 0, n}];
+
+changeways[100, {1, 5, 10, 25, 50}]
+\end{verbatim}
+And Mr. Wolfram's Language agrees with the previous calculation: there
+are $292$ ways to make change.
+
 \end{page}
