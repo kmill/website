@@ -606,8 +606,7 @@ def series_from_poly(p):
   the assert can be uncommented to verify it).
 \begin{verbatim}
 def pdivide(f, g) :
-    """f is a generator of series coefficients.  g is a finite series (a
-    polynomial)."""
+    """f is a generator of series coefficients.  g is a polynomial."""
 
     g = list(g)
     r = [next(f) for i in range(len(g)-1)]

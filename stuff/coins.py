@@ -15,8 +15,7 @@ def series_from_poly(p):
         yield 0
 
 def pdivide(f, g) :
-    """f is a generator of series coefficients.  g is a finite series (a
-    polynomial)."""
+    """f is a generator of series coefficients.  g is a polynomial."""
 
     g = list(g)
     r = [next(f) for i in range(len(g)-1)]
