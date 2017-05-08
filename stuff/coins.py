@@ -22,7 +22,7 @@ def pdivide(f, g) :
     r.append(0) # this is the location "bringing down" the next term of f goes
 
     for fj in f:
-        r[len(r)-1] = fj
+        r[-1] = fj
         q0 = r[0]//g[0]
         #assert r[0]-q0*g[0] == 0 # we know all terms _must_ be integers for this problem
         yield q0
