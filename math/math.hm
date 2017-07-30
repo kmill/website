@@ -578,7 +578,8 @@ def T(n, k) :
   My motivating question is whether there's a closed-form solution to
   compute $T$. While I didn't actually find one, I learned about
   multivariable generating functions in the process, and this is
-  mainly what I'm wanting to write about.  The multivariable case of a
+  mainly what I'm wanting to write about. \emph{(However, see
+    \ref{#sec:update-6-28-17}.)}  The multivariable case of a
   generating function is similar to the single variable case, except
   that there is a $c_{ij}x^iy^j$ for every term $c_{ij}$ (in what
   might be called a bi-sequence).  Hence, we let
@@ -706,7 +707,7 @@ def T(n, k) :
   $b$ of another (that is, it's $(a+b)$ choose $a$).  With this
   notation, the Binomial theorem would look like
   \begin{equation*}
-    (x+y)^n=\Sigma_{a+b=n}[a,b]x^ay^b.
+    (x+y)^n=\Sigma_{a+b=n}\ [a,b]x^ay^b.
   \end{equation*}
   The recurrence relation provides the following identity:
   \begin{equation*}
@@ -789,8 +790,37 @@ def T(n, k) :
     \frac{1}{1-x-y}
   \end{equation*}
   is hiding all of Pascal's triangle.
+
+  \section{Update 6/28/17}
+  \label{sec:update-6-28-17}
+
+  Chris Orr, an e-mail correspondent, was able to come up with a
+  closed form from the generating function using elementary methods
+  (and surely a good deal of ingenuity).  He also thought to put the
+  table into the Sloane On-Line Encyclopedia of Integer Sequences and
+  discovered it is sequence \link[A053538]{https://oeis.org/A053538}.
+  For $0\leq k\leq n$, $T(n,k)$ is the sum over all $p$ in
+  $0\leq p\leq n$ of the number of ways to place $p$ balls into $n$
+  slots with $k$ in the rightmost $p$ slots.  The Encyclopedia gives
+  the closed form
+  \begin{equation*}
+    T(n,k) = \Sigma_{0\leq p\leq n}\ B(p,k)B(n-p,p-k),
+  \end{equation*}
+  which one may verify gives the same table as above using the
+  Mathematica command
+\begin{verbatim}
+TableForm[
+ Table[Sum[Binomial[p, k] Binomial[n - p, p - k], {p, 0, n}],
+   {n, 0, 8}, {k, 0, n}]]
+\end{verbatim}
+
+  Mathematica is able to figure out
+  \verb|SeriesCoefficient[1/(1 - x - x y), {x, 0, n}, {y, 0, k}]|, but
+  interestingly it gives a very complicated result for
+  \verb|SeriesCoefficient[1/(1 - x - x^2 - x y + x^2 y), {x, 0, n}, {y, 0, k}]|.
   
 \end{page}
+
 
 \begin{page}{intervals.html}
   \label{page_math_intervals}
